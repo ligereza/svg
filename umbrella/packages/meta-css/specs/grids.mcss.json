@@ -1,0 +1,71 @@
+{
+	"tables": {
+		"align": ["start", "end", "center", "stretch"]
+	},
+	"vars": {
+		"align": [""],
+		"justify": [""],
+		"cols": ["columns"],
+		"rows": ["rows"]
+	},
+	"specs": [
+		{
+			"name": "grid-<vid>-<k>",
+			"doc": { "group": "grid layout", "desc": "<v>" },
+			"key": "i+1",
+			"props": "grid-template-<var>",
+			"values": [
+				"1fr",
+				"1fr 1fr",
+				"1fr 1fr 1fr",
+				"repeat(4,1fr)",
+				"repeat(5,1fr)",
+				"repeat(6,1fr)",
+				"repeat(7,1fr)",
+				"repeat(8,1fr)",
+				"repeat(9,1fr)",
+				"repeat(10,1fr)"
+			],
+			"vars": ["cols", "rows"]
+		},
+		{
+			"name": "gap<k>",
+			"doc": { "group": "grid layout", "desc": "<v>" },
+			"props": "gap",
+			"values": [0, 0.125, 0.25, 0.5, 1, 2],
+			"unit": "rem"
+		},
+		{
+			"name": "gap-<v>px",
+			"doc": { "group": "grid layout" },
+			"props": "gap",
+			"values": [1, 2, 4, 8],
+			"unit": "px"
+		},
+		{
+			"name": "<vid>-self-<v>",
+			"doc": { "group": "grid layout" },
+			"props": "<vid>-self",
+			"values": "align",
+			"vars": ["align", "justify"]
+		},
+		{
+			"name": "<vid>-items-<v>",
+			"doc": { "group": "grid layout" },
+			"props": "<vid>-items",
+			"values": "align",
+			"vars": ["align", "justify"]
+		}
+	],
+	"templates": [
+		{
+			"name": "grid-<vid>",
+			"doc": {
+				"group": "grid layout",
+				"args": ["<vid>: CSS <vid> definitions"]
+			},
+			"props": "grid-template-<var>",
+			"vars": ["cols", "rows"]
+		}
+	]
+}

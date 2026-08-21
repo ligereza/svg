@@ -1,0 +1,126 @@
+{
+	"name": "@thi.ng/ramp",
+	"version": "3.3.93",
+	"description": "Extensible keyframe interpolation/tweening of arbitrary, nested types",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/ramp"
+	},
+	"homepage": "https://thi.ng/ramp",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/arrays": "^2.14.25",
+		"@thi.ng/compare": "^2.5.15",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/transducers": "^9.6.42",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"1d",
+		"2d",
+		"3d",
+		"4d",
+		"animation",
+		"cubic",
+		"curve",
+		"datastructure",
+		"envelope",
+		"hermite",
+		"interpolation",
+		"interval",
+		"keyframe",
+		"linear",
+		"lut",
+		"nd",
+		"nested",
+		"object",
+		"ramp",
+		"spline",
+		"timeline",
+		"tween",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./domain": {
+			"default": "./domain.js"
+		},
+		"./easing": {
+			"default": "./easing.js"
+		},
+		"./group": {
+			"default": "./group.js"
+		},
+		"./hermite": {
+			"default": "./hermite.js"
+		},
+		"./linear": {
+			"default": "./linear.js"
+		},
+		"./nested": {
+			"default": "./nested.js"
+		},
+		"./ramp": {
+			"default": "./ramp.js"
+		},
+		"./vector": {
+			"default": "./vector.js"
+		}
+	},
+	"thi.ng": {
+		"year": 2019
+	}
+}

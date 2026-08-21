@@ -1,0 +1,147 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/fsm](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-fsm.svg?44fc664d)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/fsm.svg)](https://www.npmjs.com/package/@thi.ng/fsm)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/fsm.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!IMPORTANT]
+> This package has been deprecated and superseded by
+> [@thi.ng/parse](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/parse/).
+
+- [About](#about)
+- [Status](#status)
+- [Related packages](#related-packages)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [API](#api)
+  - [Matchers](#matchers)
+  - [FSM transducer](#fsm-transducer)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+Composable primitives for building declarative, transducer based Finite-State Machines & matchers for arbitrary data streams.
+
+## Status
+
+**DEPRECATED** - superseded by other package(s)
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bfsm%5D+in%3Atitle)
+
+## Related packages
+
+- [@thi.ng/parse](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/parse) - Purely functional parser combinators & AST generation for generic inputs
+- [@thi.ng/transducers-fsm](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/transducers-fsm) - Transducer-based Finite State Machine transformer
+
+## Installation
+
+```bash
+yarn add @thi.ng/fsm
+```
+
+ESM import:
+
+```ts
+import * as fsm from "@thi.ng/fsm";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/fsm"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const fsm = await import("@thi.ng/fsm");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 1.31 KB
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/arrays](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/arrays)
+- [@thi.ng/equiv](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/equiv)
+- [@thi.ng/errors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/errors)
+- [@thi.ng/strings](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/strings)
+- [@thi.ng/transducers](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/transducers)
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/fsm/)
+
+There're two key concepts provided by this package:
+
+### Matchers
+
+Matchers are composable functions which receive a single input value and
+attempt to match it to their configured criteria / patterns. Matchers
+also support optional user callbacks, which are executed when a match
+was made and are responsible for state transitions, state update and
+production of any result values.
+
+- [`alts()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/alts.ts)
+- [`altsLit()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/alts-lit.ts)
+- [`always()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/always.ts)
+- [`lit()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/lit.ts)
+- [`never()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/never.ts)
+- [`not()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/not.ts)
+- [`range()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/range.ts) (plus multiple presets)
+- [`repeat()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/repeat.ts)
+- [`seq()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/seq.ts)
+- [`str()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/str.ts)
+- [`until()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/until.ts)
+
+See docs strings in `/src` folder for now.
+
+### FSM transducer
+
+The
+[`fsm()`](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/fsm/src/fsm.ts)
+function is a Finite-state machine transducer / iterator with support
+for single lookahead values. Takes an object of `states` and their
+matchers, an arbitrary context object and an `initial` state ID.
+
+The returned transducer consumes inputs of type `T` and produces results
+of type `R`. The results are produced by callbacks of the given state
+matchers. Each can produce any number of values. If a callback returns a
+result wrapped w/ `reduced()`, the FSM causes early termination of the
+overall transducer pipeline. Failed state callbacks too can produce
+outputs, but will afterwards terminate the FSM.
+
+An `IllegalStateError` will be thrown if a transition to an undefined
+state ID occurs.
+
+The optional `update` function will be invoked for each input prior to
+executing the currently active state matcher. It is intended to update
+the context object (e.g. to update input location info for generating
+error messages).
+
+If the optional `src` iterable is given, the function returns a
+transforming iterator of the FSM results.
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-fsm,
+  title = "@thi.ng/fsm",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/fsm",
+  year = 2018
+}
+```
+
+## License
+
+&copy; 2018 - 2024 Karsten Schmidt // Apache License 2.0

@@ -1,0 +1,221 @@
+{
+	"name": "@thi.ng/transducers-async",
+	"version": "0.5.10",
+	"description": "Async versions of various highly composable transducers, reducers and iterators",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/transducers-async"
+	},
+	"homepage": "https://thi.ng/transducers-async",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/buffers": "^1.0.46",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/compose": "^3.0.64",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/timestamp": "^1.1.46",
+		"@thi.ng/transducers": "^9.6.42"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"async",
+		"composition",
+		"cycle",
+		"functional",
+		"generator",
+		"infinite",
+		"iterator",
+		"lazy",
+		"multitasking",
+		"partition",
+		"pipeline",
+		"reducer",
+		"stream",
+		"throttle",
+		"time",
+		"transducer",
+		"transformation",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./as-async": {
+			"default": "./as-async.js"
+		},
+		"./cat": {
+			"default": "./cat.js"
+		},
+		"./comp": {
+			"default": "./comp.js"
+		},
+		"./compr": {
+			"default": "./compr.js"
+		},
+		"./concat": {
+			"default": "./concat.js"
+		},
+		"./delayed": {
+			"default": "./delayed.js"
+		},
+		"./ensure": {
+			"default": "./ensure.js"
+		},
+		"./events": {
+			"default": "./events.js"
+		},
+		"./filter": {
+			"default": "./filter.js"
+		},
+		"./intercept": {
+			"default": "./intercept.js"
+		},
+		"./iterator": {
+			"default": "./iterator.js"
+		},
+		"./map": {
+			"default": "./map.js"
+		},
+		"./mapcat": {
+			"default": "./mapcat.js"
+		},
+		"./merge": {
+			"default": "./merge.js"
+		},
+		"./mult": {
+			"default": "./mult.js"
+		},
+		"./multiplex-obj": {
+			"default": "./multiplex-obj.js"
+		},
+		"./multiplex": {
+			"default": "./multiplex.js"
+		},
+		"./partition": {
+			"default": "./partition.js"
+		},
+		"./pubsub": {
+			"default": "./pubsub.js"
+		},
+		"./push": {
+			"default": "./push.js"
+		},
+		"./raf": {
+			"default": "./raf.js"
+		},
+		"./range": {
+			"default": "./range.js"
+		},
+		"./rechunk": {
+			"default": "./rechunk.js"
+		},
+		"./reduce": {
+			"default": "./reduce.js"
+		},
+		"./repeatedly": {
+			"default": "./repeatedly.js"
+		},
+		"./run": {
+			"default": "./run.js"
+		},
+		"./sidechain": {
+			"default": "./sidechain.js"
+		},
+		"./source": {
+			"default": "./source.js"
+		},
+		"./step": {
+			"default": "./step.js"
+		},
+		"./str": {
+			"default": "./str.js"
+		},
+		"./sync-raf": {
+			"default": "./sync-raf.js"
+		},
+		"./sync": {
+			"default": "./sync.js"
+		},
+		"./take": {
+			"default": "./take.js"
+		},
+		"./throttle-time": {
+			"default": "./throttle-time.js"
+		},
+		"./throttle": {
+			"default": "./throttle.js"
+		},
+		"./transduce": {
+			"default": "./transduce.js"
+		},
+		"./zip": {
+			"default": "./zip.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "txa",
+		"parent": "@thi.ng/transducers",
+		"related": [
+			"csp",
+			"fibers",
+			"rstream"
+		],
+		"status": "alpha",
+		"year": 2018
+	}
+}

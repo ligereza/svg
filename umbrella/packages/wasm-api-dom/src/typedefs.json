@@ -1,0 +1,812 @@
+[
+	{
+		"name": "EventType",
+		"type": "enum",
+		"tag": "i32",
+		"values": [
+			{ "name": "unkown", "value": -1 },
+			"drag",
+			"focus",
+			"input",
+			"key",
+			"mouse",
+			"pointer",
+			"scroll",
+			"touch",
+			"wheel"
+		]
+	},
+	{
+		"name": "MouseButton",
+		"type": "enum",
+		"tag": "u8",
+		"values": [
+			"none",
+			{ "name": "primary", "value": 1 },
+			{ "name": "secondary", "value": 2 },
+			{ "name": "middle", "value": 4 }
+		]
+	},
+	{
+		"name": "PointerType",
+		"type": "enum",
+		"tag": "u8",
+		"values": ["mouse", "pen", "touch"]
+	},
+	{
+		"name": "WheelDeltaMode",
+		"type": "enum",
+		"tag": "u8",
+		"values": ["pixel", "line", "page"]
+	},
+	{
+		"name": "KeyModifier",
+		"type": "enum",
+		"tag": "u8",
+		"values": [
+			{ "name": "shift", "value": 1 },
+			{ "name": "ctrl", "value": 2 },
+			{ "name": "alt", "value": 4 },
+			{ "name": "meta", "value": 8 }
+		]
+	},
+	{
+		"name": "WindowInfo",
+		"type": "struct",
+		"doc": "Various browser window related information (TODO)",
+		"fields": [
+			{ "name": "innerWidth", "type": "u16" },
+			{ "name": "innerHeight", "type": "u16" },
+			{
+				"name": "scrollX",
+				"type": "f32",
+				"doc": "Horizontal scroll offset in fractional CSS pixels"
+			},
+			{
+				"name": "scrollY",
+				"type": "f32",
+				"doc": "Vertical scroll offset in fractional CSS pixels"
+			},
+			{
+				"name": "dpr",
+				"type": "u8",
+				"doc": "Current device pixel ratio"
+			},
+			{
+				"name": "fullscreen",
+				"type": "u8",
+				"doc": [
+					"Encoded bitmask indicating fullscreen status / capability:",
+					"- 1 (bit 0): fullscreen active",
+					"- 2 (bit 1): fullscreen supported"
+				]
+			}
+		],
+		"body": {
+			"zig": [
+				"/// Returns true if fullscreen mode is currently active (see `.fullscreen`)",
+				"pub inline fn isFullscreen(self: *const WindowInfo) bool {",
+				"return self.fullscreen & 1 != 0;",
+				"}",
+				"",
+				"/// Returns true if fullscreen mode is supported (see `.fullscreen`)",
+				"pub inline fn hasFullscreen(self: *const WindowInfo) bool {",
+				"return self.fullscreen & 2 != 0;",
+				"}"
+			]
+		}
+	},
+	{
+		"name": "DragEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "clientX",
+				"type": "i16",
+				"doc": "Mouse X position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "clientY",
+				"type": "i16",
+				"doc": "Mouse Y position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "isDataTransfer",
+				"type": "u8",
+				"doc": "If non-zero, data that is being dragged during a drag & drop operation can be obtained via various DnD related API calls (only available when called from event handler).",
+				"default": 0
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			},
+			{
+				"name": "buttons",
+				"type": "u8",
+				"doc": "Encoded bitmask of all currently pressed mouse buttons, see `MouseButton` enum",
+				"default": 0
+			},
+			{
+				"name": "button",
+				"type": "MouseButton",
+				"doc": "Event related mouse button ID (if any)"
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.DragEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.DragEvent) {",
+					"const bounds = (<Element>(e.target)).getBoundingClientRect();",
+					"this.clientX = e.clientX - bounds.left;",
+					"this.clientY = e.clientY - bounds.top;",
+					"this.buttons = e.buttons;",
+					"this.button = e.button;",
+					"this.isDataTransfer = e.dataTransfer ? 1 : 0;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "InputEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "value",
+				"type": "string",
+				"doc": [
+					"Value of the targeted input element.",
+					"The memory is owned by the DOM API and will be freed immediately after the event handler has returned."
+				]
+			},
+			{
+				"name": "len",
+				"type": "usize",
+				"doc": "Length of the value string"
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.InputEvent): MemorySlice;",
+				"impl": [
+					"fromEvent(e: globalThis.InputEvent) {",
+					"const el = <HTMLInputElement>e.target;",
+					"const value = el.type === \"checkbox\" ? el.checked ? \"on\" : \"off\" : el.value;",
+					"const slice = this.value.setAlloc(value);",
+					"this.len = slice[1] - 1;",
+					"return slice;",
+					"}"
+				]
+			},
+			"zig": [
+				"pub inline fn getValue(self: *const InputEvent) [:0]const u8 {",
+				"return self.value[0..self.len :0];",
+				"}"
+			]
+		}
+	},
+	{
+		"name": "KeyEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "key",
+				"type": "u8",
+				"tag": "array",
+				"len": 15,
+				"sentinel": 0,
+				"doc": "Value/name of the key pressed"
+			},
+			{
+				"name": "len",
+				"type": "u8",
+				"doc": "Number of characters of the `key` string",
+				"default": 0
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			},
+			{
+				"name": "repeat",
+				"type": "u8",
+				"doc": "Non-zero value indicates key is being held down such that it's automatically repeating",
+				"default": 0
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.KeyboardEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.KeyboardEvent) {",
+					"this.len = mem.setString(e.key, this.key.byteOffset, 16, true);",
+					"}"
+				]
+			},
+			"zig": [
+				"pub inline fn getKey(self: *const KeyEvent) [:0]const u8 {",
+				"return self.key[0..@as(usize, self.len) :0];",
+				"}",
+				"",
+				"pub inline fn hasModifier(self: *const KeyEvent, mod: KeyModifier) bool {",
+				"return self.modifiers & @intFromEnum(mod) != 0;",
+				"}"
+			]
+		}
+	},
+	{
+		"name": "MouseEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "clientX",
+				"type": "i16",
+				"doc": "Mouse X position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "clientY",
+				"type": "i16",
+				"doc": "Mouse Y position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			},
+			{
+				"name": "buttons",
+				"type": "u8",
+				"doc": "Encoded bitmask of all currently pressed mouse buttons, see `MouseButton` enum",
+				"default": 0
+			},
+			{
+				"name": "button",
+				"type": "MouseButton",
+				"doc": "Event related mouse button ID (if any)"
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.MouseEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.MouseEvent) {",
+					"const bounds = (<Element>(e.target)).getBoundingClientRect();",
+					"this.clientX = e.clientX - bounds.left;",
+					"this.clientY = e.clientY - bounds.top;",
+					"this.buttons = e.buttons;",
+					"this.button = e.button;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "PointerEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "clientX",
+				"type": "i16",
+				"doc": "Mouse X position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "clientY",
+				"type": "i16",
+				"doc": "Mouse Y position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "id",
+				"type": "u32",
+				"doc": "Unique pointer ID",
+				"default": 0
+			},
+			{
+				"name": "pressure",
+				"type": "f32",
+				"doc": "Normalized pressure value 0..1",
+				"default": 0
+			},
+			{
+				"name": "tiltX",
+				"type": "i8",
+				"doc": "The plane angle (in degrees, in the range of -90 to 90) between the Y-Z plane and the plane containing both the pointer (e.g. pen stylus) axis and the Y axis.",
+				"default": 0
+			},
+			{
+				"name": "tiltY",
+				"type": "i8",
+				"doc": "The plane angle (in degrees, in the range of -90 to 90) between the X-Z plane and the plane containing both the pointer (e.g. pen stylus) axis and the X axis.",
+				"default": 0
+			},
+			{
+				"name": "twist",
+				"type": "u16",
+				"doc": "The clockwise rotation of the pointer (e.g. pen stylus) around its major axis in degrees, with a value in the range 0 to 359.",
+				"default": 0
+			},
+			{
+				"name": "pointerType",
+				"type": "PointerType"
+			},
+			{
+				"name": "isPrimary",
+				"type": "u8",
+				"doc": "Non-zero if event's pointer is the primary pointer (in a multitouch scenario)"
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			},
+			{
+				"name": "buttons",
+				"type": "u8",
+				"doc": "Encoded bitmask of all currently pressed mouse buttons, see `MouseButton` enum",
+				"default": 0
+			},
+			{
+				"name": "button",
+				"type": "MouseButton",
+				"doc": "Event related mouse button ID (if any)"
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.PointerEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.PointerEvent) {",
+					"const bounds = (<Element>(e.target)).getBoundingClientRect();",
+					"this.clientX = e.clientX - bounds.left;",
+					"this.clientY = e.clientY - bounds.top;",
+					"this.tiltX = e.tiltX;",
+					"this.tiltY = e.tiltY;",
+					"this.twist = e.twist;",
+					"this.isPrimary = ~~e.isPrimary;",
+					"this.pointerType = PointerType[<\"PEN\">e.pointerType.toUpperCase()];",
+					"this.buttons = e.buttons;",
+					"this.button = e.button;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "ScrollEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "scrollX",
+				"type": "f32",
+				"doc": "Horizontal scroll offset in fractional CSS pixels."
+			},
+			{
+				"name": "scrollY",
+				"type": "f32",
+				"doc": "Vertical scroll offset in fractional CSS pixels."
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.Event): void;",
+				"impl": [
+					"fromEvent(e: globalThis.Event) {",
+					"const target = <HTMLElement>((<any>e.target).scrollTop != null ? e.target : document.scrollingElement);",
+					"this.scrollX = target.scrollLeft || 0;",
+					"this.scrollY = target.scrollTop || 0;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "TouchEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "clientX",
+				"type": "i16",
+				"doc": "Touch X position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "clientY",
+				"type": "i16",
+				"doc": "Touch Y position in the local space of the element's bounding rect",
+				"default": 0
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.TouchEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.TouchEvent) {",
+					"const bounds = (<Element>(e.target)).getBoundingClientRect();",
+					"this.clientX = e.touches[0].clientX - bounds.left;",
+					"this.clientY = e.touches[0].clientY - bounds.top;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "WheelEvent",
+		"type": "struct",
+		"fields": [
+			{
+				"name": "deltaX",
+				"type": "i16",
+				"doc": "Scroll X delta",
+				"default": 0
+			},
+			{
+				"name": "deltaY",
+				"type": "i16",
+				"doc": "Scroll Y delta",
+				"default": 0
+			},
+			{
+				"name": "deltaZ",
+				"type": "i16",
+				"doc": "Scroll Z delta",
+				"default": 0
+			},
+			{
+				"name": "mode",
+				"type": "WheelDeltaMode",
+				"doc": "Delta mode"
+			},
+			{
+				"name": "modifiers",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed modifier keys, see `KeyModifier` enum",
+				"default": 0
+			},
+			{
+				"name": "buttons",
+				"type": "u8",
+				"doc": "Encoded bitmask of currently pressed mouse buttons, see `MouseButton` enum",
+				"default": 0
+			}
+		],
+		"body": {
+			"ts": {
+				"decl": "fromEvent(e: globalThis.WheelEvent): void;",
+				"impl": [
+					"fromEvent(e: globalThis.WheelEvent) {",
+					"this.deltaX = e.deltaX;",
+					"this.deltaY = e.deltaY;",
+					"this.deltaZ = e.deltaZ;",
+					"this.mode = e.deltaMode;",
+					"this.buttons = e.buttons;",
+					"}"
+				]
+			}
+		}
+	},
+	{
+		"name": "EventBody",
+		"type": "union",
+		"fields": [
+			{ "name": "drag", "type": "DragEvent", "setter": false },
+			{ "name": "input", "type": "InputEvent", "setter": false },
+			{ "name": "key", "type": "KeyEvent", "setter": false },
+			{ "name": "mouse", "type": "MouseEvent", "setter": false },
+			{ "name": "pointer", "type": "PointerEvent", "setter": false },
+			{ "name": "scroll", "type": "ScrollEvent", "setter": false },
+			{ "name": "touch", "type": "TouchEvent", "setter": false },
+			{ "name": "wheel", "type": "WheelEvent", "setter": false }
+		]
+	},
+	{
+		"name": "Event",
+		"type": "struct",
+		"fields": [
+			{ "name": "id", "type": "EventType" },
+			{
+				"name": "target",
+				"type": "i32",
+				"doc": [
+					"Target element ID, > 1 if a known (WASM created) element, otherwise:",
+					"",
+					"- -2: = unknown",
+					"- -1: window",
+					"- 0: document.head",
+					"- 1: document.body"
+				]
+			},
+			{
+				"name": "body",
+				"type": "EventBody",
+				"doc": [
+					"Event details / payload. Currently, only the following event types have a defined body:",
+					"",
+					"- drag",
+					"- input",
+					"- key",
+					"- mouse",
+					"- pointer",
+					"- scroll",
+					"- touch",
+					"- wheel"
+				],
+				"setter": false
+			}
+		]
+	},
+	{
+		"name": "EventCallback",
+		"type": "funcptr",
+		"rtype": "void",
+		"args": [
+			{ "name": "event", "type": "Event", "tag": "ptr", "const": true },
+			{ "name": "ctx", "type": "opaque", "optional": true }
+		],
+		"skip": ["ts"]
+	},
+	{
+		"name": "RAFCallback",
+		"type": "funcptr",
+		"doc": "Function signature for RAF (requestAnimationFrame) event handler",
+		"rtype": "void",
+		"args": [
+			{ "name": "time", "type": "f64" },
+			{ "name": "ctx", "type": "opaque", "optional": true }
+		],
+		"skip": ["ts"]
+	},
+	{
+		"name": "EventListener",
+		"type": "struct",
+		"doc": "DOM event listener",
+		"fields": [
+			{
+				"name": "callback",
+				"type": "EventCallback",
+				"doc": "Event listener function. Takes an event and optional pointer to user supplied arbitrary context data provided when registering the handler via `addListener()`",
+				"getter": false,
+				"setter": false
+			},
+			{
+				"name": "ctx",
+				"type": "opaque",
+				"optional": true,
+				"default": { "zig": "null" },
+				"doc": [
+					"Optional type erased pointer to arbitrary user context. This pointer can be cast back into the desired type using this form:",
+					"`@ptrCast(?*Foo, @alignCast(@alignOf(Foo), raw))`",
+					"Also see: `wasmapi.ptrCast()`"
+				],
+				"getter": false,
+				"setter": false
+			}
+		]
+	},
+	{
+		"name": "RAFListener",
+		"type": "struct",
+		"doc": "RAF event listener",
+		"fields": [
+			{
+				"name": "callback",
+				"type": "RAFCallback",
+				"doc": "Animation frame listener function. Takes an hires timestamp and optional pointer to user supplied arbitrary context data provided when registering the handler via `requestAnimationFrame()`"
+			},
+			{
+				"name": "ctx",
+				"type": "opaque",
+				"optional": true,
+				"default": { "zig": "null" },
+				"doc": [
+					"Optional type erased pointer to arbitrary user context. This pointer can be cast back into the desired type using this form:",
+					"`@ptrCast(?*Foo, @alignCast(@alignOf(Foo), raw))`",
+					"Also see: `wasmapi.ptrCast()`"
+				]
+			}
+		],
+		"skip": ["ts"]
+	},
+	{
+		"name": "CreateElementOpts",
+		"type": "struct",
+		"doc": [
+			"Data structure used for declarative creation of DOM elements / trees (passed to `createElement()`)",
+			"Also see `CreateCanvasOpts` for canvas specific use cases"
+		],
+		"fields": [
+			{
+				"name": "tag",
+				"type": "string",
+				"doc": "DOM element name"
+			},
+			{
+				"name": "ns",
+				"type": "string",
+				"doc": "Namespace URI or wellknown registered alias (e.g. svg, xlink, xmlns)",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"doc": "ID attrib",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "class",
+				"type": "string",
+				"doc": "Element class attrib",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "text",
+				"type": "string",
+				"doc": "Element inner text body",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "html",
+				"type": "string",
+				"doc": "Element inner HTML body",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "parent",
+				"type": "i32",
+				"doc": "Parent element ID. If >=0 the new element will be attached to that parent element. Set to -1 to leave new element unattached (default unless nested)",
+				"default": -1,
+				"setter": false
+			},
+			{
+				"name": "index",
+				"type": "i32",
+				"doc": "Insertion index for new element or -1 to append (default)",
+				"default": -1,
+				"setter": false
+			},
+			{
+				"name": "children",
+				"type": "CreateElementOpts",
+				"tag": "slice",
+				"const": true,
+				"doc": "Optional slice of child element specs, which will be automatically attached as children to this element (their `parent` ID will be ignored)",
+				"default": { "zig": "children(&[_]CreateElementOpts{})" }
+			},
+			{
+				"name": "attribs",
+				"type": "Attrib",
+				"tag": "slice",
+				"const": true,
+				"doc": "Optional slice of attribute definitions for this element. Also see provided `Attrib` factory functions for convenience.",
+				"default": { "zig": "attribs(&[_]Attrib{})" }
+			}
+		]
+	},
+	{
+		"name": "CreateCanvasOpts",
+		"type": "struct",
+		"doc": "Data structure used for declarative creation of canvas elements (passed to `createCanvas()`)",
+		"fields": [
+			{
+				"name": "width",
+				"type": "u16",
+				"doc": "Canvas width (in CSS pixels)",
+				"setter": false
+			},
+			{
+				"name": "height",
+				"type": "u16",
+				"doc": "Canvas height (in CSS pixels)",
+				"setter": false
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"doc": "Element ID attrib",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "class",
+				"type": "string",
+				"doc": "Element class attrib",
+				"default": { "zig": "\"\"" }
+			},
+			{
+				"name": "parent",
+				"type": "i32",
+				"doc": "Same as CreateElementOpts.parent",
+				"setter": false
+			},
+			{
+				"name": "index",
+				"type": "i32",
+				"doc": "Same as CreateElementOpts.index",
+				"default": -1,
+				"setter": false
+			},
+			{
+				"name": "dpr",
+				"type": "u8",
+				"doc": "Device pixel ratio for computing physical pixel dimensions, see `getWindowInfo()`",
+				"default": 1,
+				"setter": false
+			},
+			{
+				"name": "attribs",
+				"type": "Attrib",
+				"tag": "slice",
+				"const": true,
+				"doc": "Optional slice of attribute definitions for this element. Also see provided `Attrib` factory functions for convenience.",
+				"default": { "zig": "attribs(&[_]Attrib{})" }
+			}
+		]
+	},
+	{
+		"name": "Attrib",
+		"type": "struct",
+		"doc": "DOM element attribute definition given as part of `CreateElementOpts`",
+		"fields": [
+			{ "name": "name", "type": "string" },
+			{ "name": "value", "type": "AttribValue", "setter": false },
+			{ "name": "kind", "type": "AttribType", "setter": false }
+		],
+		"body": {
+			"zig": [
+				"pub fn event(name: [*:0]const u8, callback: EventCallback, ctx: ?*anyopaque) Attrib {",
+				"return Attrib{ .name = name, .kind = .event, .value = .{ .event = .{ .callback = callback, .ctx = ctx } } };",
+				"}",
+				"",
+				"pub fn flag(name: [*:0]const u8, val: bool) Attrib {",
+				"return Attrib{ .name = name, .kind = .flag, .value = .{ .flag = if (val) 1 else 0 } };",
+				"}",
+				"",
+				"pub fn number(name: [*:0]const u8, val: f64) Attrib {",
+				"return Attrib{ .name = name, .kind = .num, .value = .{ .num = val } };",
+				"}",
+				"",
+				"pub fn string(name: [*:0]const u8, val: [*:0]const u8) Attrib {",
+				"return Attrib{ .name = name, .kind = .str, .value = .{ .str = val } };",
+				"}"
+			]
+		}
+	},
+	{
+		"name": "AttribValue",
+		"type": "union",
+		"fields": [
+			{ "name": "event", "type": "EventListener", "setter": false },
+			{ "name": "flag", "type": "u8", "setter": false },
+			{ "name": "num", "type": "f64", "setter": false },
+			{ "name": "str", "type": "string", "setter": false }
+		]
+	},
+	{
+		"name": "AttribType",
+		"type": "enum",
+		"tag": "u8",
+		"values": ["event", "flag", "num", "str"]
+	}
+]

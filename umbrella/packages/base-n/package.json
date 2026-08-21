@@ -1,0 +1,163 @@
+{
+	"name": "@thi.ng/base-n",
+	"version": "2.7.72",
+	"description": "Arbitrary base-n conversions w/ presets for base8/16/32/36/58/62/64/83/85, support for bigints and encoding/decoding of byte arrays",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/base-n"
+	},
+	"homepage": "https://thi.ng/base-n",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"array",
+		"base10",
+		"base16",
+		"base26",
+		"base32",
+		"base36",
+		"base58",
+		"base62",
+		"base64",
+		"base8",
+		"base83",
+		"base85",
+		"bigint",
+		"binary",
+		"conversion",
+		"decode",
+		"encode",
+		"string",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"chars"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./10": {
+			"default": "./10.js"
+		},
+		"./16": {
+			"default": "./16.js"
+		},
+		"./26": {
+			"default": "./26.js"
+		},
+		"./32": {
+			"default": "./32.js"
+		},
+		"./36": {
+			"default": "./36.js"
+		},
+		"./58": {
+			"default": "./58.js"
+		},
+		"./62": {
+			"default": "./62.js"
+		},
+		"./64": {
+			"default": "./64.js"
+		},
+		"./8": {
+			"default": "./8.js"
+		},
+		"./83": {
+			"default": "./83.js"
+		},
+		"./85": {
+			"default": "./85.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./base": {
+			"default": "./base.js"
+		},
+		"./chars/10": {
+			"default": "./chars/10.js"
+		},
+		"./chars/16": {
+			"default": "./chars/16.js"
+		},
+		"./chars/26": {
+			"default": "./chars/26.js"
+		},
+		"./chars/32": {
+			"default": "./chars/32.js"
+		},
+		"./chars/36": {
+			"default": "./chars/36.js"
+		},
+		"./chars/58": {
+			"default": "./chars/58.js"
+		},
+		"./chars/62": {
+			"default": "./chars/62.js"
+		},
+		"./chars/64": {
+			"default": "./chars/64.js"
+		},
+		"./chars/83": {
+			"default": "./chars/83.js"
+		},
+		"./chars/85": {
+			"default": "./chars/85.js"
+		},
+		"./decode": {
+			"default": "./decode.js"
+		},
+		"./encode": {
+			"default": "./encode.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "base",
+		"year": 2017
+	}
+}

@@ -1,0 +1,99 @@
+{
+	"name": "@thi.ng/geom-api",
+	"version": "5.0.0",
+	"description": "Shared type & interface declarations for @thi.ng/geom packages",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "https://codeberg.org/thi.ng/umbrella.git"
+	},
+	"homepage": "https://thi.ng/geom-api",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --excludePrivate --excludeInternal --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "yarn npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.11.3",
+		"@thi.ng/vectors": "^7.11.0"
+	},
+	"devDependencies": {
+		"esbuild": "^0.21.5",
+		"typedoc": "^0.25.13",
+		"typescript": "^5.5.2"
+	},
+	"keywords": [
+		"geometry",
+		"interface",
+		"type",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./accel": {
+			"default": "./accel.js"
+		},
+		"./convex": {
+			"default": "./convex.js"
+		},
+		"./cubic": {
+			"default": "./cubic.js"
+		},
+		"./isec": {
+			"default": "./isec.js"
+		},
+		"./path": {
+			"default": "./path.js"
+		},
+		"./sample": {
+			"default": "./sample.js"
+		},
+		"./shape": {
+			"default": "./shape.js"
+		},
+		"./subdiv": {
+			"default": "./subdiv.js"
+		},
+		"./tessel": {
+			"default": "./tessel.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "gapi",
+		"status": "deprecated",
+		"year": 2013
+	}
+}

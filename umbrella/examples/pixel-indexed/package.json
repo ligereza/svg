@@ -1,0 +1,50 @@
+{
+	"name": "@example/pixel-indexed",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Image dithering and remapping using indexed palettes",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"dependencies": {
+		"@thi.ng/canvas": "workspace:^",
+		"@thi.ng/color-palettes": "workspace:^",
+		"@thi.ng/pixel": "workspace:^",
+		"@thi.ng/pixel-dither": "workspace:^",
+		"@thi.ng/transducers": "workspace:^"
+	},
+	"keywords": [
+		"4bit",
+		"browser",
+		"canvas",
+		"color",
+		"dither",
+		"palette",
+		"pixel",
+		"transducer"
+	],
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"canvas",
+			"color",
+			"color-palettes",
+			"pixel",
+			"pixel-dither"
+		],
+		"screenshot": "examples/pixel-indexed.jpg"
+	}
+}

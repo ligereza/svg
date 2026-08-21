@@ -1,0 +1,151 @@
+{
+	"name": "@thi.ng/boids",
+	"version": "1.1.59",
+	"description": "n-dimensional boids simulation with modular behavior system",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/boids"
+	},
+	"homepage": "https://thi.ng/boids",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/distance": "^3.0.50",
+		"@thi.ng/geom-closest-point": "^2.1.222",
+		"@thi.ng/geom-resample": "^3.0.94",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/timestep": "^1.0.70",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"3d",
+		"acceleration",
+		"agent",
+		"align",
+		"attractor",
+		"behavior",
+		"boids",
+		"braitenberg",
+		"constraint",
+		"flocking",
+		"follow",
+		"force",
+		"modular",
+		"nd",
+		"particles",
+		"path",
+		"physics",
+		"points",
+		"polygon",
+		"polyline",
+		"separation",
+		"simulation",
+		"spatial",
+		"steering",
+		"time",
+		"typescript",
+		"vector"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"behaviors",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./accel": {
+			"default": "./accel.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./behaviors/alignment": {
+			"default": "./behaviors/alignment.js"
+		},
+		"./behaviors/attraction": {
+			"default": "./behaviors/attraction.js"
+		},
+		"./behaviors/braitenberg": {
+			"default": "./behaviors/braitenberg.js"
+		},
+		"./behaviors/cohesion": {
+			"default": "./behaviors/cohesion.js"
+		},
+		"./behaviors/dynamic": {
+			"default": "./behaviors/dynamic.js"
+		},
+		"./behaviors/follow": {
+			"default": "./behaviors/follow.js"
+		},
+		"./behaviors/separation": {
+			"default": "./behaviors/separation.js"
+		},
+		"./behaviors/update": {
+			"default": "./behaviors/update.js"
+		},
+		"./boid": {
+			"default": "./boid.js"
+		},
+		"./constrain": {
+			"default": "./constrain.js"
+		},
+		"./flock": {
+			"default": "./flock.js"
+		}
+	},
+	"thi.ng": {
+		"status": "alpha",
+		"year": 2023
+	}
+}

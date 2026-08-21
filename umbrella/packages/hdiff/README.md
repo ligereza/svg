@@ -1,0 +1,168 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/hdiff](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-hdiff.svg?56c7517e)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/hdiff.svg)](https://www.npmjs.com/package/@thi.ng/hdiff)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/hdiff.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!NOTE]
+
+> This is one of 216 standalone projects. LLM-free, human-made and
+> cared for software, maintained as part of the
+> [@thi.ng/umbrella](https://codeberg.org/thi.ng/umbrella/) ecosystem and
+> anti-framework.
+>
+> 🚀 Please help me to work full-time on these projects by [sponsoring
+> me](https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#donations).
+> Thank you! ❤️
+
+- [About](#about)
+- [Status](#status)
+- [Installation](#installation)
+  - [CLI installation & usage](#cli-installation--usage)
+- [Dependencies](#dependencies)
+- [Usage examples](#usage-examples)
+- [API](#api)
+  - [computeDiff()](#computediff)
+  - [generateHtml()](#generatehtml)
+  - [compileTheme()](#compiletheme)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+String diffing w/ hiccup output for further processing, e.g. with [@thi.ng/hdom](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hdom), [@thi.ng/hiccup](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hiccup). Includes CLI util to generate HTML, with theme support and code folding.
+
+![screenshot of example output](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/hdiff/hdiff.png)
+
+[Live example](https://demo.thi.ng/umbrella/hdiff/)
+
+## Status
+
+**ALPHA** - bleeding edge / work-in-progress
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bhdiff%5D)
+
+## Installation
+
+```bash
+yarn add @thi.ng/hdiff
+```
+
+ESM import:
+
+```ts
+import * as hdiff from "@thi.ng/hdiff";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/hdiff"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const hdiff = await import("@thi.ng/hdiff");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 1.42 KB
+
+### CLI installation & usage
+
+Current limitations:
+
+- output always written to stdout only
+- only single theme available for now (easy to add new ones, PRs welcome!)
+
+```bash
+npx @thi.ng/hdiff
+
+# any text files
+npx hdiff file-a.txt file-b.txt > diff.html
+
+# git revisions for given file (in local repo)
+# rev can be any commit-ish ID understood by git (sha1, tag, etc.)
+npx hdiff rel-file-path rev1 rev2 > diff.html
+
+# example
+npx hdiff packages/webgl/src/shader.ts develop~500 HEAD > diff.html
+```
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/diff](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/diff)
+- [@thi.ng/hiccup](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hiccup)
+- [@thi.ng/hiccup-css](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hiccup-css)
+- [@thi.ng/strings](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/strings)
+
+Note: @thi.ng/api is in _most_ cases a type-only import (not used at runtime)
+
+## Usage examples
+
+One project in this repo's
+[/examples](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples)
+directory is using this package:
+
+| Screenshot                                                                                                    | Description                                               | Live demo                                   | Source                                                                           |
+|:--------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:--------------------------------------------|:---------------------------------------------------------------------------------|
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/hdiff.avif" width="240"/> | Applying thi.ng/hdiff to generate static HTML diff output | [Demo](https://demo.thi.ng/umbrella/hdiff/) | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/hdiff) |
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/hdiff/)
+
+### computeDiff()
+
+Signature: `computeDiff(a: string, b: string) => any[]`
+
+Takes two strings and performs line-based diff, then formats result as
+tree of HTML elements in
+[@thi.ng/hiccup](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hiccup)
+format.
+
+The generated format only uses the following data attributes:
+
+- `data-diff`: diff status for each `code` line (`"+"`, `"-"` or `" "`)
+- `data-lnum`: formatted line number for each `code` line
+- `data-fold`: indicates folded `pre`-block
+- `data-fold-range`: line number range string
+
+### generateHtml()
+
+Signature: `generateHtml(header: any[], body: any[], theme: Theme) => string`
+
+Takes two hiccup trees for header and body and an optional theme.
+Compiles theme into CSS, serializes hiccup trees and returns complete
+HTML document as string.
+
+### compileTheme()
+
+Signature: `compileTheme(theme: Theme) => string`
+
+Compiles a theme config into a complete CSS stylesheet string (using
+[@thi.ng/hiccup-css](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/hiccup-css)).
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-hdiff,
+  title = "@thi.ng/hdiff",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/hdiff",
+  year = 2018
+}
+```
+
+## License
+
+&copy; 2018 - 2026 Karsten Schmidt // Apache License 2.0

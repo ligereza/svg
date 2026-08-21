@@ -1,0 +1,172 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/shader-ast-js](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-shader-ast-js.svg?4a61902f)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/shader-ast-js.svg)](https://www.npmjs.com/package/@thi.ng/shader-ast-js)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/shader-ast-js.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!NOTE]
+
+> This is one of 216 standalone projects. LLM-free, human-made and
+> cared for software, maintained as part of the
+> [@thi.ng/umbrella](https://codeberg.org/thi.ng/umbrella/) ecosystem and
+> anti-framework.
+>
+> 🚀 Please help me to work full-time on these projects by [sponsoring
+> me](https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#donations).
+> Thank you! ❤️
+
+- [About](#about)
+  - [Unsupported features](#unsupported-features)
+- [Status](#status)
+- [Related packages](#related-packages)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [Usage examples](#usage-examples)
+- [API](#api)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+Customizable JS codegen, compiler & runtime for [@thi.ng/shader-ast](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast).
+
+Due to the lack of native vector operations in JS, this compile target
+is much more involved than the
+[@thi.ng/shader-ast-glsl](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast-glsl)
+code gen and uses a pluggable backend to perform all math ops. The
+default backend delegates all ops to
+[@thi.ng/vectors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/vectors)
+and
+[@thi.ng/matrices](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/matrices),
+which altogether provide ~750 optimized vector/matrix functions.
+
+### Unsupported features
+
+- texture lookups (see [texture tunnel
+  demo](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-tunnel)
+  for a monkey-patched solution)
+- derivatives (`dFdx`, `dFdy`, `fwidth`) - probably never supported in
+  this env
+- `out` / `inout` function args (see
+  [#96](https://codeberg.org/thi.ng/umbrella/issues/96) for discussion)
+
+## Status
+
+**STABLE** - used in production
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bshader-ast-js%5D)
+
+## Related packages
+
+- [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel) - Typedarray integer & float pixel buffers w/ customizable formats, blitting, drawing, convolution
+- [@thi.ng/shader-ast-glsl](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast-glsl) - Customizable GLSL codegen for [@thi.ng/shader-ast](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast)
+- [@thi.ng/shader-ast-stdlib](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast-stdlib) - Function collection for modular GPGPU / shader programming with [@thi.ng/shader-ast](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast)
+
+## Installation
+
+```bash
+yarn add @thi.ng/shader-ast-js
+```
+
+ESM import:
+
+```ts
+import * as js from "@thi.ng/shader-ast-js";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/shader-ast-js"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const js = await import("@thi.ng/shader-ast-js");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 6.70 KB
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/checks](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/checks)
+- [@thi.ng/errors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/errors)
+- [@thi.ng/math](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/math)
+- [@thi.ng/matrices](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/matrices)
+- [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel)
+- [@thi.ng/shader-ast](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/shader-ast)
+- [@thi.ng/vectors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/vectors)
+
+Note: @thi.ng/api is in _most_ cases a type-only import (not used at runtime)
+
+## Usage examples
+
+Eight projects in this repo's
+[/examples](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples)
+directory are using this package:
+
+| Screenshot                                                                                                                   | Description                                                       | Live demo                                                 | Source                                                                                         |
+|:-----------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/ascii-raymarch.jpg" width="240"/>        | ASCII art raymarching with thi.ng/shader-ast & thi.ng/text-canvas | [Demo](https://demo.thi.ng/umbrella/ascii-raymarch/)      | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/ascii-raymarch)      |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/shader-ast/shader-ast-01.jpg" width="240"/>       | 2D canvas shader emulation                                        | [Demo](https://demo.thi.ng/umbrella/shader-ast-canvas2d/) | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-canvas2d) |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/shader-ast-noise.jpg" width="240"/>      | HOF shader procedural noise function composition                  | [Demo](https://demo.thi.ng/umbrella/shader-ast-noise/)    | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-noise)    |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/shader-ast/shader-ast-raymarch.jpg" width="240"/> | WebGL & JS canvas2D raymarch shader cross-compilation             | [Demo](https://demo.thi.ng/umbrella/shader-ast-raymarch/) | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-raymarch) |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/shader-ast-sdf2d.jpg" width="240"/>      | WebGL & JS canvas 2D SDF                                          | [Demo](https://demo.thi.ng/umbrella/shader-ast-sdf2d/)    | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-sdf2d)    |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/shader-ast-tunnel.jpg" width="240"/>     | WebGL & Canvas2D textured tunnel shader                           | [Demo](https://demo.thi.ng/umbrella/shader-ast-tunnel/)   | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-tunnel)   |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/shader-ast-workers.jpg" width="240"/>    | Fork-join worker-based raymarch renderer (JS/CPU only)            | [Demo](https://demo.thi.ng/umbrella/shader-ast-workers/)  | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/shader-ast-workers)  |
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/viz-ridge-lines.avif" width="240"/>      | Interactive ridge-line plot                                       | [Demo](https://demo.thi.ng/umbrella/viz-ridge-lines/)     | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/viz-ridge-lines)     |
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/shader-ast-js/)
+
+```ts
+// AST node functions from main shader-ast pkg
+import {
+    mul,
+    defn,
+    float,
+    ret,
+    vec3
+} from "@thi.ng/shader-ast";
+
+// codegen / compiler
+import { targetJS } from "@thi.ng/shader-ast-js";
+
+const js = targetJS();
+
+const hello = defn("vec4", "hello", ["float"], (n) => [
+    ret(vec4(mul(vec3(1, 2, 3), n), -1))
+]);
+
+js(hello)
+
+const Module = js.compile(hello);
+Module.hello(10);
+// [10, 20, 30, -1]
+```
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-shader-ast-js,
+  title = "@thi.ng/shader-ast-js",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/shader-ast-js",
+  year = 2019
+}
+```
+
+## License
+
+&copy; 2019 - 2026 Karsten Schmidt // Apache License 2.0

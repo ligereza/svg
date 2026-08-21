@@ -1,0 +1,10 @@
+.notification {
+	w-100 ph3 pv2 mv2 br-pill
+	{
+		svg { w1 }
+		i { mr2 v-mid }
+	}
+}
+.notification[data-type=info] { bg-color-lightest-blue color-blue }
+.notification[data-type=success] { bg-color-washed-green color-dark-green }
+.notification[data-type=warn] { bg-color-washed-red color-dark-red }

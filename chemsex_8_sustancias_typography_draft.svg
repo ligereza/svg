@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1536" viewBox="0 0 1024 1536">
+  <title>Maqueta tipográfica para ocho sustancias</title>
+  <desc>Imagen de referencia con un título lateral y ocho nombres distribuidos alrededor de los iconos.</desc>
+  <image x="0" y="0" width="1024" height="1536" preserveAspectRatio="xMidYMid slice"
+         href="C:/Users/issvk/.codex/generated_images/01a01361-7f6d-76b0-b1b1-f4c1c81197fe/exec-84de0cc8-4e63-41bb-99e7-eb6f42f303da.png"/>
+
+  <defs>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#101527" flood-opacity="0.65"/>
+    </filter>
+    <style>
+      .name { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 23px; letter-spacing: 1.2px; fill: #fff8e7; paint-order: stroke; stroke: #182038; stroke-width: 7px; stroke-linejoin: round; }
+      .nameSmall { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: 1px; fill: #fff8e7; paint-order: stroke; stroke: #182038; stroke-width: 6px; stroke-linejoin: round; }
+      .guide { fill: none; stroke: #ffe9a5; stroke-width: 3; opacity: .92; }
+      .dot { fill: #ff7091; stroke: #182038; stroke-width: 3; }
+      .kicker { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 4px; fill: #ffdc75; }
+    </style>
+  </defs>
+
+  <!-- Título único: entra desde el borde y no tapa los iconos. -->
+  <g transform="rotate(-4 125 150)" filter="url(#softShadow)">
+    <path d="M28 54 L263 43 L270 211 L37 222 Z" fill="#15203b" fill-opacity=".88" stroke="#f8d574" stroke-width="3"/>
+    <text x="55" y="96" class="kicker">8 SÍMBOLOS</text>
+    <text x="52" y="150" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="2" fill="#f7f1dc">SUSTANCIAS</text>
+    <path d="M55 174 C107 166 178 181 238 164" fill="none" stroke="#ff668c" stroke-width="6"/>
+  </g>
+
+  <!-- Nombres como etiquetas orbitales, no como lista. -->
+  <g>
+    <!-- cocaína -->
+    <path class="guide" d="M258 336 C209 320 155 318 89 333"/>
+    <circle class="dot" cx="89" cy="333" r="7"/>
+    <text class="name" x="70" y="310" transform="rotate(-7 70 310)">COCAÍNA</text>
+
+    <!-- cannabis -->
+    <path class="guide" d="M620 159 C654 119 684 91 733 78"/>
+    <circle class="dot" cx="733" cy="78" r="7"/>
+    <text class="name" x="735" y="62" text-anchor="middle" transform="rotate(4 735 62)">CANNABIS</text>
+
+    <!-- ketamina -->
+    <path class="guide" d="M851 426 C907 408 945 417 985 445"/>
+    <circle class="dot" cx="985" cy="445" r="7"/>
+    <text class="nameSmall" x="899" y="407" transform="rotate(8 899 407)">KETAMINA</text>
+
+    <!-- MDMA -->
+    <path class="guide" d="M164 749 C121 765 92 790 66 827"/>
+    <circle class="dot" cx="66" cy="827" r="7"/>
+    <text class="name" x="48" y="869" transform="rotate(-8 48 869)">MDMA</text>
+
+    <!-- metanfetamina -->
+    <path class="guide" d="M805 849 C865 862 908 889 950 923"/>
+    <circle class="dot" cx="950" cy="923" r="7"/>
+    <text class="nameSmall" x="833" y="966" transform="rotate(8 833 966)">METANFETAMINA</text>
+
+    <!-- anfetamina -->
+    <path class="guide" d="M191 1050 C133 1084 89 1119 56 1164"/>
+    <circle class="dot" cx="56" cy="1164" r="7"/>
+    <text class="nameSmall" x="42" y="1200" transform="rotate(-8 42 1200)">ANFETAMINA</text>
+
+    <!-- GHB/GBL -->
+    <path class="guide" d="M419 1251 C414 1305 389 1340 348 1370"/>
+    <circle class="dot" cx="348" cy="1370" r="7"/>
+    <text class="name" x="347" y="1410" text-anchor="middle" transform="rotate(-4 347 1410)">GHB / GBL</text>
+
+    <!-- nitritos de alquilo -->
+    <path class="guide" d="M744 1260 C793 1294 835 1322 895 1340"/>
+    <circle class="dot" cx="895" cy="1340" r="7"/>
+    <text class="nameSmall" x="898" y="1380" text-anchor="middle" transform="rotate(5 898 1380)">NITRITOS DE ALQUILO</text>
+  </g>
+</svg>

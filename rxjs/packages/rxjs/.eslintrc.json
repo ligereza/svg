@@ -1,0 +1,34 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["./packages/rxjs/tsconfig.json"]
+      },
+      "rules": {
+        "@nx/enforce-module-boundaries": "off",
+        "@typescript-eslint/no-this-alias": "off",
+        "no-constant-condition": "off",
+        "no-unexpected-multiline": "off",
+        "prefer-const": "off"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    },
+    {
+      "files": ["./package.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": ["error"]
+      }
+    }
+  ]
+}

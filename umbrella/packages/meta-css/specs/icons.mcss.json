@@ -1,0 +1,30 @@
+{
+	"specs": [
+		{
+			"name": "icon-<k>",
+			"doc": { "group": "icons", "desc": "<v>" },
+			"key": "i+1",
+			"props": {
+				"display": "inline-block",
+				"width": "<v>",
+				"height": "<v>"
+			},
+			"values": [3, 2.25, 1.5, 1.25, 1, 0.875, 0.75],
+			"unit": "rem"
+		},
+		{
+			"name": "icon-<k>",
+			"doc": { "group": "icons", "desc": "<v>" },
+			"props": {
+				"display": "inline-block",
+				"width": "<v>",
+				"height": "<v>"
+			},
+			"values": {
+				"title": 6,
+				"subtitle": 5
+			},
+			"unit": "rem"
+		}
+	]
+}

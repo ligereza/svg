@@ -1,0 +1,226 @@
+{
+  "generated_at": "2026-08-18",
+  "purpose": "Imágenes reales con licencias abiertas para reducción de daños; no son evidencia de identidad de muestras.",
+  "sources": [
+    {
+      "id": "wikimedia_commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Recreational_drug_use",
+      "policy": "Licencia verificada por archivo; se conservan autor y licencia."
+    },
+    {
+      "id": "cdc_phil",
+      "url": "https://wwwn.cdc.gov/phil/FAQ.aspx",
+      "policy": "Usar solo registros marcados Public Domain; CDC solicita crédito cuando se conoce."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "commons_psychoactive_drugs.jpg",
+      "source_file": "Psychoactive Drugs.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Psychoactive_Drugs.jpg",
+      "license": "CC BY-SA 2.5",
+      "attribution": "Thoric / Wikimedia Commons",
+      "entities": [
+        "cocaine",
+        "mdma",
+        "lsd",
+        "psilocybin",
+        "cannabis"
+      ],
+      "note": "Montaje fotográfico de varias sustancias; no usar como prueba de identidad individual.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Psychoactive%20Drugs.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_psychoactive_drugs.jpg",
+      "bytes": 38162,
+      "sha256": "f1259616ddfd63c4a8e6471ac1f55e8a18c4acf994bb88ecb1d8c87412ebae34",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_cocaine_hcl.jpg",
+      "source_file": "CocaineHCl.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:CocaineHCl.jpg",
+      "license": "CC BY-SA 2.5",
+      "attribution": "Thoric / Wikimedia Commons",
+      "entities": [
+        "cocaine"
+      ],
+      "note": "Fotografía de referencia de cocaína comprimida; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/CocaineHCl.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_cocaine_hcl.jpg",
+      "bytes": 131174,
+      "sha256": "d3f7faa1182718fbdd807670b8ad3a2c8a8c3ac858576c534caafd55836d9d79",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_ecstasy.jpg",
+      "source_file": "Ecstasy.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ecstasy.jpg",
+      "license": "CC BY 2.0",
+      "attribution": "mezone / Wikimedia Commons",
+      "entities": [
+        "mdma"
+      ],
+      "note": "Fotografía de referencia de comprimidos vendidos como éxtasis; el nombre de mercado no garantiza composición.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ecstasy.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_ecstasy.jpg",
+      "bytes": 361041,
+      "sha256": "a8ddd3f18f0b2c1550ebb613f8e74875b5699edf20488846c95dca3e599e6cb6",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_ketamine_drug.jpg",
+      "source_file": "Ketamine (Drug).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Ketamine_(Drug).jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DMTrott / Wikimedia Commons",
+      "entities": [
+        "ketamine"
+      ],
+      "note": "Fotografía de referencia de ketamina; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ketamine%20%28Drug%29.jpg?width=1800",
+      "download_status": "HTTP Error 429: Too many requests (f061ab2)",
+      "bytes": 0
+    },
+    {
+      "filename": "commons_amphetamine_drug.jpg",
+      "source_file": "Amphetamine (Drug).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Amphetamine_(Drug).jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DMTrott / Wikimedia Commons",
+      "entities": [
+        "amphetamine"
+      ],
+      "note": "Fotografía de referencia de anfetamina en polvo; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Amphetamine%20%28Drug%29.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_amphetamine_drug.jpg",
+      "bytes": 193441,
+      "sha256": "10f4efd5f972d6e5123789819e6f1d166bd8462c8e72194691a5ee55b0d10506",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_ghb.jpg",
+      "source_file": "GHB (Gamma-Hydroxybutyric Acid).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:GHB_(Gamma-Hydroxybutyric_Acid).jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DMTrott / Wikimedia Commons",
+      "entities": [
+        "ghb_gbl"
+      ],
+      "note": "Fotografía de referencia de GHB; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/GHB%20%28Gamma-Hydroxybutyric%20Acid%29.jpg?width=1800",
+      "download_status": "HTTP Error 429: Too many requests (f061ab2)",
+      "bytes": 0
+    },
+    {
+      "filename": "commons_dmt.jpg",
+      "source_file": "DMT.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:DMT.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DMTrott / Wikimedia Commons",
+      "entities": [
+        "dmt"
+      ],
+      "note": "Fotografía de referencia de DMT; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/DMT.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_dmt.jpg",
+      "bytes": 113471,
+      "sha256": "cf05d6a70274faabfa5cd503da6b27319603988a85df5969f88a470425bca63b",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_heroin_drug.jpg",
+      "source_file": "Heroin (Drug).jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Heroin_(Drug).jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DMTrott / Wikimedia Commons",
+      "entities": [
+        "heroin",
+        "opioids"
+      ],
+      "note": "Fotografía de referencia de heroína; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Heroin%20%28Drug%29.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_heroin_drug.jpg",
+      "bytes": 263436,
+      "sha256": "bb70cc08d74ea8f978c7209c4effda793225bd72a6b8ae25ed305bdcef2f35ce",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_lsd_blotter.jpg",
+      "source_file": "LSD blotter.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:LSD_blotter.jpg",
+      "license": "Public domain",
+      "attribution": "Erik Fenderson / Wikimedia Commons",
+      "entities": [
+        "lsd"
+      ],
+      "note": "Fotografía de referencia de blotter LSD; no prueba la identidad de una muestra.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/LSD%20blotter.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_lsd_blotter.jpg",
+      "bytes": 342330,
+      "sha256": "c0263e5b9433bbd58378308e11f99388dfece35576e9a0699f7db21c9764b515",
+      "download_status": "ok"
+    },
+    {
+      "filename": "commons_cannabis_bud.jpg",
+      "source_file": "CannabisBud.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:CannabisBud.jpg",
+      "license": "CC0",
+      "attribution": "Thomas Elliott / Wikimedia Commons",
+      "entities": [
+        "cannabis"
+      ],
+      "note": "Fotografía de referencia de flor de cannabis; no prueba composición de THC/CBD.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/CannabisBud.jpg?width=1800",
+      "download_status": "HTTP Error 429: Too many requests (f061ab2)",
+      "bytes": 0
+    },
+    {
+      "filename": "commons_psilocybe_cubensis.jpg",
+      "source_file": "Psilocybe cubensis, 2008.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Psilocybe_cubensis,_2008.jpg",
+      "license": "Public domain",
+      "attribution": "Zergboy / Wikimedia Commons",
+      "entities": [
+        "psilocybin"
+      ],
+      "note": "Fotografía de referencia de Psilocybe cubensis; no prueba presencia de psilocibina.",
+      "source_file_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Psilocybe%20cubensis%2C%202008.jpg?width=1800",
+      "local_path": "public_libraries\\real_photos\\wikimedia_commons\\commons_psilocybe_cubensis.jpg",
+      "bytes": 428830,
+      "sha256": "763f65a7c2e3225e42630118f6dbdb1dca8a78e80bf7363688b3642af360d1a4",
+      "download_status": "ok"
+    },
+    {
+      "filename": "phil_14839_controlled_substances.jpg",
+      "url": "https://wwwn.cdc.gov/phil/PHIL_Images/14839/14839_lores.jpg",
+      "page": "https://wwwn.cdc.gov/phil/Details.aspx?pid=14839",
+      "license": "Public domain",
+      "attribution": "CDC / Debora Cartagena",
+      "entities": [
+        "mdma",
+        "cocaine",
+        "fentanyl",
+        "opioids"
+      ],
+      "note": "Bodegón educativo con tabletas, polvo, navaja y jeringas; no identifica las sustancias del conjunto.",
+      "local_path": "public_libraries\\real_photos\\cdc_phil\\phil_14839_controlled_substances.jpg",
+      "bytes": 37539,
+      "sha256": "a0b7db3497da7f29983d6cc13e4e5256627fa2a17ad98a9900ea1aeb070ab0ea",
+      "download_status": "ok"
+    },
+    {
+      "filename": "phil_16341_cannabis_context.jpg",
+      "url": "https://wwwn.cdc.gov/phil/PHIL_Images/16341/16341_lores.jpg",
+      "page": "https://wwwn.cdc.gov/phil/Details.aspx?pid=16341",
+      "license": "Public domain",
+      "attribution": "CDC / PHIL",
+      "entities": [
+        "cannabis"
+      ],
+      "note": "Imagen de contexto de cannabis; no prueba composición ni identidad de una muestra.",
+      "local_path": "public_libraries\\real_photos\\cdc_phil\\phil_16341_cannabis_context.jpg",
+      "bytes": 33636,
+      "sha256": "968faba932f812843a51a6bdb8b177541e61346fee64561fa8a26053faf3a20e",
+      "download_status": "ok"
+    }
+  ]
+}

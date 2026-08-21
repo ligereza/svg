@@ -1,0 +1,138 @@
+{
+	"name": "@thi.ng/date",
+	"version": "3.0.1",
+	"description": "Datetime types, relative dates, math, iterators, composable formatters, locales",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/date"
+	},
+	"homepage": "https://thi.ng/date",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts i18n",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/strings": "^3.12.9"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"datastructure",
+		"date",
+		"format",
+		"i18n",
+		"interval",
+		"iterator",
+		"math",
+		"offset",
+		"parser",
+		"precision",
+		"relative",
+		"smpte",
+		"string",
+		"time",
+		"typescript",
+		"utc"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"i18n",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./checks": {
+			"default": "./checks.js"
+		},
+		"./datetime": {
+			"default": "./datetime.js"
+		},
+		"./duration": {
+			"default": "./duration.js"
+		},
+		"./format": {
+			"default": "./format.js"
+		},
+		"./i18n/de": {
+			"default": "./i18n/de.js"
+		},
+		"./i18n/en": {
+			"default": "./i18n/en.js"
+		},
+		"./i18n/es": {
+			"default": "./i18n/es.js"
+		},
+		"./i18n/fr": {
+			"default": "./i18n/fr.js"
+		},
+		"./i18n/it": {
+			"default": "./i18n/it.js"
+		},
+		"./i18n": {
+			"default": "./i18n.js"
+		},
+		"./iterators": {
+			"default": "./iterators.js"
+		},
+		"./relative": {
+			"default": "./relative.js"
+		},
+		"./round": {
+			"default": "./round.js"
+		},
+		"./timecode": {
+			"default": "./timecode.js"
+		},
+		"./units": {
+			"default": "./units.js"
+		}
+	},
+	"thi.ng": {
+		"year": 2020
+	}
+}

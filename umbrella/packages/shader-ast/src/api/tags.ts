@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: Apache-2.0
+export type Tag =
+	| "arg"
+	| "array_init"
+	| "assign"
+	| "call"
+	| "call_i"
+	| "ctrl"
+	| "decl"
+	| "fn"
+	| "for"
+	| "idx"
+	| "idxm"
+	| "if"
+	| "lit"
+	| "op1"
+	| "op2"
+	| "ret"
+	| "scope"
+	| "swizzle"
+	| "sym"
+	| "ternary"
+	| "while";

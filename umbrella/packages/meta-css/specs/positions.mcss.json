@@ -1,0 +1,38 @@
+{
+	"tables": {
+		"pos": [-2, -1, 0, 1, 2]
+	},
+	"specs": [
+		{
+			"name": "<v>",
+			"doc": { "group": "positions" },
+			"props": "position",
+			"values": ["absolute", "relative", "fixed", "static", "sticky"]
+		},
+		{
+			"name": "<var>-<v>",
+			"doc": { "group": "positions", "desc": "<v>" },
+			"props": "<var>",
+			"values": "pos",
+			"unit": "rem",
+			"vars": ["top", "right", "bottom", "left"]
+		},
+		{
+			"name": "z-<v>",
+			"doc": { "group": "z-indices" },
+			"props": "z-index",
+			"values": [0, 1, 2, 3, 4, 5, 999, 9999]
+		}
+	],
+	"templates": [
+		{
+			"name": "<var>",
+			"doc": {
+				"group": "positions",
+				"args": ["coordinate (incl. units)"]
+			},
+			"props": "<var>",
+			"vars": ["top", "right", "bottom", "left"]
+		}
+	]
+}

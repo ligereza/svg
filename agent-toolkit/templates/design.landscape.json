@@ -1,0 +1,19 @@
+{
+  "preset": "landscape",
+  "canvas": { "width": 1920, "height": 1080 },
+  "margins": { "top": 80, "right": 120, "bottom": 80, "left": 120 },
+  "colors": {
+    "background": "#090712",
+    "accent": "#7c3aed",
+    "highlight": "#f0abfc",
+    "text": "#ffffff",
+    "muted": "#c4b5fd"
+  },
+  "typography": {
+    "titleFont": "Arial, sans-serif",
+    "titleSize": 56,
+    "summaryFont": "Arial, sans-serif",
+    "summarySize": 26,
+    "footerSize": 20
+  }
+}

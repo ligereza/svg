@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: Apache-2.0
+import { circle, path, svg } from "./_svg.js";
+
+/**
+ * https://demo.thi.ng/umbrella/hiccup-carbon-icons/#RECORDING_FILLED
+ */
+// prettier-ignore
+export const RECORDING_FILLED: any[] = svg(
+circle(16, 16, 4),
+path("M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2m0 20c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6"),
+);

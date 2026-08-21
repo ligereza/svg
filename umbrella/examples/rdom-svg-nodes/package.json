@@ -1,0 +1,56 @@
+{
+	"name": "@example/rdom-svg-nodes",
+	"private": true,
+	"version": "0.0.1",
+	"description": "rdom powered SVG graph with draggable nodes",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"dependencies": {
+		"@thi.ng/atom": "workspace:^",
+		"@thi.ng/equiv": "workspace:^",
+		"@thi.ng/hiccup-svg": "workspace:^",
+		"@thi.ng/rdom": "workspace:^",
+		"@thi.ng/rstream": "workspace:^",
+		"@thi.ng/transducers": "workspace:^",
+		"@thi.ng/vectors": "workspace:^"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"atom",
+			"hiccup-svg",
+			"rdom",
+			"rstream",
+			"transducers"
+		],
+		"screenshot": "examples/rdom-svg-nodes.png"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"keywords": [
+		"2d",
+		"atom",
+		"browser",
+		"example",
+		"geometry",
+		"interactive",
+		"rdom",
+		"reactive",
+		"svg",
+		"transducer",
+		"ui",
+		"vector"
+	]
+}

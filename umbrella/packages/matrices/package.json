@@ -1,0 +1,280 @@
+{
+	"name": "@thi.ng/matrices",
+	"version": "3.0.53",
+	"description": "Matrix & quaternion operations for 2D/3D geometry processing",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/matrices"
+	},
+	"homepage": "https://thi.ng/matrices",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts compile",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"3d",
+		"algebra",
+		"array",
+		"codegen",
+		"conversion",
+		"frustum",
+		"geometry",
+		"invert",
+		"linear",
+		"lookat",
+		"math",
+		"matrix",
+		"ortho",
+		"perspective",
+		"projection",
+		"quaternion",
+		"rotation",
+		"shear",
+		"skew",
+		"typescript",
+		"vector",
+		"webgl"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./add": {
+			"default": "./add.js"
+		},
+		"./addn": {
+			"default": "./addn.js"
+		},
+		"./alignment-quat": {
+			"default": "./alignment-quat.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./column": {
+			"default": "./column.js"
+		},
+		"./concat": {
+			"default": "./concat.js"
+		},
+		"./conjugate": {
+			"default": "./conjugate.js"
+		},
+		"./constants": {
+			"default": "./constants.js"
+		},
+		"./defmath": {
+			"default": "./defmath.js"
+		},
+		"./determinant": {
+			"default": "./determinant.js"
+		},
+		"./diag": {
+			"default": "./diag.js"
+		},
+		"./div": {
+			"default": "./div.js"
+		},
+		"./divn": {
+			"default": "./divn.js"
+		},
+		"./fit": {
+			"default": "./fit.js"
+		},
+		"./frustum": {
+			"default": "./frustum.js"
+		},
+		"./identity": {
+			"default": "./identity.js"
+		},
+		"./invert": {
+			"default": "./invert.js"
+		},
+		"./lookat": {
+			"default": "./lookat.js"
+		},
+		"./m22-m23": {
+			"default": "./m22-m23.js"
+		},
+		"./m23-m22": {
+			"default": "./m23-m22.js"
+		},
+		"./m23-m44": {
+			"default": "./m23-m44.js"
+		},
+		"./m33-m44": {
+			"default": "./m33-m44.js"
+		},
+		"./m44-m33": {
+			"default": "./m44-m33.js"
+		},
+		"./matn": {
+			"default": "./matn.js"
+		},
+		"./matv": {
+			"default": "./matv.js"
+		},
+		"./mixq": {
+			"default": "./mixq.js"
+		},
+		"./mul": {
+			"default": "./mul.js"
+		},
+		"./mulm": {
+			"default": "./mulm.js"
+		},
+		"./muln": {
+			"default": "./muln.js"
+		},
+		"./mulq": {
+			"default": "./mulq.js"
+		},
+		"./mulv": {
+			"default": "./mulv.js"
+		},
+		"./mulvm": {
+			"default": "./mulvm.js"
+		},
+		"./normal-mat": {
+			"default": "./normal-mat.js"
+		},
+		"./orthagonal": {
+			"default": "./orthagonal.js"
+		},
+		"./ortho": {
+			"default": "./ortho.js"
+		},
+		"./outer-product": {
+			"default": "./outer-product.js"
+		},
+		"./perspective": {
+			"default": "./perspective.js"
+		},
+		"./project": {
+			"default": "./project.js"
+		},
+		"./quat-axis-angle": {
+			"default": "./quat-axis-angle.js"
+		},
+		"./quat-euler": {
+			"default": "./quat-euler.js"
+		},
+		"./quat-m33": {
+			"default": "./quat-m33.js"
+		},
+		"./quat-m44": {
+			"default": "./quat-m44.js"
+		},
+		"./rotation-around-axis": {
+			"default": "./rotation-around-axis.js"
+		},
+		"./rotation-around-point": {
+			"default": "./rotation-around-point.js"
+		},
+		"./rotation": {
+			"default": "./rotation.js"
+		},
+		"./row": {
+			"default": "./row.js"
+		},
+		"./scale-center": {
+			"default": "./scale-center.js"
+		},
+		"./scale": {
+			"default": "./scale.js"
+		},
+		"./set": {
+			"default": "./set.js"
+		},
+		"./shear": {
+			"default": "./shear.js"
+		},
+		"./skew": {
+			"default": "./skew.js"
+		},
+		"./sub": {
+			"default": "./sub.js"
+		},
+		"./subn": {
+			"default": "./subn.js"
+		},
+		"./trace": {
+			"default": "./trace.js"
+		},
+		"./transform": {
+			"default": "./transform.js"
+		},
+		"./translation": {
+			"default": "./translation.js"
+		},
+		"./transpose": {
+			"default": "./transpose.js"
+		},
+		"./viewport": {
+			"default": "./viewport.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"color",
+			"geom",
+			"vector-pools",
+			"vectors"
+		],
+		"year": 2018
+	}
+}

@@ -1,0 +1,102 @@
+{
+	"name": "@thi.ng/testament",
+	"version": "0.4.31",
+	"description": "Minimal, rational & TypeScript-friendly test runner, result export as CSV/JSON, watch mode, file fixtures",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"bin": "bin/testament.mjs",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "https://codeberg.org/thi.ng/umbrella.git"
+	},
+	"homepage": "https://thi.ng/testament",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --excludePrivate --excludeInternal --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "yarn npm publish --access public",
+		"test": "testament test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/file-io": "^2.1.4",
+		"@thi.ng/logger": "^3.0.14"
+	},
+	"devDependencies": {
+		"esbuild": "^0.21.5",
+		"typedoc": "^0.25.13",
+		"typescript": "^5.5.2"
+	},
+	"keywords": [
+		"async",
+		"cli",
+		"csv",
+		"file",
+		"fixture",
+		"group",
+		"json",
+		"logger",
+		"node",
+		"report",
+		"test",
+		"typescript",
+		"watch"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"bin"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./exec": {
+			"default": "./exec.js"
+		},
+		"./fixtures": {
+			"default": "./fixtures.js"
+		},
+		"./group": {
+			"default": "./group.js"
+		},
+		"./test": {
+			"default": "./test.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "test",
+		"status": "deprecated",
+		"year": 2021
+	}
+}

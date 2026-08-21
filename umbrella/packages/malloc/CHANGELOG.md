@@ -1,0 +1,47 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:51Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+### [6.1.98](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/malloc@6.1.98/packages/malloc) (2025-01-14)
+
+#### ♻️ Refactoring
+
+- use optional chaining & nullish coalescing ([c5a0a13](https://codeberg.org/thi.ng/umbrella/commit/c5a0a13))
+
+### [6.1.83](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/malloc@6.1.83/packages/malloc) (2024-06-21)
+
+#### ♻️ Refactoring
+
+- enforce uniform naming convention of internal functions ([56992b2](https://codeberg.org/thi.ng/umbrella/commit/56992b2))
+
+### [6.1.80](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/malloc@6.1.80/packages/malloc) (2024-04-20)
+
+#### ♻️ Refactoring
+
+- update type usage ([00cce90](https://codeberg.org/thi.ng/umbrella/commit/00cce90))
+
+### [6.1.76](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/malloc@6.1.76/packages/malloc) (2024-03-18)
+
+#### 🧪 Tests
+
+- minor update tests in various pkgs (regexp, annotations) ([b731a57](https://codeberg.org/thi.ng/umbrella/commit/b731a57))
+
+### [6.1.49](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/malloc@6.1.49/packages/malloc) (2023-11-09)
+
+#### ♻️ Refactoring
+
+- update all tests (packages A-S) ([e3085e4](https://codeberg.org/thi.ng/umbrella/commit/e3085e4))
+
+#### 🧪 Tests
+
+- update/refactor tests to use bun test runner ([8f6edb1](https://codeberg.org/thi.ng/umbrella/commit/8f6edb1))
+- update/rename test files/imports (still many broken) ([1cb3c49](https://codeberg.org/thi.ng/umbrella/commit/1cb3c49))

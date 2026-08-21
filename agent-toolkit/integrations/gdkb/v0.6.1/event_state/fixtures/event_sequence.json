@@ -1,0 +1,6 @@
+[
+  {"id":"1","event_type":"ENTITY_CREATED","entity_id":"E1","payload":{"kind":"substance","canonical_name":"Alpha"},"sequence":1},
+  {"id":"2","event_type":"ENTITY_CREATED","entity_id":"E2","payload":{"kind":"substance","canonical_name":"Alpha alias"},"sequence":2},
+  {"id":"3","event_type":"OBSERVATION_ADDED","entity_id":null,"payload":{"observation_id":"O1","source":"source-A","value":{"name":"Alpha"}},"sequence":3},
+  {"id":"4","event_type":"MERGE","entity_id":"E2","target_entity_id":"E1","payload":{"reason":"same identity","evidence_ids":["EV1"]},"sequence":4}
+]

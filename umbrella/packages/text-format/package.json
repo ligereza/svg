@@ -1,0 +1,109 @@
+{
+	"name": "@thi.ng/text-format",
+	"version": "2.2.67",
+	"description": "Customizable color text formatting with presets for ANSI & HTML",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/text-format"
+	},
+	"homepage": "https://thi.ng/text-format",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/hex": "^2.4.19",
+		"@thi.ng/memoize": "^4.0.51"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"16bit",
+		"4bit",
+		"8bit",
+		"ansi",
+		"color",
+		"css",
+		"format",
+		"html",
+		"presets",
+		"rgb565",
+		"text",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./ansi": {
+			"default": "./ansi.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./format": {
+			"default": "./format.js"
+		},
+		"./html": {
+			"default": "./html.js"
+		},
+		"./none": {
+			"default": "./none.js"
+		},
+		"./presets": {
+			"default": "./presets.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"text-canvas"
+		],
+		"year": 2020
+	}
+}

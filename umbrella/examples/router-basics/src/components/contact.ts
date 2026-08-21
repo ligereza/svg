@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: Apache-2.0
+import type { AppContext } from "../api.js";
+import { externalLink } from "./external-link.js";
+
+/**
+ * Contact page component.
+ *
+ * @param ctx - njected context object
+ */
+export function contact(ctx: AppContext) {
+	return [
+		"div",
+		ctx.ui.bodyCopy,
+		["p", "Get in touch!"],
+		[
+			"p",
+			[
+				["https://codeberg.org/thi.ng/umbrella/", "Codeberg"],
+				["https://mastodon.thi.ng/@toxi", "Mastodon"],
+				["https://medium.com/@thi.ng", "Medium"],
+			].map((link) => [externalLink, ctx.ui.contact.link, ...link]),
+		],
+	];
+}

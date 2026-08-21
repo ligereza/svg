@@ -1,0 +1,19 @@
+{
+  "preset": "instagram-square",
+  "canvas": { "width": 1080, "height": 1080 },
+  "margins": { "top": 88, "right": 88, "bottom": 88, "left": 88 },
+  "colors": {
+    "background": "#090712",
+    "accent": "#7c3aed",
+    "highlight": "#f0abfc",
+    "text": "#ffffff",
+    "muted": "#c4b5fd"
+  },
+  "typography": {
+    "titleFont": "Arial, sans-serif",
+    "titleSize": 48,
+    "summaryFont": "Arial, sans-serif",
+    "summarySize": 22,
+    "footerSize": 18
+  }
+}

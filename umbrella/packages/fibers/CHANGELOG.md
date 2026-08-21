@@ -1,0 +1,150 @@
+# Change Log
+
+- **Last updated**: 2026-07-16T20:38:41Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.1.0/packages/fibers) (2026-07-16)
+
+#### 🚀 Features
+
+- update timeSlice() to reproduce wrapped fiber's result or error ([3e6ff31](https://codeberg.org/thi.ng/umbrella/commit/3e6ff31))
+- add `DEFAULT_LOGGER` mechanism ([b5601c2](https://codeberg.org/thi.ng/umbrella/commit/b5601c2))
+  - use `DEFAULT_LOGGER` if no logger is given
+    - initially is unset, keeping existing behavior
+  - add `setDefaultLogger()` to configure
+  - update `Fiber` ctor
+  - update `FiberOpts` docs
+
+### [1.0.67](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.0.67/packages/fibers) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+### [1.0.26](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.0.26/packages/fibers) (2025-01-14)
+
+#### ♻️ Refactoring
+
+- use optional chaining & nullish coalescing ([c5a0a13](https://codeberg.org/thi.ng/umbrella/commit/c5a0a13))
+
+### [1.0.24](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.0.24/packages/fibers) (2024-12-27)
+
+#### ♻️ Refactoring
+
+- update timestamp handling ([d0a7922](https://codeberg.org/thi.ng/umbrella/commit/d0a7922))
+  - update deps & imports
+
+### [1.0.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.0.1/packages/fibers) (2024-04-20)
+
+#### ♻️ Refactoring
+
+- update type usage ([9df7cb0](https://codeberg.org/thi.ng/umbrella/commit/9df7cb0))
+
+# [1.0.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@1.0.0/packages/fibers) (2024-04-11)
+
+#### 🛑 Breaking changes
+
+- remove/migrate CSP buffer types, update readme ([d4a1d23](https://codeberg.org/thi.ng/umbrella/commit/d4a1d23))
+- BREAKING CHANGE: remove obsolete CSP buffer types & impls, re-use from [@thi.ng/buffers](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/buffers) (see [55ba21b50f](https://codeberg.org/thi.ng/umbrella/commit/55ba21b50f))
+  - remove IReadBuffer & IReadWriteBuffer interfaces
+  - update deps (add [@thi.ng/buffers](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/buffers))
+  - update docs
+  - update readme
+
+## [0.6.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.6.0/packages/fibers) (2023-11-09)
+
+#### 🚀 Features
+
+- add Fiber.promise() ([4861d95](https://codeberg.org/thi.ng/umbrella/commit/4861d95))
+
+#### ♻️ Refactoring
+
+- update all tests (packages A-S) ([e3085e4](https://codeberg.org/thi.ng/umbrella/commit/e3085e4))
+
+#### 🧪 Tests
+
+- update/refactor tests to use bun test runner ([8f6edb1](https://codeberg.org/thi.ng/umbrella/commit/8f6edb1))
+- update/rename test files/imports (still many broken) ([1cb3c49](https://codeberg.org/thi.ng/umbrella/commit/1cb3c49))
+
+### [0.5.5](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.5.5/packages/fibers) (2023-10-18)
+
+#### 🩹 Bug fixes
+
+- add opts arg for untilPromise() ([acf5ddf](https://codeberg.org/thi.ng/umbrella/commit/acf5ddf))
+
+## [0.5.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.5.0/packages/fibers) (2023-09-17)
+
+#### 🚀 Features
+
+- add asPromise() fiber-to-promise conversion ([29fc86f](https://codeberg.org/thi.ng/umbrella/commit/29fc86f))
+
+## [0.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.4.0/packages/fibers) (2023-09-06)
+
+#### 🚀 Features
+
+- add timeSliceIterable() ([fe13b03](https://codeberg.org/thi.ng/umbrella/commit/fe13b03))
+
+#### 🧪 Tests
+
+- update tests (timeouts) ([d9eba59](https://codeberg.org/thi.ng/umbrella/commit/d9eba59))
+
+## [0.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.3.0/packages/fibers) (2023-08-14)
+
+#### 🚀 Features
+
+- update .run() default handlers ([6137e7a](https://codeberg.org/thi.ng/umbrella/commit/6137e7a))
+  - use `setImmediate()` as default for non-browser env
+  - update tests
+
+## [0.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.2.0/packages/fibers) (2023-08-10)
+
+#### 🚀 Features
+
+- ensure no pre-existing parent in Fiber.fork() ([612adf9](https://codeberg.org/thi.ng/umbrella/commit/612adf9))
+- add auto terminate option, update child handling ([e59063d](https://codeberg.org/thi.ng/umbrella/commit/e59063d))
+- add shuffle() operator, update deps ([b3efa79](https://codeberg.org/thi.ng/umbrella/commit/b3efa79))
+- add CSP primitives ([d8fa8ce](https://codeberg.org/thi.ng/umbrella/commit/d8fa8ce))
+  - add fiber-based Channel class
+  - add various buffer implementations
+    - fifo
+    - lifo
+    - sliding
+    - dropping
+
+#### ⏱ Performance improvements
+
+- rewrite FIFOBuffer as ring buffer ([ebac714](https://codeberg.org/thi.ng/umbrella/commit/ebac714))
+  - use old impl as basis for LIFOBuffer only
+  - update other buffer types to use new ring buffer impl
+  - add min. capacity assertion in ctors
+
+#### ♻️ Refactoring
+
+- minor update all() ([52836a8](https://codeberg.org/thi.ng/umbrella/commit/52836a8))
+- update arg types in various ops ([cb3c253](https://codeberg.org/thi.ng/umbrella/commit/cb3c253))
+
+### [0.1.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.1.1/packages/fibers) (2023-08-05)
+
+#### 🩹 Bug fixes
+
+- update dependencies ([c92ad43](https://codeberg.org/thi.ng/umbrella/commit/c92ad43))
+
+## [0.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/fibers@0.1.0/packages/fibers) (2023-08-04)
+
+#### 🚀 Features
+
+- import as new pkg ([7f8c6dc](https://codeberg.org/thi.ng/umbrella/commit/7f8c6dc))
+- add/update operators, add Fiber.isActive() ([a1099c5](https://codeberg.org/thi.ng/umbrella/commit/a1099c5))
+- update Fiber.catch(), childForID(), add docs ([aa8d8d0](https://codeberg.org/thi.ng/umbrella/commit/aa8d8d0))
+
+#### 🩹 Bug fixes
+
+- fix typo in waitFrames() ([5700b3e](https://codeberg.org/thi.ng/umbrella/commit/5700b3e))

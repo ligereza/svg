@@ -1,0 +1,129 @@
+{
+	"name": "@thi.ng/adjacency",
+	"version": "3.0.90",
+	"description": "Sparse & bitwise adjacency matrices, lists and selected traversal algorithms for directed & undirected graphs",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/adjacency"
+	},
+	"homepage": "https://thi.ng/adjacency",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"contributors": [
+		"Igor Loskutov (https://github.com/Firfi)"
+	],
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/arrays": "^2.14.25",
+		"@thi.ng/bitfield": "^2.4.43",
+		"@thi.ng/dcons": "^3.2.201",
+		"@thi.ng/disjoint-set": "^1.1.53",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/sparse": "^1.1.48"
+	},
+	"devDependencies": {
+		"@thi.ng/vectors": "^8.6.38",
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"adjacency",
+		"bidirectional",
+		"binary",
+		"dag",
+		"datastructure",
+		"degree",
+		"directed",
+		"graph",
+		"laplacian",
+		"list",
+		"matrix",
+		"neighborhood",
+		"path",
+		"query",
+		"search",
+		"span",
+		"sparse",
+		"tree",
+		"typescript",
+		"undirected",
+		"valence",
+		"vertex"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./bfs": {
+			"default": "./bfs.js"
+		},
+		"./binary": {
+			"default": "./binary.js"
+		},
+		"./dfs": {
+			"default": "./dfs.js"
+		},
+		"./floyd-warshall": {
+			"default": "./floyd-warshall.js"
+		},
+		"./list": {
+			"default": "./list.js"
+		},
+		"./mst": {
+			"default": "./mst.js"
+		},
+		"./sparse": {
+			"default": "./sparse.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"dgraph"
+		],
+		"year": 2018
+	}
+}

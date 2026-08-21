@@ -1,0 +1,3 @@
+{"source_name":"PubChem","external_id":"CID:1","record_type":"compound","payload":{"name":"Water","inchi_key":"XLYOFNOQVPJJNP-UHFFFAOYSA-N","formula":"H2O"}}
+{"source_name":"PubChem","external_id":"CID:2","record_type":"compound","payload":{"name":"Cocaine","inchi_key":"ZPUCINDJVBIVPJ-LJISPDSOSA-N","formula":"C17H21NO4"}}
+{"source_name":"PubChem","external_id":"CID:3","record_type":"compound","payload":{"name":"Cocaína","inchi_key":"ZPUCINDJVBIVPJ-LJISPDSOSA-N","formula":"C17H21NO4"}}

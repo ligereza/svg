@@ -1,0 +1,537 @@
+{
+	"name": "@thi.ng/geom",
+	"version": "8.3.36",
+	"description": "Functional, polymorphic API for 2D geometry types & SVG generation",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/geom"
+	},
+	"homepage": "https://thi.ng/geom",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts ctors",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:bpatch": "bun tools/bpatch.ts",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/adjacency": "^3.0.90",
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/arrays": "^2.14.25",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/defmulti": "^3.0.104",
+		"@thi.ng/equiv": "^2.1.116",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/geom-arc": "^2.1.227",
+		"@thi.ng/geom-clip-line": "^2.3.184",
+		"@thi.ng/geom-clip-poly": "^2.1.226",
+		"@thi.ng/geom-closest-point": "^2.1.222",
+		"@thi.ng/geom-hull": "^2.1.222",
+		"@thi.ng/geom-isec": "^4.0.94",
+		"@thi.ng/geom-poly-utils": "^3.1.31",
+		"@thi.ng/geom-resample": "^3.0.94",
+		"@thi.ng/geom-splines": "^2.3.94",
+		"@thi.ng/geom-subdiv-curve": "^3.0.104",
+		"@thi.ng/geom-tessellate": "^3.0.104",
+		"@thi.ng/hiccup": "^5.4.13",
+		"@thi.ng/hiccup-svg": "^5.6.21",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/matrices": "^3.0.53",
+		"@thi.ng/object-utils": "^1.3.20",
+		"@thi.ng/random": "^4.1.53",
+		"@thi.ng/strings": "^3.12.9",
+		"@thi.ng/transducers": "^9.6.42",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"3d",
+		"analysis",
+		"arc",
+		"area",
+		"bbox",
+		"bezier",
+		"centroid",
+		"circle",
+		"clipping",
+		"conversion",
+		"datastructure",
+		"edges",
+		"ellipse",
+		"geometry",
+		"graph",
+		"graphics",
+		"group",
+		"intersection",
+		"parser",
+		"path",
+		"polygon",
+		"polyline",
+		"polymorphic",
+		"sample",
+		"scatter",
+		"shape",
+		"spline",
+		"svg",
+		"tessellation",
+		"triangulation",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"api",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./aabb": {
+			"default": "./aabb.js"
+		},
+		"./api/aabb": {
+			"default": "./api/aabb.js"
+		},
+		"./api/apc": {
+			"default": "./api/apc.js"
+		},
+		"./api/arc": {
+			"default": "./api/arc.js"
+		},
+		"./api/bpatch": {
+			"default": "./api/bpatch.js"
+		},
+		"./api/circle": {
+			"default": "./api/circle.js"
+		},
+		"./api/complex-polygon": {
+			"default": "./api/complex-polygon.js"
+		},
+		"./api/cubic": {
+			"default": "./api/cubic.js"
+		},
+		"./api/cubic3": {
+			"default": "./api/cubic3.js"
+		},
+		"./api/ellipse": {
+			"default": "./api/ellipse.js"
+		},
+		"./api/extra": {
+			"default": "./api/extra.js"
+		},
+		"./api/group": {
+			"default": "./api/group.js"
+		},
+		"./api/group3": {
+			"default": "./api/group3.js"
+		},
+		"./api/line": {
+			"default": "./api/line.js"
+		},
+		"./api/line3": {
+			"default": "./api/line3.js"
+		},
+		"./api/path": {
+			"default": "./api/path.js"
+		},
+		"./api/path3": {
+			"default": "./api/path3.js"
+		},
+		"./api/plane": {
+			"default": "./api/plane.js"
+		},
+		"./api/points": {
+			"default": "./api/points.js"
+		},
+		"./api/points3": {
+			"default": "./api/points3.js"
+		},
+		"./api/polygon": {
+			"default": "./api/polygon.js"
+		},
+		"./api/polygon3": {
+			"default": "./api/polygon3.js"
+		},
+		"./api/polyline": {
+			"default": "./api/polyline.js"
+		},
+		"./api/polyline3": {
+			"default": "./api/polyline3.js"
+		},
+		"./api/quad": {
+			"default": "./api/quad.js"
+		},
+		"./api/quad3": {
+			"default": "./api/quad3.js"
+		},
+		"./api/quadratic": {
+			"default": "./api/quadratic.js"
+		},
+		"./api/quadratic3": {
+			"default": "./api/quadratic3.js"
+		},
+		"./api/ray": {
+			"default": "./api/ray.js"
+		},
+		"./api/ray3": {
+			"default": "./api/ray3.js"
+		},
+		"./api/rect": {
+			"default": "./api/rect.js"
+		},
+		"./api/sphere": {
+			"default": "./api/sphere.js"
+		},
+		"./api/text": {
+			"default": "./api/text.js"
+		},
+		"./api/triangle": {
+			"default": "./api/triangle.js"
+		},
+		"./api/triangle3": {
+			"default": "./api/triangle3.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./apply-transforms": {
+			"default": "./apply-transforms.js"
+		},
+		"./arc-length": {
+			"default": "./arc-length.js"
+		},
+		"./arc": {
+			"default": "./arc.js"
+		},
+		"./area": {
+			"default": "./area.js"
+		},
+		"./as-cubic": {
+			"default": "./as-cubic.js"
+		},
+		"./as-path": {
+			"default": "./as-path.js"
+		},
+		"./as-polygon": {
+			"default": "./as-polygon.js"
+		},
+		"./as-polyline": {
+			"default": "./as-polyline.js"
+		},
+		"./as-sector": {
+			"default": "./as-sector.js"
+		},
+		"./as-svg": {
+			"default": "./as-svg.js"
+		},
+		"./bounds": {
+			"default": "./bounds.js"
+		},
+		"./bpatch": {
+			"default": "./bpatch.js"
+		},
+		"./center-of-weight": {
+			"default": "./center-of-weight.js"
+		},
+		"./center": {
+			"default": "./center.js"
+		},
+		"./centroid-of-bounds": {
+			"default": "./centroid-of-bounds.js"
+		},
+		"./centroid": {
+			"default": "./centroid.js"
+		},
+		"./circle": {
+			"default": "./circle.js"
+		},
+		"./classify-point": {
+			"default": "./classify-point.js"
+		},
+		"./clip-convex": {
+			"default": "./clip-convex.js"
+		},
+		"./closest-point": {
+			"default": "./closest-point.js"
+		},
+		"./complex-polygon-from-path": {
+			"default": "./complex-polygon-from-path.js"
+		},
+		"./complex-polygon": {
+			"default": "./complex-polygon.js"
+		},
+		"./convex-hull": {
+			"default": "./convex-hull.js"
+		},
+		"./convolve": {
+			"default": "./convolve.js"
+		},
+		"./cubic": {
+			"default": "./cubic.js"
+		},
+		"./cubic3": {
+			"default": "./cubic3.js"
+		},
+		"./edges": {
+			"default": "./edges.js"
+		},
+		"./ellipse": {
+			"default": "./ellipse.js"
+		},
+		"./extra": {
+			"default": "./extra.js"
+		},
+		"./fit-into-bounds": {
+			"default": "./fit-into-bounds.js"
+		},
+		"./flip": {
+			"default": "./flip.js"
+		},
+		"./from-tessellation": {
+			"default": "./from-tessellation.js"
+		},
+		"./group": {
+			"default": "./group.js"
+		},
+		"./group3": {
+			"default": "./group3.js"
+		},
+		"./internal/bounds": {
+			"default": "./internal/bounds.js"
+		},
+		"./internal/copy": {
+			"default": "./internal/copy.js"
+		},
+		"./internal/dispatch": {
+			"default": "./internal/dispatch.js"
+		},
+		"./internal/pclike": {
+			"default": "./internal/pclike.js"
+		},
+		"./internal/vertices": {
+			"default": "./internal/vertices.js"
+		},
+		"./intersects": {
+			"default": "./intersects.js"
+		},
+		"./invert-circle": {
+			"default": "./invert-circle.js"
+		},
+		"./line": {
+			"default": "./line.js"
+		},
+		"./line3": {
+			"default": "./line3.js"
+		},
+		"./map-point": {
+			"default": "./map-point.js"
+		},
+		"./normalized-path": {
+			"default": "./normalized-path.js"
+		},
+		"./offset": {
+			"default": "./offset.js"
+		},
+		"./path-builder": {
+			"default": "./path-builder.js"
+		},
+		"./path-from-cubics": {
+			"default": "./path-from-cubics.js"
+		},
+		"./path-from-svg": {
+			"default": "./path-from-svg.js"
+		},
+		"./path": {
+			"default": "./path.js"
+		},
+		"./path3": {
+			"default": "./path3.js"
+		},
+		"./plane": {
+			"default": "./plane.js"
+		},
+		"./point-at": {
+			"default": "./point-at.js"
+		},
+		"./point-inside": {
+			"default": "./point-inside.js"
+		},
+		"./points": {
+			"default": "./points.js"
+		},
+		"./points3": {
+			"default": "./points3.js"
+		},
+		"./polygon": {
+			"default": "./polygon.js"
+		},
+		"./polygon3": {
+			"default": "./polygon3.js"
+		},
+		"./polyline": {
+			"default": "./polyline.js"
+		},
+		"./polyline3": {
+			"default": "./polyline3.js"
+		},
+		"./proximity": {
+			"default": "./proximity.js"
+		},
+		"./quad": {
+			"default": "./quad.js"
+		},
+		"./quad3": {
+			"default": "./quad3.js"
+		},
+		"./quadratic": {
+			"default": "./quadratic.js"
+		},
+		"./quadratic3": {
+			"default": "./quadratic3.js"
+		},
+		"./ray": {
+			"default": "./ray.js"
+		},
+		"./ray3": {
+			"default": "./ray3.js"
+		},
+		"./rect": {
+			"default": "./rect.js"
+		},
+		"./resample": {
+			"default": "./resample.js"
+		},
+		"./rotate-around-axis": {
+			"default": "./rotate-around-axis.js"
+		},
+		"./rotate": {
+			"default": "./rotate.js"
+		},
+		"./rounded-rect": {
+			"default": "./rounded-rect.js"
+		},
+		"./scale-with-center": {
+			"default": "./scale-with-center.js"
+		},
+		"./scale": {
+			"default": "./scale.js"
+		},
+		"./scatter": {
+			"default": "./scatter.js"
+		},
+		"./simplify": {
+			"default": "./simplify.js"
+		},
+		"./smooth-poly": {
+			"default": "./smooth-poly.js"
+		},
+		"./sphere": {
+			"default": "./sphere.js"
+		},
+		"./split-arclength": {
+			"default": "./split-arclength.js"
+		},
+		"./split-at": {
+			"default": "./split-at.js"
+		},
+		"./split-near": {
+			"default": "./split-near.js"
+		},
+		"./subdiv-curve": {
+			"default": "./subdiv-curve.js"
+		},
+		"./tangent-at": {
+			"default": "./tangent-at.js"
+		},
+		"./tessellate": {
+			"default": "./tessellate.js"
+		},
+		"./text": {
+			"default": "./text.js"
+		},
+		"./transform-vertices": {
+			"default": "./transform-vertices.js"
+		},
+		"./transform": {
+			"default": "./transform.js"
+		},
+		"./translate": {
+			"default": "./translate.js"
+		},
+		"./triangle": {
+			"default": "./triangle.js"
+		},
+		"./triangle3": {
+			"default": "./triangle3.js"
+		},
+		"./union": {
+			"default": "./union.js"
+		},
+		"./unmap-point": {
+			"default": "./unmap-point.js"
+		},
+		"./vertices": {
+			"default": "./vertices.js"
+		},
+		"./volume": {
+			"default": "./volume.js"
+		},
+		"./warp-points": {
+			"default": "./warp-points.js"
+		},
+		"./with-attribs": {
+			"default": "./with-attribs.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"axidraw",
+			"color",
+			"hiccup",
+			"hiccup-canvas",
+			"hiccup-svg",
+			"viz",
+			"webgl"
+		],
+		"tag": "geometry",
+		"year": 2013
+	}
+}

@@ -1,0 +1,89 @@
+# Change Log
+
+- **Last updated**: 2026-07-21T14:53:15Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [3.11.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.11.0/packages/checks) (2026-07-21)
+
+#### 🚀 Features
+
+- add isAsyncFunction() check ([1d074a4](https://codeberg.org/thi.ng/umbrella/commit/1d074a4))
+
+## [3.10.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.10.0/packages/checks) (2026-06-05)
+
+#### 🚀 Features
+
+- add `isMultipleOf()` predicate ([fb048cf](https://codeberg.org/thi.ng/umbrella/commit/fb048cf))
+
+## [3.9.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.9.0/packages/checks) (2026-04-26)
+
+#### 🚀 Features
+
+- add more array & set predicates ([429c771](https://codeberg.org/thi.ng/umbrella/commit/429c771))
+- add isObjectOf(), update docs & pkg exports ([6b14628](https://codeberg.org/thi.ng/umbrella/commit/6b14628))
+
+## [3.8.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.8.0/packages/checks) (2025-12-03)
+
+#### 🚀 Features
+
+- add integer predicates ([ea6f8f8](https://codeberg.org/thi.ng/umbrella/commit/ea6f8f8))
+  - add `isNegativeInt()` / `isNonPositiveInt()`
+  - add `isPositiveInt()` / `isNonNegativeInt()`
+- add more granular typed array checks ([43388f3](https://codeberg.org/thi.ng/umbrella/commit/43388f3))
+  - add `isIntArray()`, `isUintArray()`, `isFloatArray()`
+
+### [3.7.16](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.7.16/packages/checks) (2025-08-07)
+
+#### 🩹 Bug fixes
+
+- fix [#540](https://codeberg.org/thi.ng/umbrella/issues/540), update hasCrypto() & hasWASM() checks ([a626425](https://codeberg.org/thi.ng/umbrella/commit/a626425))
+  - use `self` vs `window` to include worker support
+
+## [3.7.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.7.0/packages/checks) (2025-02-21)
+
+#### 🚀 Features
+
+- add `isDarkMode()` ([c42a738](https://codeberg.org/thi.ng/umbrella/commit/c42a738))
+
+### [3.6.19](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.6.19/packages/checks) (2025-01-14)
+
+#### ♻️ Refactoring
+
+- use optional chaining & nullish coalescing ([c5a0a13](https://codeberg.org/thi.ng/umbrella/commit/c5a0a13))
+
+## [3.6.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.6.0/packages/checks) (2024-04-08)
+
+#### 🚀 Features
+
+- add optional generics for collection checks ([8d55530](https://codeberg.org/thi.ng/umbrella/commit/8d55530))
+
+## [3.5.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.5.0/packages/checks) (2024-02-22)
+
+#### 🚀 Features
+
+- add isArrayBufferLike(), isArrayBufferView() ([652a1d2](https://codeberg.org/thi.ng/umbrella/commit/652a1d2))
+
+### [3.4.7](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.4.7/packages/checks) (2023-11-09)
+
+#### 🩹 Bug fixes
+
+- update isTypedArray() to return boolean ([2c0f72f](https://codeberg.org/thi.ng/umbrella/commit/2c0f72f))
+
+#### 🧪 Tests
+
+- update/refactor tests to use bun test runner ([8f6edb1](https://codeberg.org/thi.ng/umbrella/commit/8f6edb1))
+- update/rename test files/imports (still many broken) ([1cb3c49](https://codeberg.org/thi.ng/umbrella/commit/1cb3c49))
+
+## [3.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/checks@3.4.0/packages/checks) (2023-08-04)
+
+#### 🚀 Features
+
+- add isGenerator() ([af8ffb3](https://codeberg.org/thi.ng/umbrella/commit/af8ffb3))

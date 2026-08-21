@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "jobId": "chemsex-layout-prep-20260818012404-nflyu",
+  "status": "completed",
+  "source": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\storyboard.json",
+  "stagedStoryboard": "C:\\IA\\svg\\agent-toolkit\\jobs\\chemsex-layout-prep-20260818012404-nflyu\\input\\storyboard.json",
+  "projectRoot": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex",
+  "blender": {
+    "operation": "layout-scene",
+    "geometryNodes": true,
+    "cycles": true,
+    "files": [
+      "C:\\IA\\svg\\agent-toolkit\\jobs\\chemsex-layout-prep-20260818012404-nflyu\\output\\scene.blend"
+    ]
+  },
+  "adobe": {
+    "app": null,
+    "operation": null,
+    "commands": []
+  },
+  "assets": [],
+  "projectFiles": [
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\editable\\blender\\chemsex-layout-prep-chemsex-layout-prep-20260818012404-nflyu.blend"
+  ],
+  "files": [
+    "C:\\IA\\svg\\agent-toolkit\\jobs\\chemsex-layout-prep-20260818012404-nflyu\\input\\storyboard.json",
+    "C:\\IA\\svg\\agent-toolkit\\jobs\\chemsex-layout-prep-20260818012404-nflyu\\output\\scene.blend",
+    "C:\\IA\\svg\\agent-toolkit\\jobs\\chemsex-layout-prep-20260818012404-nflyu\\output\\integration-manifest.json"
+  ]
+}

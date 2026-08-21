@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "project": "chemsex-carousel",
+  "locale": "es-CL",
+  "purpose": "Visual associations and licensed asset-search vocabulary for the Chemsex carousel.",
+  "copyPolicy": {
+    "exactSourceText": true,
+    "rewriteCopy": false,
+    "visualTextGeneratedByFirefly": false
+  },
+  "slides": [
+    {
+      "id": "01-cover",
+      "role": "cover",
+      "concepts": ["community", "care", "chemsex"],
+      "visualQueries": ["community care", "connection", "sexual health", "nightlife", "network"],
+      "avoid": ["drug glamour", "party stock photo", "generic neon nightclub", "explicit sexual imagery"]
+    },
+    {
+      "id": "02-definition-and-harm-reduction",
+      "role": "definition",
+      "concepts": ["chemsex", "psychoactive alteration", "sexual context", "harm reduction", "care"],
+      "visualQueries": ["interconnected bodies", "waveform", "molecule network", "protective membrane", "care gesture", "heart and brain connection"],
+      "iconQueries": ["people", "connection", "brain", "heart", "shield", "conversation", "molecule"],
+      "composition": "One central visual system with two linked fields: altered perception and collective care. Leave a calm text-safe area.",
+      "avoid": ["literal pills as the main subject", "moralizing imagery", "medical infographic style", "explicit bodies"]
+    },
+    {
+      "id": "03-chile-context-and-substances",
+      "role": "context",
+      "concepts": ["private parties", "orgies", "cruising", "apps", "polydrug use", "local context"],
+      "visualQueries": ["constellation of places", "map network", "chat app nodes", "private room", "public space threshold", "molecule constellation"],
+      "iconQueries": ["map", "location", "chat", "people", "home", "mobile", "network", "molecule"],
+      "composition": "A connected map of contexts rather than a literal party scene; substances appear as abstract nodes, not a product lineup.",
+      "avoid": ["stereotyping queer communities", "anonymous faceless crowd", "substance glamour", "police or crime imagery"]
+    },
+    {
+      "id": "04-general-risks",
+      "role": "risk-overview",
+      "concepts": ["overdose", "dangerous combinations", "cardiovascular stress", "STIs", "mental health", "comedown", "dependence"],
+      "visualQueries": ["fragile network", "warning nodes", "heart rhythm", "virus and cell", "afterimage", "broken constellation"],
+      "iconQueries": ["warning", "heart", "pulse", "virus", "cell", "brain", "moon", "connection"],
+      "composition": "One system under multiple pressures: cardiac rhythm, infection, altered state and post-session vulnerability.",
+      "avoid": ["fear porn", "death imagery", "red-alert overload", "claims not backed by research"]
+    },
+    {
+      "id": "05-care-actions",
+      "role": "harm-reduction-actions",
+      "concepts": ["hydration", "not sharing equipment", "testing", "PrEP", "PEP", "doxyPEP", "consent", "emergency care"],
+      "visualQueries": ["care kit", "shared checklist", "water and electrolyte", "testing workflow", "consent conversation", "emergency handoff"],
+      "iconQueries": ["water", "droplet", "test tube", "shield", "conversation", "hand", "check", "hospital"],
+      "composition": "A modular kit of actions with human connection at the center; avoid presenting care as a sterile checklist.",
+      "avoid": ["guaranteed safety language", "dosage instructions", "medical authority costume", "individual blame"]
+    },
+    {
+      "id": "06-ghb-alcohol",
+      "role": "interaction",
+      "concepts": ["GHB", "GBL", "alcohol", "central nervous system depression", "respiratory danger", "overdose"],
+      "visualQueries": ["two descending waves", "breathing waveform", "liquid drop and glass collision", "darkened signal", "critical threshold"],
+      "iconQueries": ["drop", "glass", "lungs", "pulse", "warning", "stop"],
+      "evidenceStatus": "supported-needs-editorial-review",
+      "avoid": ["dose guidance", "sensational coma imagery", "mixing recipe"]
+    },
+    {
+      "id": "07-cocaine-pde5",
+      "role": "interaction",
+      "concepts": ["cocaine", "sildenafil", "tadalafil", "cardiovascular stress", "blood pressure"],
+      "visualQueries": ["two competing pulse lines", "pressure gauge", "heart circuit", "overloaded vascular network"],
+      "iconQueries": ["heart", "pulse", "pressure", "warning", "medicine", "molecule"],
+      "evidenceStatus": "supported-needs-editorial-review",
+      "avoid": ["brand promotion", "heart attack illustration", "dosage guidance"]
+    },
+    {
+      "id": "08-stimulants-poppers",
+      "role": "interaction",
+      "concepts": ["stimulants", "methamphetamine", "cocaine", "poppers", "nitrites", "cardiovascular system"],
+      "visualQueries": ["accelerating waveform", "vasodilation ring", "pressure imbalance", "bright signal collapse"],
+      "iconQueries": ["pulse", "heart", "pressure", "drop", "warning", "molecule"],
+      "evidenceStatus": "review-required",
+      "note": "Validate the exact mechanism and wording before publication; do not infer the claim from visual similarity alone.",
+      "avoid": ["unqualified absolute claims", "literal inhalation depiction", "product-like bottle glamour"]
+    },
+    {
+      "id": "09-pde5-poppers-and-art",
+      "role": "interaction",
+      "concepts": ["sildenafil", "tadalafil", "poppers", "nitrites", "dangerous blood-pressure drop"],
+      "visualQueries": ["two downward arrows", "collapsed pressure field", "red and blue vascular contrast", "forbidden overlap"],
+      "iconQueries": ["medicine", "drop", "blood pressure", "warning", "stop", "heart"],
+      "evidenceStatus": "supported-needs-editorial-review",
+      "avoid": ["recreational product advertising", "dosage guidance", "graphic injury"]
+    },
+    {
+      "id": "10-antiretroviral-interactions-and-close",
+      "role": "medication-interactions-and-close",
+      "concepts": ["antiretroviral therapy", "ritonavir", "cobicistat", "drug interactions", "medical consultation", "community support"],
+      "visualQueries": ["layered molecular pathways", "blocked route", "pharmacology network", "trusted conversation", "return to community"],
+      "iconQueries": ["molecule", "pathway", "medicine", "doctor", "conversation", "community", "heart"],
+      "evidenceStatus": "supported-needs-medical-review",
+      "avoid": ["telling people to stop medication", "individual treatment advice", "fear-based HIV imagery"]
+    }
+  ],
+  "providerVocabulary": {
+    "visual": ["iconify", "bioicons"],
+    "semantic": ["pubchem", "chebi", "ols"],
+    "rule": "Semantic results support research and naming; they are not automatically visual truth or medical advice."
+  }
+}

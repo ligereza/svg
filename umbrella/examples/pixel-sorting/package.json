@@ -1,0 +1,63 @@
+{
+	"name": "@example/pixel-sorting",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Interactive pixel sorting tool using thi.ng/color & thi.ng/pixel",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"dependencies": {
+		"@thi.ng/bench": "workspace:^",
+		"@thi.ng/color": "workspace:^",
+		"@thi.ng/hiccup-html": "workspace:^",
+		"@thi.ng/intervals": "workspace:^",
+		"@thi.ng/mime": "workspace:^",
+		"@thi.ng/pixel": "workspace:^",
+		"@thi.ng/random": "workspace:^",
+		"@thi.ng/rdom": "workspace:^",
+		"@thi.ng/rdom-forms": "workspace:^",
+		"@thi.ng/rstream": "workspace:^",
+		"@thi.ng/transducers": "workspace:^"
+	},
+	"keywords": [
+		"browser",
+		"color",
+		"form",
+		"image",
+		"import",
+		"pixel",
+		"reactive",
+		"sort",
+		"transducer",
+		"ui"
+	],
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"bench",
+			"color",
+			"hiccup-html",
+			"intervals",
+			"mime",
+			"pixel",
+			"random",
+			"rdom",
+			"rdom-forms",
+			"rstream"
+		],
+		"screenshot": "examples/pixel-sorting.png"
+	}
+}

@@ -1,0 +1,179 @@
+{
+  "project": "chemsex",
+  "purpose": "Lote inicial de assets de bibliotecas completas para el carrusel de educación y reducción de daños.",
+  "sourceLibraries": [
+    {
+      "id": "bioicons",
+      "repository": "https://github.com/duerrsimon/bioicons",
+      "localRoot": "projects/chemsex/libraries/bioicons",
+      "commit": "d29e766",
+      "licensePolicy": "Revisar la carpeta de licencia de cada SVG; la biblioteca mezcla CC0, CC BY, CC BY-SA, BSD y MIT.",
+      "candidates": [
+        {
+          "role": "substance-generic",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Human_physiology/Marcel_Tisch/drugs.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-pill",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_blue.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-pill",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_green.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-pill",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_yellow.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-tablet",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/drug-tablet-1.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "substance-capsule",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/drug-capsule-1.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "substance-bottle",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/bottle-drug.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "harm-reduction-syringe",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/syringe.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "harm-reduction-drop",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/oral-dropper.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "risk-toxic",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Safety_symbols/UNECE/acute-toxicity.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "body-brain",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/brain-1.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "body-heart",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/heart.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "body-lung",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/Human_physiology/Servier/lung.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "body-liver",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-0/Human_physiology/Jan-Clusmann/healthy_liver.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "prevention-water",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-3.0/General_items/Servier/waterbottle.svg",
+          "license": "CC-BY-3.0"
+        },
+        {
+          "role": "prevention-condom-or-care",
+          "path": "projects/chemsex/libraries/bioicons/static/icons/cc-by-4.0/People-Other/DBCLS/precounseling01.svg",
+          "license": "CC-BY-4.0"
+        }
+      ]
+    },
+    {
+      "id": "healthicons",
+      "repository": "https://github.com/resolvetosavelives/healthicons",
+      "localRoot": "projects/chemsex/libraries/healthicons",
+      "commit": "36887b2",
+      "licensePolicy": "Los íconos están declarados CC0; conservar la referencia al repositorio y no mezclar el código MIT del sitio con los assets.",
+      "candidates": [
+        {
+          "role": "substance-cannabis-outline",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/symbols/cannabis.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-cannabis-filled",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/filled/symbols/cannabis.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-pill-outline",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/medications/pill-1.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-pill-filled",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/filled/medications/pill-1.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "substance-medicine-bottle",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/filled/devices/medicine-bottle.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "harm-reduction-syringe",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/devices/syringe.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "harm-reduction-condom",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/contraceptives/male-condom.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "harm-reduction-water",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/objects/running-water.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "body-heart",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/symbols/heart.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "body-lung",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/body/lungs.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "body-liver",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/body/liver.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "risk-virus",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/symbols/virus.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "care-mental-health",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/symbols/mental-health.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "care-people-msm",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/people/msm.svg",
+          "license": "CC0"
+        },
+        {
+          "role": "emergency",
+          "path": "projects/chemsex/libraries/healthicons/public/icons/svg/outline/places/emergency-post.svg",
+          "license": "CC0"
+        }
+      ]
+    }
+  ]
+}

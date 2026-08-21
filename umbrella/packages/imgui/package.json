@@ -1,0 +1,166 @@
+{
+	"name": "@thi.ng/imgui",
+	"version": "3.2.83",
+	"description": "Immediate mode GUI with flexible state handling & data only shape output",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/imgui"
+	},
+	"homepage": "https://thi.ng/imgui",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts behaviors components",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/geom": "^8.3.36",
+		"@thi.ng/geom-isec": "^4.0.94",
+		"@thi.ng/layout": "^4.1.20",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/ramp": "^3.3.93",
+		"@thi.ng/transducers": "^9.6.42",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"browser",
+		"canvas",
+		"component",
+		"datastructure",
+		"gui",
+		"hiccup",
+		"imgui",
+		"typescript",
+		"ui"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"behaviors",
+		"components"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./behaviors/button": {
+			"default": "./behaviors/button.js"
+		},
+		"./behaviors/dial": {
+			"default": "./behaviors/dial.js"
+		},
+		"./behaviors/slider": {
+			"default": "./behaviors/slider.js"
+		},
+		"./behaviors/text": {
+			"default": "./behaviors/text.js"
+		},
+		"./components/button": {
+			"default": "./components/button.js"
+		},
+		"./components/dial": {
+			"default": "./components/dial.js"
+		},
+		"./components/dropdown": {
+			"default": "./components/dropdown.js"
+		},
+		"./components/icon-button": {
+			"default": "./components/icon-button.js"
+		},
+		"./components/radial-menu": {
+			"default": "./components/radial-menu.js"
+		},
+		"./components/radio": {
+			"default": "./components/radio.js"
+		},
+		"./components/ramp": {
+			"default": "./components/ramp.js"
+		},
+		"./components/ring": {
+			"default": "./components/ring.js"
+		},
+		"./components/sliderh": {
+			"default": "./components/sliderh.js"
+		},
+		"./components/sliderv": {
+			"default": "./components/sliderv.js"
+		},
+		"./components/textfield": {
+			"default": "./components/textfield.js"
+		},
+		"./components/textlabel": {
+			"default": "./components/textlabel.js"
+		},
+		"./components/toggle": {
+			"default": "./components/toggle.js"
+		},
+		"./components/tooltip": {
+			"default": "./components/tooltip.js"
+		},
+		"./components/xypad": {
+			"default": "./components/xypad.js"
+		},
+		"./events": {
+			"default": "./events.js"
+		},
+		"./gui": {
+			"default": "./gui.js"
+		},
+		"./hash": {
+			"default": "./hash.js"
+		},
+		"./layout": {
+			"default": "./layout.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"hdom-canvas",
+			"hiccup-canvas",
+			"rdom-canvas"
+		],
+		"year": 2019
+	}
+}

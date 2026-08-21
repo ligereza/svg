@@ -1,0 +1,62 @@
+{
+	"name": "@example/text-canvas",
+	"private": true,
+	"version": "0.0.1",
+	"description": "3D wireframe textmode demo",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "yarn css:build && yarn start:only",
+		"start:only": "vite --host --open",
+		"dev": "mprocs 'yarn css:watch' 'yarn start:only'",
+		"css:watch": "../../node_modules/.bin/metacss develop --bundle --watch --pretty --out-specs css/framework.json --out-css css/style.css --force @css/includes.txt ../../packages/meta-css/specs/*.mcss.json css/*.mcss.json css/*.mcss",
+		"css:build": "../../node_modules/.bin/metacss develop --bundle --out-specs css/framework.json --out-css css/style.css --force @css/includes.txt ../../packages/meta-css/specs/*.mcss.json css/*.mcss.json css/*.mcss",
+		"build": "yarn css:build && tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"dependencies": {
+		"@thi.ng/dsp": "workspace:^",
+		"@thi.ng/geom": "workspace:^",
+		"@thi.ng/matrices": "workspace:^",
+		"@thi.ng/text-canvas": "workspace:^",
+		"@thi.ng/text-format": "workspace:^",
+		"@thi.ng/vectors": "workspace:^"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"geom",
+			"matrices",
+			"meta-css",
+			"text-canvas",
+			"text-format",
+			"vectors"
+		],
+		"screenshot": "examples/text-canvas.png"
+	},
+	"devDependencies": {
+		"@thi.ng/meta-css": "workspace:^",
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"keywords": [
+		"3d",
+		"animation",
+		"ansi",
+		"ascii",
+		"browser",
+		"canvas",
+		"dsp",
+		"example",
+		"geometry",
+		"line",
+		"matrix",
+		"text",
+		"vector"
+	]
+}

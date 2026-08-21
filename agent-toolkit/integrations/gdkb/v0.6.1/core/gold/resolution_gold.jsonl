@@ -1,0 +1,5 @@
+{"case_id":"001","input":"Cocaína","expected_entity":"E_COCAINE","expected_decision":"confirmed","type":"language_variant"}
+{"case_id":"002","input":"cocaine","expected_entity":"E_COCAINE","expected_decision":"confirmed","type":"language_variant"}
+{"case_id":"003","input":"COCAINE","expected_entity":"E_COCAINE","expected_decision":"confirmed","type":"case_variant"}
+{"case_id":"004","input":"cocaina","expected_entity":"E_COCAINE","expected_decision":"confirmed","type":"accent_variant"}
+{"case_id":"005","input":"ambiguous-example","expected_entity":null,"expected_decision":"needs_review","type":"ambiguous"}

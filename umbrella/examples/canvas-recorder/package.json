@@ -1,0 +1,49 @@
+{
+	"name": "@example/canvas-recorder",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Self-modifying, animated typographic grid with emergent complex patterns",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Nicolas Lebrun <nclslbrn@gmail.com>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"dependencies": {
+		"@thi.ng/canvas": "workspace:^",
+		"@thi.ng/dl-asset": "workspace:^",
+		"@thi.ng/geom": "workspace:^",
+		"@thi.ng/hiccup-canvas": "workspace:^",
+		"@thi.ng/hiccup-html": "workspace:^",
+		"@thi.ng/random": "workspace:^",
+		"@thi.ng/rdom": "workspace:^",
+		"@thi.ng/rstream": "workspace:^",
+		"@thi.ng/transducers": "workspace:^",
+		"@thi.ng/vectors": "workspace:^"
+	},
+	"browser": {
+		"process": false
+	},
+	"thi.ng": {
+		"readme": true,
+		"screenshot": "examples/canvas-recorder.png"
+	},
+	"keywords": [
+		"browser",
+		"canvas",
+		"download",
+		"example",
+		"export",
+		"geometry",
+		"reactive",
+		"transducer",
+		"ui",
+		"vector"
+	]
+}

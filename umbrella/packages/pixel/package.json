@@ -1,0 +1,208 @@
+{
+	"name": "@thi.ng/pixel",
+	"version": "7.5.37",
+	"description": "Typedarray integer & float pixel buffers w/ customizable formats, blitting, drawing, convolution",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/pixel"
+	},
+	"homepage": "https://thi.ng/pixel",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"contributors": [
+		"Askar Yusupov (https://github.com/pyoner)"
+	],
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts format",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/canvas": "^1.1.19",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/porter-duff": "^2.1.139"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"16bit",
+		"24bit",
+		"32bit",
+		"8bit",
+		"alpha",
+		"array",
+		"binary",
+		"blend",
+		"blit",
+		"canvas",
+		"channel",
+		"color",
+		"conversion",
+		"datastructure",
+		"filter",
+		"float",
+		"format",
+		"grayscale",
+		"image",
+		"interpolation",
+		"palette",
+		"pixel",
+		"resize",
+		"rgb565",
+		"sample",
+		"typedarray",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"format",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./canvas": {
+			"default": "./canvas.js"
+		},
+		"./checks": {
+			"default": "./checks.js"
+		},
+		"./float": {
+			"default": "./float.js"
+		},
+		"./format/abgr8888": {
+			"default": "./format/abgr8888.js"
+		},
+		"./format/alpha8": {
+			"default": "./format/alpha8.js"
+		},
+		"./format/argb1555": {
+			"default": "./format/argb1555.js"
+		},
+		"./format/argb4444": {
+			"default": "./format/argb4444.js"
+		},
+		"./format/argb8888": {
+			"default": "./format/argb8888.js"
+		},
+		"./format/bgr888": {
+			"default": "./format/bgr888.js"
+		},
+		"./format/float-format": {
+			"default": "./format/float-format.js"
+		},
+		"./format/float-gray-alpha": {
+			"default": "./format/float-gray-alpha.js"
+		},
+		"./format/float-gray-range": {
+			"default": "./format/float-gray-range.js"
+		},
+		"./format/float-gray": {
+			"default": "./format/float-gray.js"
+		},
+		"./format/float-hsva": {
+			"default": "./format/float-hsva.js"
+		},
+		"./format/float-norm": {
+			"default": "./format/float-norm.js"
+		},
+		"./format/float-rgb": {
+			"default": "./format/float-rgb.js"
+		},
+		"./format/float-rgba": {
+			"default": "./format/float-rgba.js"
+		},
+		"./format/gray-alpha16": {
+			"default": "./format/gray-alpha16.js"
+		},
+		"./format/gray-alpha8": {
+			"default": "./format/gray-alpha8.js"
+		},
+		"./format/gray16": {
+			"default": "./format/gray16.js"
+		},
+		"./format/gray8": {
+			"default": "./format/gray8.js"
+		},
+		"./format/indexed": {
+			"default": "./format/indexed.js"
+		},
+		"./format/int-format": {
+			"default": "./format/int-format.js"
+		},
+		"./format/rgb565": {
+			"default": "./format/rgb565.js"
+		},
+		"./format/rgb888": {
+			"default": "./format/rgb888.js"
+		},
+		"./image": {
+			"default": "./image.js"
+		},
+		"./int": {
+			"default": "./int.js"
+		},
+		"./internal/range": {
+			"default": "./internal/range.js"
+		},
+		"./internal/utils": {
+			"default": "./internal/utils.js"
+		},
+		"./sample": {
+			"default": "./sample.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "pix",
+		"related": [
+			"color",
+			"porter-duff",
+			"rasterize",
+			"shader-ast",
+			"webgl"
+		],
+		"year": 2019
+	}
+}

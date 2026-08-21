@@ -1,0 +1,68 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:52Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [2.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@2.1.0/packages/trie) (2026-05-12)
+
+#### 🚀 Features
+
+- add `.size` getters, add tests ([604dd99](https://codeberg.org/thi.ng/umbrella/commit/604dd99))
+
+#### ⏱ Performance improvements
+
+- update internal `.iterate()` methods ([7816edc](https://codeberg.org/thi.ng/umbrella/commit/7816edc))
+
+### [2.0.22](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@2.0.22/packages/trie) (2026-05-12)
+
+#### 🩹 Bug fixes
+
+- update/fix `MultiTrie` iterator return types ([ce8ca66](https://codeberg.org/thi.ng/umbrella/commit/ce8ca66))
+
+### [2.0.9](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@2.0.9/packages/trie) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+# [2.0.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@2.0.0/packages/trie) (2025-08-11)
+
+#### 🛑 Breaking changes
+
+- major update `TrieMap` & `MultiTrie` ([d7f4a12](https://codeberg.org/thi.ng/umbrella/commit/d7f4a12))
+- BREAKING CHANGE: major update `TrieMap` & `MultiTrie`
+  - update `MultiTrie` to only support array-based keys
+    - switch internals to using Map for storing branches
+    - update arg types in all methods
+    - add `.toJSON()` method to support serialization
+  - rename `MultiTrieOpts.vals` => `.values`
+  - add/update/dedupe iterators in both impls
+  - replace `.suffixes()` iterator in both impls w/ extra args passed to `.keys()`
+  - add `defTrieMapFromJSON()` and `defMultiTrieFromJSON()`
+  - add/update tests
+
+#### ♻️ Refactoring
+
+- update internals ([065cc27](https://codeberg.org/thi.ng/umbrella/commit/065cc27))
+  - remove obsolete size/count in MultiTrie
+
+### [1.1.10](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@1.1.10/packages/trie) (2025-01-14)
+
+#### ♻️ Refactoring
+
+- use optional chaining & nullish coalescing ([c5a0a13](https://codeberg.org/thi.ng/umbrella/commit/c5a0a13))
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/trie@1.1.0/packages/trie) (2024-07-22)
+
+#### 🚀 Features
+
+- import as new package ([#486](https://codeberg.org/thi.ng/umbrella/issues/486)) ([a2007af](https://codeberg.org/thi.ng/umbrella/commit/a2007af))
+  - extract `MultiTrie` & `TrieMap` from [@thi.ng/associative](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/associative)

@@ -1,0 +1,144 @@
+// thi.ng/meta-css stylesheet
+// see package readme for more details/usage
+// use `yarn css:build` or `yarn css:watch` to transpile to CSS
+// also see component-specific *.mcss files in /src folder
+
+:root {
+	bg-color=#fff
+	text-color=#333
+	tree-bg-color=#00000018
+	link-color=#000
+	visited-color=#666
+	project-link-color=#f0a
+	project-visited-color=#f6a
+	border-color=#999
+
+	dark:bg-color=#111
+	dark:text-color=#eee
+	dark:tree-bg-color=#ffffff18
+	dark:link-color=#fff
+	dark:visited-color=#999
+	dark:border-color=#666
+}
+
+body {
+	system-sans-serif ma3 m:ma4
+	bg-color(bg-color) color(text-color)
+	lh-copy
+}
+
+h1 { lh-title ls--1 }
+
+p { l:maxw-50 }
+
+a:link { color(link-color) }
+a:visited { color(visited-color) }
+
+details:first-child { mt3 }
+
+details[open] {
+	pv2 ph3 mv2
+	bg-color(tree-bg-color) br3 fade-in(0.25)
+	box-shadow-[1px 1px 3px #0003]
+	{
+		>summary { b mb2 f4 }
+		+details[open] { mt2 }
+	}
+}
+
+details:not([open]) {
+	transition-[background-color 0.25s, padding-left 0.25s ease-out]
+	{
+		:hover { pl3 br2 bg-color(text-color) color(bg-color) }
+	}
+}
+
+summary { cursor-pointer }
+
+#inputs {
+	grid grid-cols(1fr 8rem) gap4 mv3 l:maxw-50
+	{
+		input[type=search] {
+			pv2 ph3 br-pill bw1 border-color(text-color)
+			w-100
+		}
+		button {
+			pv2 ph3 br-pill bw0 bg-color(text-color) color(bg-color) v-mid
+		}
+	}
+}
+
+.grid {
+	m:grid m:grid-cols-2 m:gap4
+	{
+		>div:first-child { m:pr3 m:bwb0 m:bwr-1px border-color(border-color) }
+	}
+}
+
+.project {
+	mb3 lh-copy f6
+	{
+		a.link {
+			f5 b
+			{
+				:link { color(project-link-color) }
+				:visited { color(project-visited-color) }
+			}
+		}
+	}
+}
+
+.with-img {
+	grid grid-cols(4rem 1fr) gap4
+	{
+		img { w-100 aspect-ratio(1,1) }
+	}
+}
+
+.tags { pl3 }
+
+.glossary {
+	f6 mb3
+	{
+		a:link, a:visited { color(text-color) }
+	}
+}
+
+.glossary-desc {
+	f6 ml2 fw400 o-60
+}
+
+i svg { fill-current v-mid mr1 w1 h1 }
+
+.show {
+	pv2 ph3
+	bw0 br-pill
+	bg-color(text-color) color(bg-color)
+}
+.asroot {
+	ml3 pv0 ph2
+	bw0 br-pill
+	bg-color(text-color) color(bg-color) f7 v-mid
+}
+
+.jump { db }
+
+#initials {
+	mt3
+	{
+		a:link, a:visited { dib color(text-color) no-underline }
+		a+a { ml2 }
+	}
+}
+
+#up {
+	db fixed bottom-2 right-0 pa4 br-pill-l lh-0
+	bg-color-gold color-black box-shadow-[-8px 8px 16px #0003]
+	{
+		svg { w2 h2 }
+	}
+}
+
+.note-info {
+	bg-color-light-yellow color-black pa3 br3 f6
+}

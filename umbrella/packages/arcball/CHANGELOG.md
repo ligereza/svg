@@ -1,0 +1,28 @@
+# Change Log
+
+- **Last updated**: 2026-07-16T20:38:41Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [1.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/arcball@1.2.0/packages/arcball) (2026-07-16)
+
+#### 🚀 Features
+
+- add `defArcballController()`, restructure package ([9e20ead](https://codeberg.org/thi.ng/umbrella/commit/9e20ead))
+  - add configurable, rstream-gestures based arcball controller
+  - update deps
+  - split up source files
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/arcball@1.1.0/packages/arcball) (2025-11-25)
+
+#### 🚀 Features
+
+- import as new pkg ([b8888e2](https://codeberg.org/thi.ng/umbrella/commit/b8888e2))
+- add webgl-arcball example ([7ac2e91](https://codeberg.org/thi.ng/umbrella/commit/7ac2e91))

@@ -1,0 +1,44 @@
+{
+	"name": "@example/pointfree-svg",
+	"private": true,
+	"description": "Generate SVG using pointfree DSL",
+	"version": "0.0.1",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"type": "module",
+	"scripts": {
+		"build": "bun src/index.ts"
+	},
+	"dependencies": {
+		"@thi.ng/hiccup": "workspace:^",
+		"@thi.ng/hiccup-svg": "workspace:^",
+		"@thi.ng/pointfree": "workspace:^",
+		"@thi.ng/pointfree-lang": "workspace:^"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"dsl",
+		"export",
+		"file",
+		"forth",
+		"generator",
+		"geometry",
+		"hiccup",
+		"pointfree",
+		"svg"
+	],
+	"thi.ng": {
+		"online": false,
+		"readme": true,
+		"screenshot": "examples/pointfree-svg.png"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	}
+}

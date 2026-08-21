@@ -1,0 +1,14 @@
+{
+	"tables": {
+		"overflow": ["hidden", "scroll", "auto", "visible"]
+	},
+	"specs": [
+		{
+			"name": "overflow<var>-<v>",
+			"doc": { "group": "overflow" },
+			"props": { "overflow<var>": "<v>" },
+			"values": "overflow",
+			"vars": ["", "x", "y"]
+		}
+	]
+}

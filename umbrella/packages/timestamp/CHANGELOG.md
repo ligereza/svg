@@ -1,0 +1,28 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:52Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+### [1.1.16](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/timestamp@1.1.16/packages/timestamp) (2025-07-20)
+
+#### 🩹 Bug fixes
+
+- update timeDiff() type coercions, add tests, fix [#536](https://codeberg.org/thi.ng/umbrella/issues/536) ([c426413](https://codeberg.org/thi.ng/umbrella/commit/c426413))
+  - also fixes downstream issue with [@thi.ng/transducers](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/transducers) partitionTime()
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/timestamp@1.1.0/packages/timestamp) (2024-12-27)
+
+#### 🚀 Features
+
+- add/extract as new package ([55bf7e4](https://codeberg.org/thi.ng/umbrella/commit/55bf7e4))
+  - extract timestamp functions from [@thi.ng/bench](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/bench) pkg
+  - add readme
+  - add test

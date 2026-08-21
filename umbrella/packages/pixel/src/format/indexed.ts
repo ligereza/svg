@@ -1,0 +1,82 @@
+// SPDX-License-Identifier: Apache-2.0
+import type { NumericArray, UintType } from "@thi.ng/api";
+import { assert } from "@thi.ng/errors/assert";
+import { Lane } from "../api.js";
+import { defIntFormat } from "./int-format.js";
+import { __swapLane13 } from "../internal/utils.js";
+
+/** @internal */
+const __defIndexed =
+	(type: UintType, size: number) =>
+	(palette: NumericArray, isABGR = false) => {
+		const n = palette.length;
+		assert(n > 0 && n <= 2 ** size, `invalid palette size: ${n}`);
+		palette = isABGR ? palette : palette.map(__swapLane13);
+		return defIntFormat({
+			type,
+			size,
+			channels: [{ size, lane: Lane.RED }],
+			fromABGR: (x) => __argmin(x, palette),
+			toABGR: (x) => palette[x],
+		});
+	};
+
+/** @internal */
+const __argmin = (p: number, palette: NumericArray) => {
+	let minD = Infinity;
+	let minArg = -1;
+	for (let i = 0, n = palette.length; i < n; i++) {
+		const d = __distBGR(p, palette[i]);
+		if (d < minD) {
+			minD = d;
+			minArg = i;
+		}
+	}
+	return minArg;
+};
+
+/** @internal */
+const __distBGR = (a: number, b: number) =>
+	Math.hypot(
+		((a >> 16) & 0xff) - ((b >> 16) & 0xff),
+		((a >> 8) & 0xff) - ((b >> 8) & 0xff),
+		(a & 0xff) - (b & 0xff)
+	);
+
+/**
+ * Creates an indexed color {@link IntFormat} using the provided palette (in
+ * {@link ARGB8888} or {@link ABGR8888} formats, max. 256 colors).
+ *
+ * @remarks
+ * If `isABGR` is false (default), the palette colors are assumed to be in ARGB
+ * order. When converting colors to indices, palette indices are chosen via the
+ * minimum cartesian distance.
+ *
+ * @param palette -
+ * @param isABGR -
+ */
+export const defIndexed8 = __defIndexed("u8", 8);
+
+/**
+ * Similar to {@link defIndexed8}, but for 16bit palette sizes and pixel buffers.
+ */
+export const defIndexed16 = __defIndexed("u16", 16);
+
+/**
+ * Similar to {@link defIndexed8}, but for 32bit palette sizes and pixel buffers.
+ */
+export const defIndexed32 = __defIndexed("u32", 32);
+
+/**
+ * Similar to {@link defIndexed8}, but dynamically decides about pixel buffer
+ * bit depth based on size of given palette.
+ *
+ * @param palette -
+ * @param isABGR -
+ */
+export const defIndexed = (palette: NumericArray, isABGR = false) =>
+	palette.length <= 0x100
+		? defIndexed8(palette, isABGR)
+		: palette.length < 0x10000
+			? defIndexed16(palette, isABGR)
+			: defIndexed32(palette, isABGR);

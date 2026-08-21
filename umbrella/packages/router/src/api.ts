@@ -1,0 +1,217 @@
+// SPDX-License-Identifier: Apache-2.0
+import type { EVENT_ALL, Fn, IObjectOf, Maybe } from "@thi.ng/api";
+
+/**
+ * A validation function for to-be authenticated routes.
+ *
+ * @remarks
+ * If this function determines that the user is not allowed to access this
+ * route, it should return nothing or a {@link RouteMatch} object for
+ * redirecting (e.g. to a login, home page or other non-protected route). If
+ * nothing is returned and no other routes can be matched, the router will
+ * eventually return the configured default fallback route (see
+ * {@link RouterOpts.default}).
+ *
+ * The optional `ctx` is an arbitrary user provided context value given to
+ * {@link Router.route} (e.g. the original request object).
+ */
+export type RouteAuthenticator<T = any> = (
+	match: RouteMatch,
+	route: AugmentedRoute,
+	ctx?: T
+) => Maybe<RouteMatch>;
+
+/**
+ * Route validator subspecs are optional and used to coerce and/or validate
+ * individual route parameters.
+ */
+export interface RouteParamValidator {
+	/**
+	 * Optional coercion function executed prior to validation.
+	 */
+	coerce?: Fn<string, any>;
+	/**
+	 * Optional arbitrary value validation (applied *after* coercion, if any).
+	 * If a validator returns non-true result, the currently checked route
+	 * becomes unmatched/invalid and the router continues checking other routes.
+	 */
+	check: Fn<any, boolean>;
+}
+
+/**
+ * A Route describes an application path (possibly parameterized), incl.
+ * parameter coercion, validation and overall route authentication. Apart from
+ * `id` and `match` all other fields are optional.
+ */
+export interface Route {
+	/**
+	 * Unique ID for this route. This value will be returned as part of a
+	 * {@link RouteMatch} resulting from {@link Router.route} and also used
+	 * to look up routes in {@link Router.routeForID} and
+	 * {@link Router.format}.
+	 */
+	id: string;
+	/**
+	 * Array or string of path components, incl. wildcards. If a value is
+	 * prefixed with `?` this path component will be captured under that name. A
+	 * `+` component matches one or more rest args.
+	 *
+	 * @remarks
+	 * See {@link Trie} for rules & comments on wildcard priorities & handling.
+	 *
+	 * E.g. `/projects/?pid` will match routes: `/projects/123` or
+	 * `/projects/abcde`, but NOT: `/projects`...
+	 *
+	 * {@link Route.validate} options can then be used to further restrict the
+	 * possible value range of the `pid` param value and/or coerce it...
+	 */
+	match: string | string[];
+	/**
+	 * This object specifies coercions and validators for variable /
+	 * parameterized path components, e.g.
+	 *
+	 * ```js
+	 * {
+	 *  id: {
+	 *          coerce: (x) => parseInt(x,10),
+	 *          check: (x)=> x < 100
+	 *      }
+	 * }
+	 * ```
+	 *
+	 * This will first coerce the `id` route param to a number and then only
+	 * allow the route to be matched if `id < 100`.
+	 */
+	validate?: IObjectOf<RouteParamValidator>;
+	/**
+	 * Flag to indicate if this route should be passed to the globally
+	 * configured authentication function. Only matched and validated routes are
+	 * processed.
+	 */
+	auth?: boolean;
+}
+
+export interface AugmentedRoute {
+	spec: Readonly<Route>;
+	id: string;
+	match: string[];
+	params?: Record<number, string>;
+	rest: number;
+}
+
+/**
+ * Result object returned by a routing operation and event value for
+ * {@link EVENT_ROUTE_CHANGED}. Contains the matched route ID and any route
+ * params.
+ */
+export interface RouteMatch {
+	/**
+	 * ID of matched {@link Route}.
+	 */
+	id: string;
+	/**
+	 * Matched & processed/coerced route params.
+	 */
+	params?: any;
+	/**
+	 * Only used for `*` wildcard routes. Contains remaining route elements.
+	 */
+	rest?: string[];
+	/**
+	 * If true, indicates the ID of this route match is a redirect (e.g.
+	 * triggered by the {@link RouteAuthenticator} or if no route matched and
+	 * the {@link RouterOpts.default} was triggered).
+	 *
+	 * @remarks
+	 * Only intended for client purposes, not used internally. I.e. clients
+	 * should check if this flag is set and take appropriate redirect measures.
+	 */
+	redirect?: true;
+}
+
+/**
+ * Configuration object for {@link Router} and {@link HTMLRouter}
+ * instances.
+ */
+export interface RouterOpts<T = any> {
+	/**
+	 * An array of route specs which route input strings will be matched
+	 * against. Given routes will be pre-processed and stored in a {@link Trie}
+	 * for fast matching.
+	 *
+	 * @remarks
+	 * Additional routes can be dynamically added at a later time via
+	 * {@link Router.addRoutes}.
+	 */
+	routes: Route[];
+	/**
+	 * Fallback route ID (MUST exist in `routes`), used if none of the defined
+	 * routes could be matched against user input, e.g. a home or error page.
+	 *
+	 * @remarks
+	 * If using {@link HTMLRouter}, any redirects to this route will **not** be
+	 * recorded to the browser history.
+	 */
+	default: string;
+	/**
+	 * Optional initial route to trigger when router starts. If given, this MUST
+	 * be a route without params.
+	 *
+	 * @remarks
+	 * If using {@link HTMLRouter}, this route will be applied to the browser
+	 * history using `replaceState()`.
+	 */
+	initial?: string;
+	/**
+	 * Optional route authentication function. See {@link RouteAuthenticator}
+	 * for further details. If no authenticator is given, all matched routes
+	 * will always succeed, regardless if a rule's `auth` flag is enabled or
+	 * not.
+	 */
+	authenticator?: RouteAuthenticator<T>;
+	/**
+	 * Optional route path component separator. Default: `/`
+	 */
+	separator?: string;
+	/**
+	 * Route prefix. Default: `/`. All routes to be parsed by
+	 * {@link Router.route} are assumed to have this prefix. All routes
+	 * returned by {@link Router.format} will include this prefix.
+	 *
+	 * @remarks
+	 * If given, the prefix MUST end with {@link RouterOpts.separator}.
+	 */
+	prefix?: string;
+	/**
+	 * If true (default), the trailing slash (actually
+	 * {@link RouterOpts.separator}) of a given route input string will be
+	 * removed before matching.
+	 */
+	trim?: boolean;
+}
+
+export interface HTMLRouterOpts<T = any> extends RouterOpts<T> {
+	/**
+	 * Same as {@link RouterOpts.prefix}. If
+	 * {@link HTMLRouterOpts.useFragment} is true, then the default changes to
+	 * `#/`. If `useFragment` is enabled and a custom prefix is given, it MUST
+	 * include the leading `#` as well.
+	 */
+	prefix?: string;
+	/**
+	 * Optional flag to indicate if URL hash fragment should be used for routes.
+	 */
+	useFragment?: boolean;
+}
+
+/**
+ * ID of success event being triggered by `router.match()`
+ */
+export const EVENT_ROUTE_CHANGED = "route-changed";
+
+export const EVENT_ROUTE_FAILED = "route-failed";
+
+export type RouterEventType =
+	| typeof EVENT_ROUTE_CHANGED
+	| typeof EVENT_ROUTE_FAILED
+	| typeof EVENT_ALL;

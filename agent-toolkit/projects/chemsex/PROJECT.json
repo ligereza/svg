@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "id": "chemsex",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "unit": "px",
+    "orientation": "portrait"
+  },
+  "designPreset": "chemsex-portrait",
+  "textPolicy": "verbatim-source-order",
+  "sourceDocument": "C:/Users/issvk/claude_sesiones_recuperadas/CARRUSEL CHEMSEX RevCO.pdf",
+  "artifactRoots": {
+    "assets": "assets",
+    "photoshop": "editable/photoshop",
+    "blender": "editable/blender",
+    "manifests": "manifests",
+    "renders": "renders"
+  },
+  "workflow": {
+    "photoshop": {
+      "operation": "separate-objects",
+      "waitForHost": true,
+      "keepPsd": true
+    },
+    "blender": {
+      "operation": "layout-scene",
+      "geometryNodes": true,
+      "engine": "CYCLES"
+    }
+  }
+}

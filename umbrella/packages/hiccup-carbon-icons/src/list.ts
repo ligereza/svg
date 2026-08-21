@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: Apache-2.0
+import { path, svg } from "./_svg.js";
+
+/**
+ * https://demo.thi.ng/umbrella/hiccup-carbon-icons/#LIST
+ */
+// prettier-ignore
+export const LIST: any[] = svg(
+path("M10 6h18v2H10zM10 24h18v2H10zM10 15h18v2H10zM4 15h2v2H4zM4 6h2v2H4zM4 24h2v2H4z"),
+);

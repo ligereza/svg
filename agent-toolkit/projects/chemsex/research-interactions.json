@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "project": "chemsex-carousel",
+  "topic": "critical interactions and harm-reduction wording",
+  "status": "research-pending-editorial-review",
+  "scope": "Validate the interaction claims already present in the source document before converting them into public carousel copy or visual metaphors.",
+  "claims": [
+    {
+      "id": "ghb-alcohol",
+      "sourceTextSection": "GHB/GBL + Alcohol",
+      "status": "supported",
+      "verificationQuestion": "What wording is accurate, understandable and locally appropriate for the increased overdose and respiratory risk?",
+      "sources": [
+        {
+          "title": "GHB - Alcohol and Drug Foundation",
+          "url": "https://adf.org.au/drug-facts/ghb/",
+          "sourceType": "harm-reduction-organization"
+        }
+      ]
+    },
+    {
+      "id": "pde5-poppers",
+      "sourceTextSection": "Viagra + Popper",
+      "status": "supported",
+      "verificationQuestion": "Use clear language about dangerous blood-pressure effects without adding dosage or individualized medical advice.",
+      "sources": [
+        {
+          "title": "NHS sildenafil common questions",
+          "url": "https://www.nhs.uk/medicines/sildenafil-viagra/common-questions-about-sildenafil/",
+          "sourceType": "national-health-service"
+        },
+        {
+          "title": "FDA nitrite poppers safety notice",
+          "url": "https://www.fda.gov/consumers/articulos-para-el-consumidor-en-espanol/la-ingestion-o-inhalacion-de-poppers-de-nitrito-puede-causar-lesiones-graves-o-la-muerte",
+          "sourceType": "regulator"
+        }
+      ]
+    },
+    {
+      "id": "stimulants-poppers",
+      "sourceTextSection": "Estimulantes + Popper",
+      "status": "review-required",
+      "verificationQuestion": "Confirm the precise interaction mechanism and whether the current absolute wording is supported by a source suitable for public education.",
+      "sources": [
+        {
+          "title": "FDA nitrite poppers safety notice",
+          "url": "https://www.fda.gov/consumers/articulos-para-el-consumidor-en-espanol/la-ingestion-o-inhalacion-de-poppers-de-nitrito-puede-causar-lesiones-graves-o-la-muerte",
+          "sourceType": "regulator"
+        }
+      ]
+    },
+    {
+      "id": "antiretrovirals-recreational-drugs",
+      "sourceTextSection": "Drogas + Terapia Antirretroviral",
+      "status": "supported-needs-specificity",
+      "verificationQuestion": "Keep the statement general and refer people to a clinician; verify each named antiretroviral/substance pair separately.",
+      "sources": [
+        {
+          "title": "Liverpool HIV Interactions - ritonavir and MDMA",
+          "url": "https://www.hiv-druginteractions.org/interactions/68421",
+          "sourceType": "specialist-interaction-database"
+        },
+        {
+          "title": "Liverpool HIV Interactions - ritonavir and methamphetamine",
+          "url": "https://www.hiv-druginteractions.org/interactions/68427",
+          "sourceType": "specialist-interaction-database"
+        }
+      ]
+    }
+  ],
+  "chemicalIdentitySources": [
+    {
+      "name": "PubChem PUG REST",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest",
+      "useFor": ["synonyms", "compound identity", "structure", "molecular properties"],
+      "notFor": ["standalone harm-reduction advice", "individual medical guidance"]
+    },
+    {
+      "name": "ChEBI",
+      "url": "https://www.ebi.ac.uk/chebi/",
+      "useFor": ["chemical ontology", "classification", "cross-references", "curated chemical entities"],
+      "notFor": ["standalone harm-reduction advice", "individual medical guidance"]
+    }
+  ],
+  "editorialGate": [
+    "Preserve the source document order and wording unless the ONG approves a correction.",
+    "Separate chemical identity, pharmacological evidence and community guidance.",
+    "Do not invent dosage, timing or individualized treatment instructions.",
+    "Mark unresolved claims for clinical/editorial review instead of silently simplifying them.",
+    "Attach source URLs and verification date to every public claim."
+  ]
+}

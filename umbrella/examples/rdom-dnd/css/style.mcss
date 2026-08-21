@@ -1,0 +1,14 @@
+// @thi.ng/meta-css stylesheet
+// see package readme for more details/usage
+// use `yarn css:build` or `yarn css:watch` to transpile to CSS
+// also see component-specific *.mcss files in /src
+
+body { sans-serif ma3 }
+svg { fill-current }
+a { color-black }
+
+#app { mb3 }
+
+// drop zone styles 
+#bank1 .dropzone { bg-color-dark-red { [data-active=true] { bg-color-orange } } }
+#bank2 .dropzone { bg-color-blue { [data-active=true] { bg-color-light-blue } } }

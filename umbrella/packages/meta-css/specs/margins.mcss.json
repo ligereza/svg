@@ -1,0 +1,74 @@
+{
+	"tables": {
+		"margins": [0, 0.25, 0.5, 1, 2, 4]
+	},
+	"vars": {
+		"s": ["start"],
+		"e": ["end"]
+	},
+	"specs": [
+		{
+			"name": "p<vid><k>",
+			"doc": { "group": "padding", "desc": "<var> <v>" },
+			"props": "padding<var>",
+			"values": "margins",
+			"unit": "rem",
+			"vars": ["a", "h", "v", "t", "r", "b", "l"]
+		},
+		{
+			"name": "m<vid><k>",
+			"doc": { "group": "margin", "desc": "<var> <v>" },
+			"props": "margin<var>",
+			"values": "margins",
+			"unit": "rem",
+			"vars": ["a", "h", "v", "t", "r", "b", "l"]
+		},
+		{
+			"name": "<k>",
+			"doc": { "group": "margin" },
+			"props": {
+				"margin-left": "<v>",
+				"margin-right": "<v>"
+			},
+			"values": { "center": "auto" }
+		},
+		{
+			"name": "pb<vid>-<k>",
+			"doc": { "group": "padding", "desc": "block <var> <v>" },
+			"props": "padding-block-<var>",
+			"values": "margins",
+			"unit": "rem",
+			"vars": ["s", "e"]
+		},
+		{
+			"name": "mb<vid>-<k>",
+			"doc": { "group": "margin", "desc": "block <var> <v>" },
+			"props": "margin-block-<var>",
+			"values": "margins",
+			"unit": "rem",
+			"vars": ["s", "e"]
+		}
+	],
+	"templates": [
+		{
+			"name": "p<vid>",
+			"doc": {
+				"group": "padding",
+				"desc": "Sets padding to custom size",
+				"args": ["size: incl. units"]
+			},
+			"props": "padding<var>",
+			"vars": ["a", "h", "v", "t", "r", "b", "l"]
+		},
+		{
+			"name": "m<vid>",
+			"doc": {
+				"group": "margin",
+				"desc": "Sets margin to custom size",
+				"args": ["size: incl. units"]
+			},
+			"props": "margin<var>",
+			"vars": ["a", "h", "v", "t", "r", "b", "l"]
+		}
+	]
+}

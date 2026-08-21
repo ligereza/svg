@@ -1,0 +1,39 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:51Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+### [1.3.2](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/object-utils@1.3.2/packages/object-utils) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+## [1.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/object-utils@1.3.0/packages/object-utils) (2025-11-21)
+
+#### 🚀 Features
+
+- update `renameTransformedKeys()` ([337a2d2](https://codeberg.org/thi.ng/umbrella/commit/337a2d2))
+  - add test
+
+## [1.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/object-utils@1.2.0/packages/object-utils) (2025-07-02)
+
+#### 🚀 Features
+
+- add `firstNonNullKey()` ([9b32080](https://codeberg.org/thi.ng/umbrella/commit/9b32080))
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/object-utils@1.1.0/packages/object-utils) (2024-07-22)
+
+#### 🚀 Features
+
+- import as new package ([#486](https://codeberg.org/thi.ng/umbrella/issues/486)) ([9587f66](https://codeberg.org/thi.ng/umbrella/commit/9587f66))
+  - extract `BidirIndex` from [@thi.ng/associative](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/associative)
+- add sortedObject(), asObject(), update pkg ([b613a0c](https://codeberg.org/thi.ng/umbrella/commit/b613a0c))

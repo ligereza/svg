@@ -1,0 +1,379 @@
+{
+	"name": "@thi.ng/shader-ast-stdlib",
+	"version": "1.0.75",
+	"description": "Function collection for modular GPGPU / shader programming with @thi.ng/shader-ast",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/shader-ast-stdlib"
+	},
+	"homepage": "https://thi.ng/shader-ast-stdlib",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"contributors": [
+		"Yury Hantsouski (https://github.com/Hantsouski)"
+	],
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts color fog light math matrix noise raymarch screen sdf tex",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/shader-ast": "^1.1.56"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"ast",
+		"blend",
+		"blur",
+		"canvas",
+		"codegen",
+		"dsl",
+		"easing",
+		"fog",
+		"functional",
+		"glsl",
+		"gpgpu",
+		"higher-order",
+		"inline",
+		"interval",
+		"kernel",
+		"lighting",
+		"math",
+		"matrix",
+		"noise",
+		"random",
+		"raymarch",
+		"rgb",
+		"sdf",
+		"shader",
+		"texture",
+		"typescript",
+		"webgl"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"color",
+		"controlflow",
+		"fog",
+		"isec",
+		"light",
+		"math",
+		"matrix",
+		"noise",
+		"raymarch",
+		"screen",
+		"sdf",
+		"tex",
+		"viz"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./color/aces-film": {
+			"default": "./color/aces-film.js"
+		},
+		"./color/cosine-gradient": {
+			"default": "./color/cosine-gradient.js"
+		},
+		"./color/levels": {
+			"default": "./color/levels.js"
+		},
+		"./color/linear-srgb": {
+			"default": "./color/linear-srgb.js"
+		},
+		"./color/luminance": {
+			"default": "./color/luminance.js"
+		},
+		"./color/porter-duff": {
+			"default": "./color/porter-duff.js"
+		},
+		"./color/rgbe": {
+			"default": "./color/rgbe.js"
+		},
+		"./controlflow/branches": {
+			"default": "./controlflow/branches.js"
+		},
+		"./fog/exp": {
+			"default": "./fog/exp.js"
+		},
+		"./fog/exp2": {
+			"default": "./fog/exp2.js"
+		},
+		"./fog/linear": {
+			"default": "./fog/linear.js"
+		},
+		"./isec/point": {
+			"default": "./isec/point.js"
+		},
+		"./light/lambert": {
+			"default": "./light/lambert.js"
+		},
+		"./light/trilight": {
+			"default": "./light/trilight.js"
+		},
+		"./math/additive": {
+			"default": "./math/additive.js"
+		},
+		"./math/cartesian": {
+			"default": "./math/cartesian.js"
+		},
+		"./math/clamp": {
+			"default": "./math/clamp.js"
+		},
+		"./math/cross2": {
+			"default": "./math/cross2.js"
+		},
+		"./math/dist-chebyshev": {
+			"default": "./math/dist-chebyshev.js"
+		},
+		"./math/dist-manhattan": {
+			"default": "./math/dist-manhattan.js"
+		},
+		"./math/easing": {
+			"default": "./math/easing.js"
+		},
+		"./math/fit": {
+			"default": "./math/fit.js"
+		},
+		"./math/interval": {
+			"default": "./math/interval.js"
+		},
+		"./math/magsq": {
+			"default": "./math/magsq.js"
+		},
+		"./math/maxcomp": {
+			"default": "./math/maxcomp.js"
+		},
+		"./math/mincomp": {
+			"default": "./math/mincomp.js"
+		},
+		"./math/mix-cubic": {
+			"default": "./math/mix-cubic.js"
+		},
+		"./math/mix-quadratic": {
+			"default": "./math/mix-quadratic.js"
+		},
+		"./math/orthogonal": {
+			"default": "./math/orthogonal.js"
+		},
+		"./math/osc": {
+			"default": "./math/osc.js"
+		},
+		"./math/pack-float": {
+			"default": "./math/pack-float.js"
+		},
+		"./math/polar": {
+			"default": "./math/polar.js"
+		},
+		"./math/sincos": {
+			"default": "./math/sincos.js"
+		},
+		"./math/smoother-step": {
+			"default": "./math/smoother-step.js"
+		},
+		"./matrix/convert": {
+			"default": "./matrix/convert.js"
+		},
+		"./matrix/lookat": {
+			"default": "./matrix/lookat.js"
+		},
+		"./matrix/mvp": {
+			"default": "./matrix/mvp.js"
+		},
+		"./matrix/normal": {
+			"default": "./matrix/normal.js"
+		},
+		"./matrix/rotation": {
+			"default": "./matrix/rotation.js"
+		},
+		"./noise/curl3": {
+			"default": "./noise/curl3.js"
+		},
+		"./noise/fbm": {
+			"default": "./noise/fbm.js"
+		},
+		"./noise/hash": {
+			"default": "./noise/hash.js"
+		},
+		"./noise/permute": {
+			"default": "./noise/permute.js"
+		},
+		"./noise/simplex2": {
+			"default": "./noise/simplex2.js"
+		},
+		"./noise/simplex3": {
+			"default": "./noise/simplex3.js"
+		},
+		"./noise/voronoi2": {
+			"default": "./noise/voronoi2.js"
+		},
+		"./noise/worley2": {
+			"default": "./noise/worley2.js"
+		},
+		"./raymarch/ao": {
+			"default": "./raymarch/ao.js"
+		},
+		"./raymarch/direction": {
+			"default": "./raymarch/direction.js"
+		},
+		"./raymarch/normal": {
+			"default": "./raymarch/normal.js"
+		},
+		"./raymarch/point-at": {
+			"default": "./raymarch/point-at.js"
+		},
+		"./raymarch/scene": {
+			"default": "./raymarch/scene.js"
+		},
+		"./screen/uv": {
+			"default": "./screen/uv.js"
+		},
+		"./sdf/annular": {
+			"default": "./sdf/annular.js"
+		},
+		"./sdf/arc": {
+			"default": "./sdf/arc.js"
+		},
+		"./sdf/bezier": {
+			"default": "./sdf/bezier.js"
+		},
+		"./sdf/box-rounded": {
+			"default": "./sdf/box-rounded.js"
+		},
+		"./sdf/box": {
+			"default": "./sdf/box.js"
+		},
+		"./sdf/cross": {
+			"default": "./sdf/cross.js"
+		},
+		"./sdf/cylinder": {
+			"default": "./sdf/cylinder.js"
+		},
+		"./sdf/hex": {
+			"default": "./sdf/hex.js"
+		},
+		"./sdf/isec": {
+			"default": "./sdf/isec.js"
+		},
+		"./sdf/line": {
+			"default": "./sdf/line.js"
+		},
+		"./sdf/mirror": {
+			"default": "./sdf/mirror.js"
+		},
+		"./sdf/plane": {
+			"default": "./sdf/plane.js"
+		},
+		"./sdf/polygon": {
+			"default": "./sdf/polygon.js"
+		},
+		"./sdf/polyhedra": {
+			"default": "./sdf/polyhedra.js"
+		},
+		"./sdf/polyline": {
+			"default": "./sdf/polyline.js"
+		},
+		"./sdf/repeat-polar": {
+			"default": "./sdf/repeat-polar.js"
+		},
+		"./sdf/repeat": {
+			"default": "./sdf/repeat.js"
+		},
+		"./sdf/round": {
+			"default": "./sdf/round.js"
+		},
+		"./sdf/smooth-isec": {
+			"default": "./sdf/smooth-isec.js"
+		},
+		"./sdf/smooth-sub": {
+			"default": "./sdf/smooth-sub.js"
+		},
+		"./sdf/smooth-union": {
+			"default": "./sdf/smooth-union.js"
+		},
+		"./sdf/sphere": {
+			"default": "./sdf/sphere.js"
+		},
+		"./sdf/sub": {
+			"default": "./sdf/sub.js"
+		},
+		"./sdf/torus": {
+			"default": "./sdf/torus.js"
+		},
+		"./sdf/tri": {
+			"default": "./sdf/tri.js"
+		},
+		"./sdf/union": {
+			"default": "./sdf/union.js"
+		},
+		"./tex/blur": {
+			"default": "./tex/blur.js"
+		},
+		"./tex/index-coord": {
+			"default": "./tex/index-coord.js"
+		},
+		"./tex/index-uv": {
+			"default": "./tex/index-uv.js"
+		},
+		"./tex/normal": {
+			"default": "./tex/normal.js"
+		},
+		"./tex/read-index": {
+			"default": "./tex/read-index.js"
+		},
+		"./viz/function": {
+			"default": "./viz/function.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "std",
+		"parent": "@thi.ng/shader-ast",
+		"related": [
+			"shader-ast-glsl",
+			"shader-ast-js",
+			"webgl"
+		],
+		"year": 2019
+	}
+}

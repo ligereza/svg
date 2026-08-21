@@ -1,0 +1,108 @@
+{
+	"name": "@thi.ng/fuzzy",
+	"version": "2.1.143",
+	"description": "Fuzzy logic operators & configurable rule inferencing engine",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/fuzzy"
+	},
+	"homepage": "https://thi.ng/fuzzy",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts strategies",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/math": "^5.15.16"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"agent",
+		"functional",
+		"fuzzy",
+		"inference",
+		"logic",
+		"math",
+		"rule",
+		"t-norm",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"strategies"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./defuzz": {
+			"default": "./defuzz.js"
+		},
+		"./rules": {
+			"default": "./rules.js"
+		},
+		"./shapes": {
+			"default": "./shapes.js"
+		},
+		"./strategies/bisector": {
+			"default": "./strategies/bisector.js"
+		},
+		"./strategies/centroid": {
+			"default": "./strategies/centroid.js"
+		},
+		"./strategies/maxima": {
+			"default": "./strategies/maxima.js"
+		},
+		"./tnorms": {
+			"default": "./tnorms.js"
+		},
+		"./var": {
+			"default": "./var.js"
+		}
+	},
+	"thi.ng": {
+		"year": 2020
+	}
+}

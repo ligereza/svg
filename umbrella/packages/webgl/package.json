@@ -1,0 +1,231 @@
+{
+	"name": "@thi.ng/webgl",
+	"version": "6.9.117",
+	"description": "WebGL & GLSL abstraction layer",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/webgl"
+	},
+	"homepage": "https://thi.ng/webgl",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"contributors": [
+		"@nkint (https://github.com/nkint)",
+		"@stwind (https://github.com/stwind)"
+	],
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts geo shaders textures",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/canvas": "^1.1.19",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/equiv": "^2.1.116",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/logger": "^3.3.10",
+		"@thi.ng/matrices": "^3.0.53",
+		"@thi.ng/memoize": "^4.0.51",
+		"@thi.ng/object-utils": "^1.3.20",
+		"@thi.ng/pixel": "^7.5.37",
+		"@thi.ng/shader-ast": "^1.1.56",
+		"@thi.ng/shader-ast-glsl": "^1.0.75",
+		"@thi.ng/shader-ast-stdlib": "^1.0.75",
+		"@thi.ng/transducers": "^9.6.42",
+		"@thi.ng/vector-pools": "^3.2.106",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"3d",
+		"animation",
+		"blend",
+		"browser",
+		"buffer",
+		"canvas",
+		"datastructure",
+		"declarative",
+		"fbo",
+		"glsl",
+		"gpgpu",
+		"graphics",
+		"multipass",
+		"pipeline",
+		"shader",
+		"shader-ast",
+		"texture",
+		"typedarray",
+		"typescript",
+		"webgl"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"api",
+		"geo",
+		"shaders",
+		"textures"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api/blend": {
+			"default": "./api/blend.js"
+		},
+		"./api/buffers": {
+			"default": "./api/buffers.js"
+		},
+		"./api/canvas": {
+			"default": "./api/canvas.js"
+		},
+		"./api/ext": {
+			"default": "./api/ext.js"
+		},
+		"./api/glsl": {
+			"default": "./api/glsl.js"
+		},
+		"./api/material": {
+			"default": "./api/material.js"
+		},
+		"./api/model": {
+			"default": "./api/model.js"
+		},
+		"./api/multipass": {
+			"default": "./api/multipass.js"
+		},
+		"./api/shader": {
+			"default": "./api/shader.js"
+		},
+		"./api/stencil": {
+			"default": "./api/stencil.js"
+		},
+		"./api/texture": {
+			"default": "./api/texture.js"
+		},
+		"./buffer": {
+			"default": "./buffer.js"
+		},
+		"./canvas": {
+			"default": "./canvas.js"
+		},
+		"./checks": {
+			"default": "./checks.js"
+		},
+		"./draw": {
+			"default": "./draw.js"
+		},
+		"./error": {
+			"default": "./error.js"
+		},
+		"./fbo": {
+			"default": "./fbo.js"
+		},
+		"./geo/cube": {
+			"default": "./geo/cube.js"
+		},
+		"./geo/quad": {
+			"default": "./geo/quad.js"
+		},
+		"./logger": {
+			"default": "./logger.js"
+		},
+		"./material": {
+			"default": "./material.js"
+		},
+		"./matrices": {
+			"default": "./matrices.js"
+		},
+		"./multipass": {
+			"default": "./multipass.js"
+		},
+		"./rbo": {
+			"default": "./rbo.js"
+		},
+		"./readpixels": {
+			"default": "./readpixels.js"
+		},
+		"./shader": {
+			"default": "./shader.js"
+		},
+		"./shaders/lambert": {
+			"default": "./shaders/lambert.js"
+		},
+		"./shaders/phong": {
+			"default": "./shaders/phong.js"
+		},
+		"./shaders/pipeline": {
+			"default": "./shaders/pipeline.js"
+		},
+		"./syntax": {
+			"default": "./syntax.js"
+		},
+		"./texture": {
+			"default": "./texture.js"
+		},
+		"./textures/checkerboard": {
+			"default": "./textures/checkerboard.js"
+		},
+		"./textures/stripes": {
+			"default": "./textures/stripes.js"
+		},
+		"./uniforms": {
+			"default": "./uniforms.js"
+		},
+		"./utils": {
+			"default": "./utils.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "gl",
+		"related": [
+			"ecs",
+			"geom",
+			"imgui",
+			"matrices",
+			"shader-ast",
+			"soa",
+			"vectors",
+			"vector-pools",
+			"wasm-api-webgl"
+		],
+		"year": 2014
+	}
+}

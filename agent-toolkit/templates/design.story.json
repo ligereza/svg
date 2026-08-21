@@ -1,0 +1,19 @@
+{
+  "preset": "story",
+  "canvas": { "width": 1080, "height": 1920 },
+  "margins": { "top": 120, "right": 96, "bottom": 120, "left": 96 },
+  "colors": {
+    "background": "#090712",
+    "accent": "#7c3aed",
+    "highlight": "#f0abfc",
+    "text": "#ffffff",
+    "muted": "#c4b5fd"
+  },
+  "typography": {
+    "titleFont": "Arial, sans-serif",
+    "titleSize": 64,
+    "summaryFont": "Arial, sans-serif",
+    "summarySize": 28,
+    "footerSize": 20
+  }
+}

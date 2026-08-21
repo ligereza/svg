@@ -1,0 +1,153 @@
+{
+	"name": "@thi.ng/geom-splines",
+	"version": "2.3.94",
+	"description": "nD cubic & quadratic curve analysis, conversion, interpolation, splitting",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/geom-splines"
+	},
+	"homepage": "https://thi.ng/geom-splines",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/geom-arc": "^2.1.227",
+		"@thi.ng/geom-resample": "^3.0.94",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"3d",
+		"arc",
+		"bbox",
+		"bezier",
+		"conversion",
+		"cubic",
+		"curve",
+		"ellipse",
+		"geometry",
+		"interpolation",
+		"nd",
+		"proximity",
+		"quadratic",
+		"sample",
+		"shape",
+		"spline",
+		"split",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./cubic-arc": {
+			"default": "./cubic-arc.js"
+		},
+		"./cubic-bounds": {
+			"default": "./cubic-bounds.js"
+		},
+		"./cubic-closest-point": {
+			"default": "./cubic-closest-point.js"
+		},
+		"./cubic-from-breakpoints": {
+			"default": "./cubic-from-breakpoints.js"
+		},
+		"./cubic-from-controlpoints": {
+			"default": "./cubic-from-controlpoints.js"
+		},
+		"./cubic-hobby": {
+			"default": "./cubic-hobby.js"
+		},
+		"./cubic-line": {
+			"default": "./cubic-line.js"
+		},
+		"./cubic-quadratic": {
+			"default": "./cubic-quadratic.js"
+		},
+		"./cubic-sample": {
+			"default": "./cubic-sample.js"
+		},
+		"./cubic-split": {
+			"default": "./cubic-split.js"
+		},
+		"./cubic-tangent": {
+			"default": "./cubic-tangent.js"
+		},
+		"./point-at": {
+			"default": "./point-at.js"
+		},
+		"./quadratic-bounds": {
+			"default": "./quadratic-bounds.js"
+		},
+		"./quadratic-closest-point": {
+			"default": "./quadratic-closest-point.js"
+		},
+		"./quadratic-line": {
+			"default": "./quadratic-line.js"
+		},
+		"./quadratic-sample": {
+			"default": "./quadratic-sample.js"
+		},
+		"./quadratic-split": {
+			"default": "./quadratic-split.js"
+		},
+		"./quadratic-tangent": {
+			"default": "./quadratic-tangent.js"
+		}
+	},
+	"thi.ng": {
+		"parent": "@thi.ng/geom",
+		"related": [
+			"geom-subdiv-curve"
+		],
+		"tag": "bezier"
+	}
+}

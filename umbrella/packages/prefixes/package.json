@@ -1,0 +1,112 @@
+{
+	"name": "@thi.ng/prefixes",
+	"version": "2.3.77",
+	"description": "50+ Linked Data vocabulary prefixes and their namespace URLs",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/prefixes"
+	},
+	"homepage": "https://thi.ng/prefixes",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"linked-data",
+		"namespace",
+		"prefix",
+		"rdf",
+		"semantic-web",
+		"uri",
+		"vocabulary",
+		"xml"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./dc": {
+			"default": "./dc.js"
+		},
+		"./geo": {
+			"default": "./geo.js"
+		},
+		"./json": {
+			"default": "./json.js"
+		},
+		"./media": {
+			"default": "./media.js"
+		},
+		"./rdf": {
+			"default": "./rdf.js"
+		},
+		"./social": {
+			"default": "./social.js"
+		},
+		"./time": {
+			"default": "./time.js"
+		},
+		"./upper": {
+			"default": "./upper.js"
+		},
+		"./wiki": {
+			"default": "./wiki.js"
+		},
+		"./xml": {
+			"default": "./xml.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"egf",
+			"hdom",
+			"hiccup",
+			"hiccup-svg",
+			"rdom"
+		],
+		"year": 2020
+	}
+}

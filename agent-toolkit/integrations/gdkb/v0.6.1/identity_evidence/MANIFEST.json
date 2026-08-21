@@ -1,0 +1,72 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "dba98b30c1a51d604540f56acfcc5743314e3a56bee70111c631ebc54ae8769c",
+    "bytes": 1045
+  },
+  {
+    "path": "app/lifecycle.py",
+    "sha256": "9e52907bbc14bd10d1f3f9016db736cba9f77ba187622187de08b361b5ef9a0d",
+    "bytes": 839
+  },
+  {
+    "path": "app/model.py",
+    "sha256": "712f06e94e505b6cdf74b4b5560fcd1f83fc3e4376c8562e8f92d516369351a5",
+    "bytes": 1026
+  },
+  {
+    "path": "docs/ARCHITECTURE.md",
+    "sha256": "680eaefe6c597fa6116761821efbcd6e825760329dcf77e0052b843ac206b098",
+    "bytes": 1169
+  },
+  {
+    "path": "docs/EVIDENCE.md",
+    "sha256": "849c235e364ecc71031af9f73436441103749173f3b4cadd8da723365b487030",
+    "bytes": 942
+  },
+  {
+    "path": "docs/IDENTITY.md",
+    "sha256": "ed813a29132eab3e34e73d891fddedb8c7d64c60caddc884726a0ec2d9662da3",
+    "bytes": 1201
+  },
+  {
+    "path": "docs/LIFECYCLE.md",
+    "sha256": "c28733ae3f8b02df6fc85c98c04862e76084fb5177b75000a3e5612343a7e9ad",
+    "bytes": 826
+  },
+  {
+    "path": "docs/NEXT.md",
+    "sha256": "310533ababea480a75c2bc7c738bb8281c56460be6d8dcc5256cb084ed2e69e4",
+    "bytes": 430
+  },
+  {
+    "path": "docs/RESOLUTION_2.md",
+    "sha256": "7b0c9eb31e25bb687c03c3883294194e4e2e94f03c2434554ee9ca9bdef78de9",
+    "bytes": 1064
+  },
+  {
+    "path": "docs/VERSIONING.md",
+    "sha256": "86d3e76bb887e90f26dc345be5570fc87f9b46727586517bde1fcc94350b7fa8",
+    "bytes": 605
+  },
+  {
+    "path": "gold/benchmark_spec.json",
+    "sha256": "bae0098df0f07cf5ec5b037e84056438fd3fd5b296ba5f3c1d8b44b39e225379",
+    "bytes": 511
+  },
+  {
+    "path": "schemas/003_identity_evidence_lifecycle.sql",
+    "sha256": "ae79095aac54a6ed96fd553aada7b54b4a94473d7e4d30d350bb349c3c4b143c",
+    "bytes": 3248
+  },
+  {
+    "path": "tests/test_lifecycle.py",
+    "sha256": "2327d646b1bb193abbfe1ef594fdb8255ec446bc52b20a26bb1f3b6c725aaa40",
+    "bytes": 597
+  },
+  {
+    "path": "tests/test_models.py",
+    "sha256": "eb091efcd79bcca13c3a21bf089259676702a2b4ba1f11952a77e854fbd22320",
+    "bytes": 395
+  }
+]

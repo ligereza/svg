@@ -1,0 +1,24 @@
+{
+	"tables": {},
+	"vars": {
+		"in": ["ease-out"],
+		"out": ["linear"]
+	},
+	"decls": [
+		["@keyframes", "item-in", { "opacity": 0 }, { "opacity": 1 }],
+		[
+			"@keyframes",
+			"item-out",
+			{ "height": "4rem", "opacity": 1 },
+			{ "height": "2rem", "opacity": 0 },
+			{ "height": 0, "opacity": 0 }
+		]
+	],
+	"templates": [
+		{
+			"name": "item-<vid>",
+			"props": { "animation": "item-<vid> {0}s <var> forwards" },
+			"vars": ["in", "out"]
+		}
+	]
+}

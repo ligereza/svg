@@ -1,0 +1,110 @@
+// SPDX-License-Identifier: Apache-2.0
+import type { Maybe } from "@thi.ng/api";
+import { isString } from "@thi.ng/checks/is-string";
+import { illegalArgs } from "@thi.ng/errors/illegal-arguments";
+import { illegalArity } from "@thi.ng/errors/illegal-arity";
+import type { Reducer } from "@thi.ng/transducers";
+import { reduce, reducer } from "@thi.ng/transducers/reduce";
+import type { PatchArrayOp } from "./api.js";
+
+/**
+ * Reducer for {@link Patch} based array edits. Only numeric indices are
+ * supported (i.e. NO nested edits, use {@link patchObj} for that
+ * purpose).
+ *
+ * @remarks
+ * Unless `immutable` is false (default: true), all edits are performed
+ * in a non-destructive manner.
+ *
+ * The following patch types are supported:
+ *
+ * - `SET`
+ * - `UPDATE`
+ * - `INSERT`
+ * - `DELETE`
+ *
+ * @example
+ * ```ts tangle:../export/patch-array.ts
+ * import { patchArray } from "@thi.ng/transducers-patch";
+ *
+ * // direct invocation
+ * const res = patchArray(
+ *     true,
+ *     [1, 2, 3],
+ *     [
+ *         ["set", 0, 42],
+ *         ["update", 1, (x, n) => x * n, 10],
+ *         ["insert", 2, [10, 11]],
+ *         ["delete", 3]
+ *     ]
+ * );
+ *
+ * console.log(res);
+ * // [ 42, 20, 10, 3 ]
+ * ```
+ */
+export function patchArray<T>(
+	immutable?: boolean
+): Reducer<PatchArrayOp<T> | PatchArrayOp<T>[], T[]>;
+export function patchArray<T>(
+	immutable: boolean,
+	init: T[],
+	patches: Iterable<PatchArrayOp<T> | PatchArrayOp<T>[]>
+): T[];
+export function patchArray<T>(...args: any[]) {
+	let immutable: boolean;
+	let init: T[];
+	let patches: Maybe<Iterable<PatchArrayOp<T> | PatchArrayOp<T>[]>>;
+	switch (args.length) {
+		case 0:
+			immutable = true;
+			break;
+		case 1:
+			immutable = args[0];
+			break;
+		case 3:
+			immutable = args[0];
+			init = args[1];
+			patches = args[2];
+			break;
+		default:
+			illegalArity(args.length);
+	}
+
+	const edit = (acc: T[], x: PatchArrayOp<T> | PatchArrayOp<T>[]) => {
+		switch (x[0]) {
+			case "set":
+				acc[x[1]] = x[2];
+				break;
+			case "update":
+				acc[x[1]] = x[2](acc[x[1]], ...x.slice(3));
+				break;
+			case "insert":
+				acc.splice(x[1], 0, ...x[2]);
+				break;
+			case "delete":
+				acc.splice(x[1], 1);
+				break;
+			default:
+				illegalArgs(`patch op: ${x}`);
+		}
+		return acc;
+	};
+
+	return patches
+		? reduce(patchArray<T>(immutable), init!, patches)
+		: reducer<PatchArrayOp<T> | PatchArrayOp<T>[], T[]>(
+				() => [],
+				(acc, x) => {
+					immutable && (acc = acc.slice());
+					if (isString(x[0])) {
+						acc = edit(acc, x);
+					} else {
+						for (const e of <PatchArrayOp<T>[]>x) {
+							acc = edit(acc, e);
+						}
+					}
+					return acc;
+				}
+			);
+}

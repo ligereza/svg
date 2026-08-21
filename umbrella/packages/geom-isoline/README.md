@@ -1,0 +1,161 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/geom-isoline](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-geom-isoline.svg?d5f8bb02)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/geom-isoline.svg)](https://www.npmjs.com/package/@thi.ng/geom-isoline)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/geom-isoline.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!NOTE]
+
+> This is one of 216 standalone projects. LLM-free, human-made and
+> cared for software, maintained as part of the
+> [@thi.ng/umbrella](https://codeberg.org/thi.ng/umbrella/) ecosystem and
+> anti-framework.
+>
+> 🚀 Please help me to work full-time on these projects by [sponsoring
+> me](https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#donations).
+> Thank you! ❤️
+
+- [About](#about)
+- [Status](#status)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [Usage examples](#usage-examples)
+- [API](#api)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+2D isoline / contour extraction, using [Marching
+squares](https://en.wikipedia.org/wiki/Marching_squares). Ported from
+the Clojure version of
+[thi.ng/ndarray](https://github.com/thi-ng/ndarray/blob/develop/src/contours.org).
+
+## Status
+
+**STABLE** - used in production
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bgeom-isoline%5D)
+
+## Installation
+
+```bash
+yarn add @thi.ng/geom-isoline
+```
+
+ESM import:
+
+```ts
+import * as iso from "@thi.ng/geom-isoline";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/geom-isoline"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const iso = await import("@thi.ng/geom-isoline");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 716 bytes
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/transducers](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/transducers)
+- [@thi.ng/vectors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/vectors)
+
+Note: @thi.ng/api is in _most_ cases a type-only import (not used at runtime)
+
+## Usage examples
+
+One project in this repo's
+[/examples](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples)
+directory is using this package:
+
+| Screenshot                                                                                                      | Description                                                | Live demo                                        | Source                                                                                |
+|:----------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------|
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/geom/geom-isoline.png" width="240"/> | Animated sine plasma effect visualized using contour lines | [Demo](https://demo.thi.ng/umbrella/iso-plasma/) | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/iso-plasma) |
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/geom-isoline/)
+
+```ts
+import * as g from "@thi.ng/geom";
+import * as iso from "@thi.ng/geom-isoline";
+import * as tx from "@thi.ng/transducers";
+
+import * as fs "node:fs";
+
+// evaluate fn for each [x,y], create array
+const makeField = (fn, width, height) =>
+    iso.setBorder(
+        [...tx.map(fn, tx.range2d(width, height))],
+        width,
+        height,
+        1000
+    );
+
+// precompute field with given fn
+const src = makeField(
+    ([x, y]) => Math.sin(x * 0.1) * Math.cos(y * 0.1),
+    100,
+    100
+);
+
+// contour iterator
+const contours = tx.iterator(
+    tx.comp(
+        // iso value => RGB color from
+        tx.mapIndexed((i, x) => [x, [i / 20, 1 - i / 40, 1 - i / 20]]),
+        // contour & color tuples
+        tx.mapcat(([i, col]) => tx.map((pts)=> [pts, col], iso.isolines(src, 100, 100, i))),
+        // wrap as polygon for svg
+        tx.map(([pts, col]) => g.polygon(pts, { stroke: col}))
+    ),
+    // iso value range
+    tx.range(-1, 1, 0.05)
+);
+
+// svg document wrapper
+const doc = g.svgDoc(
+    {
+        width: 600,
+        height: 600,
+        fill: "none",
+        "stroke-width": 0.1
+    },
+    ...contours
+);
+
+// output
+fs.writeFileSync("contours.svg", g.asSvg(doc));
+```
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-geom-isoline,
+  title = "@thi.ng/geom-isoline",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/geom-isoline",
+  year = 2015
+}
+```
+
+## License
+
+&copy; 2015 - 2026 Karsten Schmidt // Apache License 2.0

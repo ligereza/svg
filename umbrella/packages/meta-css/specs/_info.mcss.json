@@ -1,0 +1,28 @@
+{
+	"info": {
+		"name": "MetaCSS base",
+		"version": "0.19.0"
+	},
+	"media": {
+		"ns": { "min-width": "640px" },
+		"m": { "min-width": "768px" },
+		"l": { "min-width": "1024px" },
+		"xl": { "min-width": "1280px" },
+		"2xl": { "min-width": "1536px" },
+		"dark": {
+			"prefers-color-scheme": "dark"
+		},
+		"light": {
+			"prefers-color-scheme": "light"
+		},
+		"anim": {
+			"prefers-reduced-motion": false
+		},
+		"noanim": {
+			"prefers-reduced-motion": true
+		},
+		"contrast": {
+			"forced-colors": true
+		}
+	}
+}

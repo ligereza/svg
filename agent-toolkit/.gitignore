@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+*.pyc
+jobs/*/input/*
+jobs/*/work/*
+jobs/*/output/*
+jobs/*
+!jobs/.gitkeep
+config.local.json
+*.log
+adapters/**/last-error.txt
+adapters/**/last-run.txt
+logs/*
+!logs/.gitkeep
+cache/*
+!cache/.gitkeep

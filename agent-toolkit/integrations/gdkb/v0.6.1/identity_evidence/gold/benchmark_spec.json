@@ -1,0 +1,28 @@
+{
+  "version": "0.6.1",
+  "categories": [
+    "exact_identifier",
+    "exact_name",
+    "accent_variant",
+    "language_variant",
+    "translation",
+    "historical_name",
+    "regional_name",
+    "abbreviation",
+    "near_collision",
+    "chemical_form",
+    "ambiguous",
+    "conflicting_sources",
+    "merge_candidate",
+    "split_candidate"
+  ],
+  "required_metrics": [
+    "precision",
+    "recall",
+    "f1",
+    "false_positive_rate",
+    "review_rate",
+    "merge_precision",
+    "split_precision"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+	"name": "@example/package-stats",
+	"private": true,
+	"description": "CLI util to visualize umbrella pkg stats",
+	"version": "0.0.1",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"type": "module",
+	"scripts": {
+		"build": "bun src/index.ts"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3"
+	},
+	"dependencies": {
+		"@thi.ng/dgraph": "workspace:^",
+		"@thi.ng/file-io": "workspace:^",
+		"@thi.ng/hiccup": "workspace:^",
+		"@thi.ng/hiccup-svg": "workspace:^",
+		"@thi.ng/math": "workspace:^",
+		"@thi.ng/paths": "workspace:^",
+		"@thi.ng/strings": "workspace:^",
+		"@thi.ng/transducers": "workspace:^"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"online": false,
+		"readme": [
+			"dgraph",
+			"file-io",
+			"hiccup",
+			"hiccup-svg",
+			"transducers"
+		],
+		"screenshot": "examples/package-stats.png"
+	},
+	"keywords": [
+		"2d",
+		"bar",
+		"cli",
+		"dag",
+		"dependency",
+		"example",
+		"file",
+		"graph",
+		"hiccup",
+		"plot",
+		"svg",
+		"tool",
+		"transducer",
+		"visualization"
+	]
+}

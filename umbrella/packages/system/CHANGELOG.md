@@ -1,0 +1,88 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:52Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+### [3.1.86](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@3.1.86/packages/system) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+### [3.1.47](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@3.1.47/packages/system) (2025-02-21)
+
+#### ♻️ Refactoring
+
+- switch use of `Promise` to `MaybePromise` ([59b3ae1](https://codeberg.org/thi.ng/umbrella/commit/59b3ae1))
+  - update `ILifeCycle` and `ComponentFactory` to not require async
+  - update tests
+
+## [3.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@3.1.0/packages/system) (2024-03-09)
+
+#### 🚀 Features
+
+- add start/stop logging ([97af706](https://codeberg.org/thi.ng/umbrella/commit/97af706))
+
+#### 🧪 Tests
+
+- add tests ([5313460](https://codeberg.org/thi.ng/umbrella/commit/5313460))
+
+### [3.0.3](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@3.0.3/packages/system) (2024-02-16)
+
+#### ♻️ Refactoring
+
+- update LOGGER handling ([a11f2a8](https://codeberg.org/thi.ng/umbrella/commit/a11f2a8))
+
+# [3.0.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@3.0.0/packages/system) (2024-02-01)
+
+#### 🛑 Breaking changes
+
+- Async component factories ([998409d](https://codeberg.org/thi.ng/umbrella/commit/998409d))
+- BREAKING CHANGE: Component factory functions are async now
+  - add async System.init()
+  - update System ctor
+  - add/update docs
+  - update tests
+
+## [2.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@2.3.0/packages/system) (2024-01-31)
+
+#### 🚀 Features
+
+- update ILifecycle, add system arg ([89d341a](https://codeberg.org/thi.ng/umbrella/commit/89d341a))
+  - add/update tests
+
+## [2.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@2.2.0/packages/system) (2024-01-30)
+
+#### 🚀 Features
+
+- update start/stop logic ([71f2dc5](https://codeberg.org/thi.ng/umbrella/commit/71f2dc5))
+  - update System.start() to stop already started components if current
+  component startup failed
+  - update System.stop() to only return true if _all_ components did shutdown
+  - update docs
+  - add tests
+
+### [2.1.80](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@2.1.80/packages/system) (2023-11-09)
+
+#### ♻️ Refactoring
+
+- update all tests (packages A-S) ([e3085e4](https://codeberg.org/thi.ng/umbrella/commit/e3085e4))
+
+#### 🧪 Tests
+
+- update/refactor tests to use bun test runner ([8f6edb1](https://codeberg.org/thi.ng/umbrella/commit/8f6edb1))
+- update/rename test files/imports (still many broken) ([1cb3c49](https://codeberg.org/thi.ng/umbrella/commit/1cb3c49))
+
+### [2.1.49](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/system@2.1.49/packages/system) (2023-03-27)
+
+#### 🧪 Tests
+
+- update all tests (mainly imports) ([63a85f9](https://codeberg.org/thi.ng/umbrella/commit/63a85f9))

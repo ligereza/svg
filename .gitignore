@@ -1,0 +1,37 @@
+# Instalaciones locales y dependencias regenerables
+**/node_modules/
+**/.pnpm-store/
+**/.yarn/cache/
+**/.yarn/unplugged/
+**/.yarn/install-state.gz
+**/.cache/
+**/.pytest_cache/
+**/__pycache__/
+**/.venv/
+**/venv/
+
+# Temporales del workspace
+_downloads/
+_local_registry_effect/
+_staging/
+_tmp_chemsex_render/
+_zip_stage/
+**/*.log
+**/*.tmp
+**/*.bak
+
+# Metadatos Git anidados
+**/.git/
+**/.git.local-disabled/
+
+# Secretos y credenciales
+.env
+.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*credentials*
+**/*secret*
+**/*token*

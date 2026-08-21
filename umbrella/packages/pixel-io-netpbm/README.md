@@ -1,0 +1,176 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/pixel-io-netpbm](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-pixel-io-netpbm.svg?b88db016)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/pixel-io-netpbm.svg)](https://www.npmjs.com/package/@thi.ng/pixel-io-netpbm)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/pixel-io-netpbm.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!NOTE]
+
+> This is one of 216 standalone projects. LLM-free, human-made and
+> cared for software, maintained as part of the
+> [@thi.ng/umbrella](https://codeberg.org/thi.ng/umbrella/) ecosystem and
+> anti-framework.
+>
+> 🚀 Please help me to work full-time on these projects by [sponsoring
+> me](https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#donations).
+> Thank you! ❤️
+
+- [About](#about)
+- [Status](#status)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [Usage examples](#usage-examples)
+- [API](#api)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+Multi-format NetPBM reader & writer support for [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel).
+
+This package can read & write binary
+[NetPBM](https://en.wikipedia.org/wiki/Netpbm) image formats from byte
+arrays/buffers to
+[@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel)
+pixel buffers (aka `PackedBuffer`).
+
+|      Source format | Destination format    | Rec. file extension<sup>(1)</sup> |
+|-------------------:|-----------------------|-----------------------------------|
+|              1 bit | `GRAY8`<sup>(2)</sup> | `.pbm`                            |
+|  2-8 bit grayscale | `GRAY8`               | `.pgm`                            |
+| 9-16 bit grayscale | `GRAY16`              | `.pgm`                            |
+|         24 bit RGB | `ARGB8888`            | `.ppm`                            |
+
+<sup>(1)</sup> no relevance to actual parse/export logic
+<sup>(2)</sup> currently no support for actual 1-bit pixel buffers
+
+Furthermore the `parseHeader()` function can be used to just extract image type,
+size and other meta data (from comments), without parsing the full image.
+
+## Status
+
+**STABLE** - used in production
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bpixel-io-netpbm%5D)
+
+## Installation
+
+```bash
+yarn add @thi.ng/pixel-io-netpbm
+```
+
+ESM import:
+
+```ts
+import * as pbm from "@thi.ng/pixel-io-netpbm";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/pixel-io-netpbm"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const pbm = await import("@thi.ng/pixel-io-netpbm");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 1.25 KB
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/errors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/errors)
+- [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel)
+
+Note: @thi.ng/api is in _most_ cases a type-only import (not used at runtime)
+
+## Usage examples
+
+One project in this repo's
+[/examples](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples)
+directory is using this package:
+
+| Screenshot                                                                                                          | Description                                            | Live demo                                          | Source                                                                                  |
+|:--------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------|
+| <img src="https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/examples/trace-bitmap.jpg" width="240"/> | Multi-layer vectorization & dithering of bitmap images | [Demo](https://demo.thi.ng/umbrella/trace-bitmap/) | [Source](https://codeberg.org/thi.ng/umbrella/src/branch/develop/examples/trace-bitmap) |
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/pixel-io-netpbm/)
+
+```ts
+import * as pbm from "@thi.ng/pixel-io-netpbm";
+import * as fs "node:fs";
+
+const src = fs.readFileSync("a.pbm");
+// <Buffer 50 34 0a 23 20 67 65 6e 65 72 61 74 65 64 20 62 79...>
+
+// parse image header data
+// P4 type => 1bit bitmap
+pbm.parseHeader(src)
+// {
+//     type: 'P4',
+//     width: 12,
+//     height: 8,
+//     max: undefined,
+//     start: 47,
+//     comments: [ 'generated by @thi.ng/pixel-io-netpbm' ]
+// }
+
+const img = pbm.read(src);
+// IntBuffer {
+//   width: 12,
+//   height: 8,
+//   format: [Object],
+//   data: Uint8Array(96) [
+//     255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+//     255, 255, 255,   0,   0, 255, 255, 255, 255, 255,   0, 255,
+//     255, 255,   0,   0,   0,   0, 255, 255, 255,   0,   0, 255,
+//     255,   0,   0, 255, 255,   0,   0, 255,   0,   0,   0, 255,
+//     255,   0,   0,   0,   0,   0,   0, 255,   0,   0,   0, 255,
+//     255,   0,   0, 255, 255,   0,   0, 255, 255,   0,   0, 255,
+//     255,   0,   0, 255, 255,   0,   0, 255, 255, 255,   0, 255,
+//     255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255
+//   ]
+// }
+
+// convert to RGB image and export w/ additional meta data
+// (will be stored in PBM header comments)
+fs.writeFileSync(
+    "a-rgb.ppm",
+    pbm.asPPM(
+        img.as(RGB888),
+        [
+            "@prefix dc: http://purl.org/dc/terms/",
+            "dc:created 2021-02-08",
+            "dc:creator toxi"
+        ]
+    )
+);
+```
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-pixel-io-netpbm,
+  title = "@thi.ng/pixel-io-netpbm",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/pixel-io-netpbm",
+  year = 2021
+}
+```
+
+## License
+
+&copy; 2021 - 2026 Karsten Schmidt // Apache License 2.0

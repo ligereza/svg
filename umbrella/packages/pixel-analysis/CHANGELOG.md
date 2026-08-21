@@ -1,0 +1,126 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:51Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+### [2.0.20](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@2.0.20/packages/pixel-analysis) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+# [2.0.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@2.0.0/packages/pixel-analysis) (2025-07-30)
+
+#### 🛑 Breaking changes
+
+- update color analysis result types, add aggregation ([8c70504](https://codeberg.org/thi.ng/umbrella/commit/8c70504))
+- BREAKING CHANGE:  update color analysis result types, add aggregation
+  - add `BaseColorAnalysisResult`, `AggregatedColorAnalysisResult`
+  - update `ColorAnalysisResult`, use `Metrics`
+  - add `aggregateColorResults()`
+  - update `analyzeColors()`, `deriveColorResults()`
+  - rename `computeHueRange()` => `hueRange()`
+  - update deps
+
+#### 🧪 Tests
+
+- fix tests ([c114fed](https://codeberg.org/thi.ng/umbrella/commit/c114fed))
+
+### [1.1.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@1.1.1/packages/pixel-analysis) (2025-07-27)
+
+#### 🩹 Bug fixes
+
+- update/fix weightedLuma result ([19d818c](https://codeberg.org/thi.ng/umbrella/commit/19d818c))
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@1.1.0/packages/pixel-analysis) (2025-07-27)
+
+#### 🚀 Features
+
+- make temperature()/hueTemperature() parametric ([f61955e](https://codeberg.org/thi.ng/umbrella/commit/f61955e))
+  - add coefficients as optional arg
+  - add `DEFAULT_TEMPERATURE_COEFFS`
+- update analyzeColors() & ColorAnalysisResult ([595064d](https://codeberg.org/thi.ng/umbrella/commit/595064d))
+  - update/rename `AnalysisOpts` => `ColorAnalysisOpts`
+  - add `ColorAnalysisOpts.tempCoeffs`
+  - rename `AnalyzedImage` => `ColorAnalysisResult`
+  - update `ColorAnalysisResult` internal structure
+  - add `computeHueRange()`
+- update `analyzeFeatures()`, add `FeatureAnalysisResult` ([e276eb8](https://codeberg.org/thi.ng/umbrella/commit/e276eb8))
+
+#### 🧪 Tests
+
+- add/ tests ([0a6f056](https://codeberg.org/thi.ng/umbrella/commit/0a6f056))
+
+### [1.0.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@1.0.1/packages/pixel-analysis) (2025-07-24)
+
+#### 🩹 Bug fixes
+
+- bail out if insufficient samples ([41ba4c3](https://codeberg.org/thi.ng/umbrella/commit/41ba4c3))
+  - update `temperature()` to return empty result if insufficient color samples
+- update hue standard deviation ([9b0ea02](https://codeberg.org/thi.ng/umbrella/commit/9b0ea02))
+  - return normalized hue SD (not in radians)
+
+# [1.0.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@1.0.0/packages/pixel-analysis) (2025-07-24)
+
+#### 🛑 Breaking changes
+
+- major update/rewrite hue range analysis fns ([5730fea](https://codeberg.org/thi.ng/umbrella/commit/5730fea))
+- BREAKING CHANGE: replace/update hue range analysis fns
+- major update/rewrite hue range analysis fns ([9b12898](https://codeberg.org/thi.ng/umbrella/commit/9b12898))
+- BREAKING CHANGE: update AnalyzedImage result, update color analysis fns
+  - update structure & details of `AnalyzedImage` result type
+  - update `derivedColorsResults()`
+  - update/split `analyzeColors()`
+- replace temperature calculation ([2a23cfa](https://codeberg.org/thi.ng/umbrella/commit/2a23cfa))
+- BREAKING CHANGE: replace temperature calculation with whole new approach
+  - replace existing `temperature()` with new method/approach
+  - add `TemperatureResult`
+  - update `analyzeColors()`, `derivedColorsResult()`
+
+#### 🧪 Tests
+
+- add/update tests ([12b3db3](https://codeberg.org/thi.ng/umbrella/commit/12b3db3))
+
+### [0.4.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@0.4.1/packages/pixel-analysis) (2025-07-15)
+
+#### ♻️ Refactoring
+
+- extract `derivedColorsResults()` ([c8fb4ed](https://codeberg.org/thi.ng/umbrella/commit/c8fb4ed))
+
+## [0.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@0.4.0/packages/pixel-analysis) (2025-07-14)
+
+#### 🚀 Features
+
+- add color channel precision ([beb2c21](https://codeberg.org/thi.ng/umbrella/commit/beb2c21))
+  - add `AnalysisOpts.prec`
+  - update `analyzeColors()`
+
+## [0.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@0.3.0/packages/pixel-analysis) (2025-06-24)
+
+#### 🚀 Features
+
+- update dominant color extraction ([58c7ea5](https://codeberg.org/thi.ng/umbrella/commit/58c7ea5))
+  - add `AnalysisOpts.dominantFn`
+
+## [0.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@0.2.0/packages/pixel-analysis) (2025-06-02)
+
+#### 🚀 Features
+
+- update hue range fns ([27d43aa](https://codeberg.org/thi.ng/umbrella/commit/27d43aa))
+  - simplify/optimize warmIntensityHsv()
+  - update args to accept int buffers
+  - add tests
+
+## [0.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/pixel-analysis@0.1.0/packages/pixel-analysis) (2025-05-28)
+
+#### 🚀 Features
+
+- import as new pkg ([587b4da](https://codeberg.org/thi.ng/umbrella/commit/587b4da))

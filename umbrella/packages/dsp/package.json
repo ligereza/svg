@@ -1,0 +1,296 @@
+{
+	"name": "@thi.ng/dsp",
+	"version": "4.7.121",
+	"description": "Composable signal generators, oscillators, filters, FFT, spectrum, windowing & related DSP utils",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/dsp"
+	},
+	"homepage": "https://thi.ng/dsp",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:diagrams": "bun tools/generate-diagrams.ts",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/random": "^4.1.53",
+		"@thi.ng/transducers": "^9.6.42"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"allpass",
+		"analysis",
+		"audio",
+		"biquad",
+		"channel",
+		"clipping",
+		"composition",
+		"datastructure",
+		"delay",
+		"dsp",
+		"envelope",
+		"feedback",
+		"fft",
+		"filter",
+		"frequency",
+		"generator",
+		"impulse",
+		"iterator",
+		"lfo",
+		"math",
+		"noise",
+		"oscillator",
+		"signal",
+		"svf",
+		"synthesis",
+		"typescript",
+		"waveform",
+		"waveshaper",
+		"windowing"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./add": {
+			"default": "./add.js"
+		},
+		"./addg": {
+			"default": "./addg.js"
+		},
+		"./adsr": {
+			"default": "./adsr.js"
+		},
+		"./agen": {
+			"default": "./agen.js"
+		},
+		"./allpass": {
+			"default": "./allpass.js"
+		},
+		"./alt": {
+			"default": "./alt.js"
+		},
+		"./anti-alias": {
+			"default": "./anti-alias.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./aproc": {
+			"default": "./aproc.js"
+		},
+		"./biquad": {
+			"default": "./biquad.js"
+		},
+		"./bounce": {
+			"default": "./bounce.js"
+		},
+		"./complex": {
+			"default": "./complex.js"
+		},
+		"./const": {
+			"default": "./const.js"
+		},
+		"./convert": {
+			"default": "./convert.js"
+		},
+		"./cosine": {
+			"default": "./cosine.js"
+		},
+		"./curve": {
+			"default": "./curve.js"
+		},
+		"./dcblock": {
+			"default": "./dcblock.js"
+		},
+		"./delay": {
+			"default": "./delay.js"
+		},
+		"./feedback-delay": {
+			"default": "./feedback-delay.js"
+		},
+		"./fft": {
+			"default": "./fft.js"
+		},
+		"./filter-delay": {
+			"default": "./filter-delay.js"
+		},
+		"./filter-response": {
+			"default": "./filter-response.js"
+		},
+		"./foldback": {
+			"default": "./foldback.js"
+		},
+		"./impulse-train": {
+			"default": "./impulse-train.js"
+		},
+		"./impulse": {
+			"default": "./impulse.js"
+		},
+		"./integrator": {
+			"default": "./integrator.js"
+		},
+		"./iterable": {
+			"default": "./iterable.js"
+		},
+		"./line": {
+			"default": "./line.js"
+		},
+		"./madd": {
+			"default": "./madd.js"
+		},
+		"./mapg": {
+			"default": "./mapg.js"
+		},
+		"./merge": {
+			"default": "./merge.js"
+		},
+		"./mix": {
+			"default": "./mix.js"
+		},
+		"./mul": {
+			"default": "./mul.js"
+		},
+		"./multiplex": {
+			"default": "./multiplex.js"
+		},
+		"./onepole": {
+			"default": "./onepole.js"
+		},
+		"./osc-additive": {
+			"default": "./osc-additive.js"
+		},
+		"./osc-cos": {
+			"default": "./osc-cos.js"
+		},
+		"./osc-dsf": {
+			"default": "./osc-dsf.js"
+		},
+		"./osc-mix": {
+			"default": "./osc-mix.js"
+		},
+		"./osc-parabolic": {
+			"default": "./osc-parabolic.js"
+		},
+		"./osc-rect": {
+			"default": "./osc-rect.js"
+		},
+		"./osc-saw": {
+			"default": "./osc-saw.js"
+		},
+		"./osc-sin": {
+			"default": "./osc-sin.js"
+		},
+		"./osc-square-sin": {
+			"default": "./osc-square-sin.js"
+		},
+		"./osc-tri": {
+			"default": "./osc-tri.js"
+		},
+		"./osc-wavetable": {
+			"default": "./osc-wavetable.js"
+		},
+		"./osc": {
+			"default": "./osc.js"
+		},
+		"./pan": {
+			"default": "./pan.js"
+		},
+		"./pink-noise": {
+			"default": "./pink-noise.js"
+		},
+		"./pipe": {
+			"default": "./pipe.js"
+		},
+		"./power": {
+			"default": "./power.js"
+		},
+		"./product": {
+			"default": "./product.js"
+		},
+		"./reciprocal": {
+			"default": "./reciprocal.js"
+		},
+		"./ref": {
+			"default": "./ref.js"
+		},
+		"./serial": {
+			"default": "./serial.js"
+		},
+		"./sincos": {
+			"default": "./sincos.js"
+		},
+		"./sum": {
+			"default": "./sum.js"
+		},
+		"./svf": {
+			"default": "./svf.js"
+		},
+		"./sweep": {
+			"default": "./sweep.js"
+		},
+		"./waveshaper": {
+			"default": "./waveshaper.js"
+		},
+		"./white-noise": {
+			"default": "./white-noise.js"
+		},
+		"./window": {
+			"default": "./window.js"
+		}
+	},
+	"thi.ng": {
+		"related": [
+			"math"
+		],
+		"year": 2015,
+		"screenshot": "dsp/dsf-allpass1.png"
+	}
+}

@@ -1,0 +1,231 @@
+{
+	"name": "@thi.ng/iterators",
+	"version": "6.1.119",
+	"description": "Clojure inspired, composable ES6 iterators & generators",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "https://codeberg.org/thi.ng/umbrella.git"
+	},
+	"homepage": "https://thi.ng/iterators",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --excludePrivate --excludeInternal --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "yarn npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.11.3",
+		"@thi.ng/dcons": "^3.2.114",
+		"@thi.ng/errors": "^2.5.8"
+	},
+	"devDependencies": {
+		"esbuild": "^0.21.5",
+		"typedoc": "^0.25.13",
+		"typescript": "^5.5.2"
+	},
+	"keywords": [
+		"clojure",
+		"composition",
+		"filter",
+		"functional",
+		"generator",
+		"iterator",
+		"lazy",
+		"sequence",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./butlast": {
+			"default": "./butlast.js"
+		},
+		"./cached": {
+			"default": "./cached.js"
+		},
+		"./concat": {
+			"default": "./concat.js"
+		},
+		"./constantly": {
+			"default": "./constantly.js"
+		},
+		"./consume": {
+			"default": "./consume.js"
+		},
+		"./cycle": {
+			"default": "./cycle.js"
+		},
+		"./dedupe-with": {
+			"default": "./dedupe-with.js"
+		},
+		"./dedupe": {
+			"default": "./dedupe.js"
+		},
+		"./dense": {
+			"default": "./dense.js"
+		},
+		"./drop-nth": {
+			"default": "./drop-nth.js"
+		},
+		"./drop-while": {
+			"default": "./drop-while.js"
+		},
+		"./drop": {
+			"default": "./drop.js"
+		},
+		"./ensure": {
+			"default": "./ensure.js"
+		},
+		"./every": {
+			"default": "./every.js"
+		},
+		"./filter": {
+			"default": "./filter.js"
+		},
+		"./flatten-with": {
+			"default": "./flatten-with.js"
+		},
+		"./flatten": {
+			"default": "./flatten.js"
+		},
+		"./fnil": {
+			"default": "./fnil.js"
+		},
+		"./fork": {
+			"default": "./fork.js"
+		},
+		"./frequencies": {
+			"default": "./frequencies.js"
+		},
+		"./group-by": {
+			"default": "./group-by.js"
+		},
+		"./identity": {
+			"default": "./identity.js"
+		},
+		"./indexed": {
+			"default": "./indexed.js"
+		},
+		"./interleave": {
+			"default": "./interleave.js"
+		},
+		"./interpose": {
+			"default": "./interpose.js"
+		},
+		"./iterate": {
+			"default": "./iterate.js"
+		},
+		"./iterator": {
+			"default": "./iterator.js"
+		},
+		"./juxt": {
+			"default": "./juxt.js"
+		},
+		"./last": {
+			"default": "./last.js"
+		},
+		"./map-indexed": {
+			"default": "./map-indexed.js"
+		},
+		"./map": {
+			"default": "./map.js"
+		},
+		"./mapcat": {
+			"default": "./mapcat.js"
+		},
+		"./object-iterator": {
+			"default": "./object-iterator.js"
+		},
+		"./partition-by": {
+			"default": "./partition-by.js"
+		},
+		"./partition": {
+			"default": "./partition.js"
+		},
+		"./random-sample": {
+			"default": "./random-sample.js"
+		},
+		"./range": {
+			"default": "./range.js"
+		},
+		"./reduce": {
+			"default": "./reduce.js"
+		},
+		"./reductions": {
+			"default": "./reductions.js"
+		},
+		"./repeat": {
+			"default": "./repeat.js"
+		},
+		"./repeatedly": {
+			"default": "./repeatedly.js"
+		},
+		"./reverse": {
+			"default": "./reverse.js"
+		},
+		"./run": {
+			"default": "./run.js"
+		},
+		"./some": {
+			"default": "./some.js"
+		},
+		"./take-last": {
+			"default": "./take-last.js"
+		},
+		"./take-nth": {
+			"default": "./take-nth.js"
+		},
+		"./take-while": {
+			"default": "./take-while.js"
+		},
+		"./take": {
+			"default": "./take.js"
+		},
+		"./walk": {
+			"default": "./walk.js"
+		},
+		"./zip": {
+			"default": "./zip.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "it",
+		"related": [
+			"transducers"
+		],
+		"status": "deprecated",
+		"year": 2017
+	}
+}

@@ -1,0 +1,193 @@
+#!/usr/bin/env bash
+
+readonly MODULE="packages/$1"
+readonly AUTHOR="Karsten Schmidt"
+readonly AUTHOR_EMAIL="k+npm@thi.ng"
+readonly AUTHOR_URL="https://thi.ng"
+
+IFS='-' read -r -a parts <<< "$1"
+
+for i in "${parts[@]}"; do
+    INITIAL="$INITIAL${i:0:1}"
+done
+
+echo "generating module: $MODULE ($INITIAL)"
+mkdir -p "$MODULE"
+
+echo "creating /src /test /bench /dev /export /tools"
+mkdir -p "$MODULE"/src "$MODULE"/test "$MODULE"/bench "$MODULE"/dev "$MODULE"/export "$MODULE"/tools
+
+echo "creating index.ts stubs..."
+touch "$MODULE"/src/index.ts "$MODULE"/tools/index.ts
+
+cp packages/api/LICENSE "$MODULE"/
+
+echo "writing test skeleton..."
+cat << EOF > "$MODULE"/test/main.test.ts
+import { expect, test } from "bun:test";
+// import { } from "../src/index.js"
+
+test.todo("$1", () => {});
+EOF
+
+echo "writing test tsconfig..."
+cat << EOF > "$MODULE"/test/tsconfig.json
+{
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"types": ["bun-types"],
+		"noEmit": true
+	},
+	"include": ["./**/*.ts"]
+}
+EOF
+
+echo "writing bench skeleton..."
+cat << EOF > "$MODULE"/bench/index.ts
+import { suite } from "@thi.ng/bench";
+// import { } from "../src/index.js";
+
+suite([
+	{ title: "", fn: () => {}, opts: {} },
+], {
+	iter: 1000,
+	warmup: 100,
+	size: 1,
+});
+EOF
+
+echo "writing package.json..."
+cat << EOF > "$MODULE"/package.json
+{
+	"name": "@thi.ng/$1",
+	"version": "0.0.1",
+	"description": "TODO",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/$1"
+	},
+	"homepage": "https://thi.ng/$1",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "$AUTHOR ($AUTHOR_URL)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.26"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		}
+	},
+	"thi.ng": {
+		"status": "alpha",
+		"year": 2026
+	}
+}
+EOF
+
+echo "writing module tsconfig.json..."
+cat << EOF > "$MODULE"/tsconfig.json
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "."
+	},
+	"include": [
+		"./src/**/*.ts"
+	]
+}
+EOF
+
+echo "writing tpl.readme.md..."
+cat << 'EOF' > "$MODULE"/tpl.readme.md
+<!-- include ../../assets/tpl/header.md -->
+
+<!-- toc -->
+
+## About
+
+{{pkg.description}}
+
+{{meta.status}}
+
+{{repo.supportPackages}}
+
+{{repo.relatedPackages}}
+
+{{meta.blogPosts}}
+
+## Installation
+
+{{pkg.install}}
+
+{{pkg.size}}
+
+## Dependencies
+
+{{pkg.deps}}
+
+{{repo.examples}}
+
+## API
+
+{{pkg.docs}}
+
+TODO
+
+<!-- include ../../assets/tpl/footer.md -->
+EOF
+
+echo "refreshing monorepo index..."
+yarn install &>/dev/null
+echo "DONE"

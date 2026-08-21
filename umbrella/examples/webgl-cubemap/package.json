@@ -1,0 +1,66 @@
+{
+	"name": "@example/webgl-cubemap",
+	"private": true,
+	"description": "WebGL cube maps with async texture loading",
+	"version": "0.0.1",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./' && cp -R img dist",
+		"preview": "vite preview --host --open"
+	},
+	"dependencies": {
+		"@thi.ng/canvas": "workspace:^",
+		"@thi.ng/dsp": "workspace:^",
+		"@thi.ng/hdom": "workspace:^",
+		"@thi.ng/hdom-components": "workspace:^",
+		"@thi.ng/matrices": "workspace:^",
+		"@thi.ng/pixel": "workspace:^",
+		"@thi.ng/rstream": "workspace:^",
+		"@thi.ng/shader-ast": "workspace:^",
+		"@thi.ng/webgl": "workspace:^"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"canvas",
+			"dsp",
+			"hdom-components",
+			"matrices",
+			"rstream",
+			"shader-ast",
+			"webgl"
+		],
+		"screenshot": "examples/webgl-cubemap.jpg"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"keywords": [
+		"3d",
+		"animation",
+		"blend",
+		"browser",
+		"canvas",
+		"cubemap",
+		"dsl",
+		"dsp",
+		"example",
+		"geometry",
+		"image",
+		"matrix",
+		"reactive",
+		"shader",
+		"shader-ast",
+		"texture",
+		"ui",
+		"webgl"
+	]
+}

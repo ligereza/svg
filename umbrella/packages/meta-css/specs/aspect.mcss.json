@@ -1,0 +1,46 @@
+{
+	"specs": [
+		{
+			"name": "bg-aspect-ratio-object",
+			"doc": {
+				"group": "aspect ratios",
+				"desc": "To be used on the element forming the background of a `bg-aspect-ratio()` parent/wrapper"
+			},
+			"props": {
+				"position": "absolute",
+				"top": 0,
+				"bottom": 0,
+				"left": 0,
+				"right": 0,
+				"width": "100%",
+				"height": "100%",
+				"z-index": 100
+			},
+			"values": [""]
+		}
+	],
+	"templates": [
+		{
+			"name": "aspect-ratio",
+			"doc": {
+				"group": "aspect ratios",
+				"desc": "Sets `aspect-ratio` CSS property",
+				"args": ["width: aspect width", "height: aspect height"]
+			},
+			"props": { "aspect-ratio": "{0}/{1}" }
+		},
+		{
+			"name": "bg-aspect-ratio",
+			"doc": {
+				"group": "aspect ratios",
+				"desc": "Sets aspect ratio of background. Use with `bg-aspect-ratio-object` on child element.",
+				"args": ["width: aspect width", "height: aspect height"]
+			},
+			"props": {
+				"height": 0,
+				"position": "relative",
+				"padding-bottom": "calc(100% / ({0} / {1}))"
+			}
+		}
+	]
+}

@@ -1,0 +1,81 @@
+{
+	"templates": [
+		{
+			"name": "adjust-color",
+			"doc": {
+				"group": "color adjustment",
+				"desc": "Assigns an adjusted version of `base` color to new variable `name`.",
+				"args": [
+					"name: new var name (without `--` prefix)",
+					"base: color var (without `--` prefix)",
+					"l: luminance offset",
+					"c: chroma offset",
+					"h: hue offset",
+					"a: alpha offset"
+				]
+			},
+			"props": {
+				"--{0}": "oklch(from var(--{1}) calc(l + {2}) calc(c + {3}) calc(h + {4}) / calc(a + {5}))"
+			}
+		},
+		{
+			"name": "lighten-color",
+			"doc": {
+				"group": "color adjustment",
+				"desc": "Assigns an luminance-adjusted version of `base` color to new variable `name`.",
+				"args": [
+					"name: new var name (without `--` prefix)",
+					"base: color var (without `--` prefix)",
+					"l: luminance offset"
+				]
+			},
+			"props": {
+				"--{0}": "oklch(from var(--{1}) calc(l + {2}) c h / a)"
+			}
+		},
+		{
+			"name": "saturate-color",
+			"doc": {
+				"group": "color adjustment",
+				"desc": "Assigns an chroma-adjusted version of `base` color to new variable `name`.",
+				"args": [
+					"name: new var name (without `--` prefix)",
+					"base: color var (without `--` prefix)",
+					"l: chroma offset"
+				]
+			},
+			"props": {
+				"--{0}": "oklch(from var(--{1}) l calc(c + {2}) h / a)"
+			}
+		},
+		{
+			"name": "rotate-color",
+			"doc": {
+				"group": "color adjustment",
+				"desc": "Assigns an hue-rotated version of `base` color to new variable `name`.",
+				"args": [
+					"name: new var name (without `--` prefix)",
+					"base: color var (without `--` prefix)",
+					"h: hue offset"
+				]
+			},
+			"props": {
+				"--{0}": "oklch(from var(--{1}) l c calc(h + {2}) / a)"
+			}
+		},
+		{
+			"name": "with-alpha",
+			"doc": {
+				"group": "color adjustment",
+				"args": [
+					"name: new var name (without `--` prefix)",
+					"base: color var (without `--` prefix)",
+					"a: alpha offset"
+				]
+			},
+			"props": {
+				"--{0}": "oklch(from var(--{1}) l c h / {2} )"
+			}
+		}
+	]
+}

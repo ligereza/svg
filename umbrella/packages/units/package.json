@@ -1,0 +1,200 @@
+{
+	"name": "@thi.ng/units",
+	"version": "1.4.7",
+	"description": "Extensible SI unit creation, conversions, quantities & calculations, CLI calculator (incl. Lisp-like DSL and ~170 predefined units & constants)",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"bin": "bin/units",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/units"
+	},
+	"homepage": "https://thi.ng/units",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts constants units",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/args": "^3.2.26",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/compare": "^2.5.15",
+		"@thi.ng/equiv": "^2.1.116",
+		"@thi.ng/errors": "^2.6.16",
+		"@thi.ng/sexpr": "^1.1.38",
+		"@thi.ng/strings": "^3.12.9"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"acceleration",
+		"angle",
+		"area",
+		"bits",
+		"bytes",
+		"calculation",
+		"capacitance",
+		"cli",
+		"conversion",
+		"current",
+		"dsl",
+		"energy",
+		"force",
+		"frequency",
+		"length",
+		"lisp",
+		"mass",
+		"math",
+		"power",
+		"resistance",
+		"s-expression",
+		"si",
+		"speed",
+		"symbolic",
+		"temperature",
+		"time",
+		"typescript",
+		"units",
+		"velocity",
+		"voltage",
+		"volume"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"bin",
+		"constants",
+		"units"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./cli": {
+			"default": "./cli.js"
+		},
+		"./constants/densities": {
+			"default": "./constants/densities.js"
+		},
+		"./constants/earth": {
+			"default": "./constants/earth.js"
+		},
+		"./constants/paper-sizes": {
+			"default": "./constants/paper-sizes.js"
+		},
+		"./constants/velocities": {
+			"default": "./constants/velocities.js"
+		},
+		"./dsl": {
+			"default": "./dsl.js"
+		},
+		"./unit": {
+			"default": "./unit.js"
+		},
+		"./units/accel": {
+			"default": "./units/accel.js"
+		},
+		"./units/angle": {
+			"default": "./units/angle.js"
+		},
+		"./units/area": {
+			"default": "./units/area.js"
+		},
+		"./units/data": {
+			"default": "./units/data.js"
+		},
+		"./units/density": {
+			"default": "./units/density.js"
+		},
+		"./units/electric": {
+			"default": "./units/electric.js"
+		},
+		"./units/energy": {
+			"default": "./units/energy.js"
+		},
+		"./units/force": {
+			"default": "./units/force.js"
+		},
+		"./units/frequency": {
+			"default": "./units/frequency.js"
+		},
+		"./units/length": {
+			"default": "./units/length.js"
+		},
+		"./units/luminous": {
+			"default": "./units/luminous.js"
+		},
+		"./units/mass": {
+			"default": "./units/mass.js"
+		},
+		"./units/parts": {
+			"default": "./units/parts.js"
+		},
+		"./units/power": {
+			"default": "./units/power.js"
+		},
+		"./units/pressure": {
+			"default": "./units/pressure.js"
+		},
+		"./units/substance": {
+			"default": "./units/substance.js"
+		},
+		"./units/temperature": {
+			"default": "./units/temperature.js"
+		},
+		"./units/time": {
+			"default": "./units/time.js"
+		},
+		"./units/velocity": {
+			"default": "./units/velocity.js"
+		},
+		"./units/volume": {
+			"default": "./units/volume.js"
+		}
+	},
+	"thi.ng": {
+		"year": 2021
+	}
+}

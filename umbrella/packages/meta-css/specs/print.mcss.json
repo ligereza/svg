@@ -1,0 +1,25 @@
+{
+	"vars": {
+		"after": [""],
+		"before": [""]
+	},
+	"specs": [
+		{
+			"name": "break-<vid>-<v>",
+			"doc": { "group": "print" },
+			"props": "break-<vid>",
+			"values": [
+				"avoid",
+				"avoid-column",
+				"avoid-page",
+				"column",
+				"left",
+				"right",
+				"page",
+				"recto",
+				"verso"
+			],
+			"vars": ["after", "before"]
+		}
+	]
+}

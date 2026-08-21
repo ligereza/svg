@@ -1,0 +1,52 @@
+[
+  {
+    "path": "app/event_store.py",
+    "sha256": "fd98d634ad63f1c527b8dedaac4c2c222af928eba6112b88b799cbc5a355c1bf",
+    "bytes": 521
+  },
+  {
+    "path": "app/events.py",
+    "sha256": "3bfc675bf87af840ff7c8d19bdc572ea5705cde976a7cfeff0150b5e02b9c034",
+    "bytes": 553
+  },
+  {
+    "path": "app/snapshot.py",
+    "sha256": "221a84a09008023a2da7d857939e4db05fd1edcab5107633047df60f37cc20c1",
+    "bytes": 597
+  },
+  {
+    "path": "app/state.py",
+    "sha256": "aff8120375ac822341f4dadda0e7e73a5c15002935f59771fe4a0f93eb212398",
+    "bytes": 2430
+  },
+  {
+    "path": "docs/EVENT_ENGINE.md",
+    "sha256": "43cd31cecbcbd4ebd7a2e31e0773105a87bc194e8eecf0d6af542326fcbd5166",
+    "bytes": 870
+  },
+  {
+    "path": "fixtures/event_sequence.json",
+    "sha256": "f37c74732837d838f0f76ae16a0d0bb2042fc289711fa69f615f19a6c25984a2",
+    "bytes": 574
+  },
+  {
+    "path": "schemas/004_event_log.sql",
+    "sha256": "c394be9fa91a5c1fe0ffeb4a3a9d52fdd52fd670dd8fcb6d925c7df7c0422299",
+    "bytes": 640
+  },
+  {
+    "path": "tests/test_event_store.py",
+    "sha256": "bc0f868dd9906b809124ec6f3f083bdce7684eb4d5e70d5f836668a517614fe5",
+    "bytes": 722
+  },
+  {
+    "path": "tests/test_snapshot.py",
+    "sha256": "cc163ffb6278e7e60a72659a88ab7d85b336a2dcd55e3cca60cf322938de79af",
+    "bytes": 539
+  },
+  {
+    "path": "tests/test_state_engine.py",
+    "sha256": "5ee6b36246cc55a14e936ecd90b7f0278a63eb51ba011bd4d8d62f9952a3e4bf",
+    "bytes": 1613
+  }
+]

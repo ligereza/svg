@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $# -gt 0 ]; then
+    modules="$*"
+else
+    modules="packages examples tools"
+fi
+
+# https://github.com/boyter/scc
+# brew install scc
+scc -a \
+    -x js,json,d.ts,csv,css,dot,org,c,sh,txt \
+    -n tpl.readme.md,CHANGELOG.md,AUTHORS.md,LICENSE,results.md,framework.md,index.html \
+    --exclude-dir doc,dev,.zig-cache \
+    $modules

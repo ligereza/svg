@@ -1,0 +1,128 @@
+<!-- This file is generated - DO NOT EDIT! -->
+<!-- Please see: https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#changes-to-readme-files -->
+# ![@thi.ng/pixel-analysis](https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-pixel-analysis.svg?d7cb7e3e)
+
+[![npm version](https://img.shields.io/npm/v/@thi.ng/pixel-analysis.svg)](https://www.npmjs.com/package/@thi.ng/pixel-analysis)
+![npm downloads](https://img.shields.io/npm/dm/@thi.ng/pixel-analysis.svg)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109331703950160316?domain=https%3A%2F%2Fmastodon.thi.ng&style=social)](https://mastodon.thi.ng/@toxi)
+
+> [!NOTE]
+
+> This is one of 216 standalone projects. LLM-free, human-made and
+> cared for software, maintained as part of the
+> [@thi.ng/umbrella](https://codeberg.org/thi.ng/umbrella/) ecosystem and
+> anti-framework.
+>
+> 🚀 Please help me to work full-time on these projects by [sponsoring
+> me](https://codeberg.org/thi.ng/umbrella/src/branch/develop/CONTRIBUTING.md#donations).
+> Thank you! ❤️
+
+- [About](#about)
+  - [Color analysis](#color-analysis)
+- [Status](#status)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [API](#api)
+- [Authors](#authors)
+- [License](#license)
+
+## About
+
+Image color & feature analysis utilities. This is a support package for [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel).
+
+### Color analysis
+
+-   Dominant colors in different color modes/formats:
+    -   CSS (hex)
+    -   sRGB
+    -   HSV
+    -   Oklch (perceptual)
+-   Normalized areas of dominant color clusters
+-   Min/max HSV hue range of dominant colors (considering angular wrap-around)
+-   Min/max HSV saturation range of dominant colors
+-   Min/max luminance range of dominant colors (obtained from SRGB)
+-   Min/max luminance range of entire grayscale image (obtained from SRGB)
+-   Average values for hue (circular mean), saturation, luminance
+-   Area-weighted average saturation of dominant colors
+-   Area-weighted average luminance of dominant colors
+-   Standard deviation for hue, saturation, luminance
+-   Normalized color temperature, incl. area-weighted indicator of "cold" vs
+    "warm" hues present
+-   Luminance contrast of dominant colors
+-   Luminance contrast of entire grayscale image
+-   Max. normalized WCAG color contrast of dominant colors
+
+## Status
+
+**BETA** - possibly breaking changes forthcoming
+
+[Search or submit any issues for this package](https://codeberg.org/thi.ng/umbrella/issues?q=%5Bpixel-analysis%5D)
+
+## Installation
+
+```bash
+yarn add @thi.ng/pixel-analysis
+```
+
+ESM import:
+
+```ts
+import * as pa from "@thi.ng/pixel-analysis";
+```
+
+Browser ESM import:
+
+```html
+<script type="module" src="https://esm.run/@thi.ng/pixel-analysis"></script>
+```
+
+[JSDelivr documentation](https://www.jsdelivr.com/)
+
+For Node.js REPL:
+
+```js
+const pa = await import("@thi.ng/pixel-analysis");
+```
+
+Package sizes (brotli'd, pre-treeshake): ESM: 1.87 KB
+
+## Dependencies
+
+- [@thi.ng/api](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/api)
+- [@thi.ng/arrays](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/arrays)
+- [@thi.ng/color](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/color)
+- [@thi.ng/compare](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/compare)
+- [@thi.ng/math](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/math)
+- [@thi.ng/metrics](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/metrics)
+- [@thi.ng/pixel](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel)
+- [@thi.ng/pixel-convolve](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel-convolve)
+- [@thi.ng/pixel-dominant-colors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/pixel-dominant-colors)
+- [@thi.ng/transducers](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/transducers)
+- [@thi.ng/vectors](https://codeberg.org/thi.ng/umbrella/src/branch/develop/packages/vectors)
+
+Note: @thi.ng/api is in _most_ cases a type-only import (not used at runtime)
+
+## API
+
+[Generated API docs](https://docs.thi.ng/umbrella/pixel-analysis/)
+
+TODO
+
+## Authors
+
+- [Karsten Schmidt](https://thi.ng)
+
+If this project contributes to an academic publication, please cite it as:
+
+```bibtex
+@misc{thing-pixel-analysis,
+  title = "@thi.ng/pixel-analysis",
+  author = "Karsten Schmidt",
+  note = "https://thi.ng/pixel-analysis",
+  year = 2024
+}
+```
+
+## License
+
+&copy; 2024 - 2026 Karsten Schmidt // Apache License 2.0

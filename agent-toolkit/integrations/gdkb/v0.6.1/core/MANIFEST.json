@@ -1,0 +1,52 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "c1096a2d2d708e5d89afe39032a99c914014a9ba671c20789c2839f6471d9618",
+    "bytes": 500
+  },
+  {
+    "path": "app/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "app/gold.py",
+    "sha256": "06f10659a8d195f8521335053c0742369eb3dd5906b3caae6d7fb5ee2510f842",
+    "bytes": 179
+  },
+  {
+    "path": "app/normalize.py",
+    "sha256": "7d10cf6b555d28fbd667c4d1e12e38ede89c79f66a4959ff9955d744169825e9",
+    "bytes": 456
+  },
+  {
+    "path": "app/resolver.py",
+    "sha256": "af6716f25354ee97107740a62509084cbbab1e95f8d2b4f9b830c201047e1aea",
+    "bytes": 1928
+  },
+  {
+    "path": "docs/IMPLEMENTATION_NOTES.md",
+    "sha256": "8f34ec583ea0929d828ea5a3b6658e148ebefd6e8028206b30a7f67e53164f5e",
+    "bytes": 714
+  },
+  {
+    "path": "gold/resolution_gold.jsonl",
+    "sha256": "04a4dadde5f31fb293325f97cdc63d482da61de5bc2f1fe412f050c45c738a49",
+    "bytes": 614
+  },
+  {
+    "path": "sql/001_core.sql",
+    "sha256": "a3f109efe16886aa41674604aa6dd115c8b4c013b966a934f555cd37827d3e70",
+    "bytes": 3196
+  },
+  {
+    "path": "tests/test_normalize.py",
+    "sha256": "b00e5717d6fd6eb3df46df7a93ea45295f56182291eece9caec793f4de95cbfc",
+    "bytes": 223
+  },
+  {
+    "path": "tests/test_resolver.py",
+    "sha256": "a53f389178adc2b5a6d14a8cfbef804483afca7b88a6bb89f298dcc159081e61",
+    "bytes": 608
+  }
+]

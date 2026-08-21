@@ -1,0 +1,32 @@
+{
+	"specs": [
+		{
+			"name": "screen-reader",
+			"doc": { "group": "accessibility" },
+			"props": {
+				"position": "absolute",
+				"padding": 0,
+				"width": "1px",
+				"height": "1px",
+				"margin": "-1px",
+				"border": 0,
+				"overflow": "hidden",
+				"clip": "rect(0 0 0 0)"
+			},
+			"values": [""]
+		},
+		{
+			"name": "screen-reader-focus",
+			"doc": { "group": "accessibility" },
+			"props": {
+				"position": "static",
+				"width": "auto",
+				"height": "auto",
+				"margin": 0,
+				"overflow": "visible",
+				"clip": "auto"
+			},
+			"values": [""]
+		}
+	]
+}

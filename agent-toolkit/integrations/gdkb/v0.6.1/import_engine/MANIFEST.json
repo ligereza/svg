@@ -1,0 +1,52 @@
+[
+  {
+    "path": "app/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "app/fixture_loader.py",
+    "sha256": "6b4fe5bfbfde771c3f17a2b5be28a44652719fc6b3e061017e28266376491b18",
+    "bytes": 742
+  },
+  {
+    "path": "app/import_engine.py",
+    "sha256": "cec46720cb21d185dcb0dd8e6774d99ac82fc589aecf3dcbdcc697d0dd0caa1c",
+    "bytes": 1441
+  },
+  {
+    "path": "app/normalize.py",
+    "sha256": "c70f42394abc3ec550b8c7722ae85cecd1bb9981891b7a4ed9f1749acb4d28b7",
+    "bytes": 326
+  },
+  {
+    "path": "docs/IMPORT_ENGINE.md",
+    "sha256": "7e1ea73cb8545ac56e53d3e9ee67463cf2fc438f73444e3941566e84a46057c7",
+    "bytes": 1183
+  },
+  {
+    "path": "fixtures/pubchem_small.jsonl",
+    "sha256": "f477b39ff795921cabab67ec2cdde6f5ce3bdbf959684898fd6c81fd1e48518b",
+    "bytes": 491
+  },
+  {
+    "path": "fixtures/wikidata_small.jsonl",
+    "sha256": "dddb75fa5adb299466d6161ca794ab0ddfea741830e6bb4e6e0b175cfc3d63d5",
+    "bytes": 260
+  },
+  {
+    "path": "sql/002_import_tables.sql",
+    "sha256": "15125c01d83b1ad1a0bdd7a8b795dac6c3921d8389fa05ab5fbe44e9e4673b72",
+    "bytes": 956
+  },
+  {
+    "path": "tests/test_fixtures.py",
+    "sha256": "d9b9c055bfa72b58e663bff16cc360530172ee47be9bd16c60329da90c99b0e0",
+    "bytes": 357
+  },
+  {
+    "path": "tests/test_import_engine.py",
+    "sha256": "3b68950815f3867550412428feebbe1a9536d300e0e53385dd6000222d7ca6d8",
+    "bytes": 898
+  }
+]

@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "createdAt": "2026-08-18T05:54:19.873Z",
+  "project": "chemsex",
+  "ancla": "sustancias e interacciones del carrusel",
+  "role": "iconografia educativa",
+  "exactText": "Carrusel Chemsex",
+  "search": null,
+  "assets": [
+    {
+      "provider": "iconify",
+      "id": "material-symbols:pill",
+      "sourceUrl": "https://icon-sets.iconify.design/material-symbols/",
+      "collection": "material-symbols",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/google/material-design-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-material-symbols-pill.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/material-symbols/pill.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "material-symbols:cannabis",
+      "sourceUrl": "https://icon-sets.iconify.design/material-symbols/",
+      "collection": "material-symbols",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/google/material-design-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-material-symbols-cannabis.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/material-symbols/cannabis.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "icon-park-outline:powder",
+      "sourceUrl": "https://icon-sets.iconify.design/icon-park-outline/",
+      "collection": "icon-park-outline",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/bytedance/IconPark/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-icon-park-outline-powder.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/icon-park-outline/powder.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:molecule",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-molecule.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/molecule.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:drop",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-drop.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/drop.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "tabler:bottle",
+      "sourceUrl": "https://icon-sets.iconify.design/tabler/",
+      "collection": "tabler",
+      "license": {
+        "title": "MIT",
+        "spdx": "MIT",
+        "url": "https://github.com/tabler/tabler-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-tabler-bottle.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/tabler/bottle.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "healthicons:alcohol",
+      "sourceUrl": "https://icon-sets.iconify.design/healthicons/",
+      "collection": "healthicons",
+      "license": {
+        "title": "CC0-1.0",
+        "spdx": "CC0-1.0",
+        "url": "https://healthicons.org/history"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-healthicons-alcohol.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/healthicons/alcohol.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "material-symbols:syringe",
+      "sourceUrl": "https://icon-sets.iconify.design/material-symbols/",
+      "collection": "material-symbols",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/google/material-design-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-material-symbols-syringe.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/material-symbols/syringe.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "material-symbols:water-bottle",
+      "sourceUrl": "https://icon-sets.iconify.design/material-symbols/",
+      "collection": "material-symbols",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/google/material-design-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-material-symbols-water-bottle.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/material-symbols/water-bottle.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "healthicons:male-condom",
+      "sourceUrl": "https://icon-sets.iconify.design/healthicons/",
+      "collection": "healthicons",
+      "license": {
+        "title": "CC0-1.0",
+        "spdx": "CC0-1.0",
+        "url": "https://healthicons.org/history"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-healthicons-male-condom.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/healthicons/male-condom.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "material-symbols:warning",
+      "sourceUrl": "https://icon-sets.iconify.design/material-symbols/",
+      "collection": "material-symbols",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/google/material-design-icons/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-material-symbols-warning.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/material-symbols/warning.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:heart",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-heart.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/heart.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:brain",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-brain.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/brain.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:virus",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-virus.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/virus.svg"
+    },
+    {
+      "provider": "iconify",
+      "id": "mdi:people",
+      "sourceUrl": "https://icon-sets.iconify.design/mdi/",
+      "collection": "mdi",
+      "license": {
+        "title": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "url": "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\iconify-mdi-people.svg",
+      "editable": true,
+      "fetchedFrom": "https://api.iconify.design/mdi/people.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Human_physiology/Marcel_Tisch/pill_blue.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-human-physiology-marcel-tisch-pill-blue-svg.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_blue.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Human_physiology/Marcel_Tisch/pill_green.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-human-physiology-marcel-tisch-pill-green-sv.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_green.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Human_physiology/Marcel_Tisch/pill_purple.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-human-physiology-marcel-tisch-pill-purple-s.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_purple.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Human_physiology/Marcel_Tisch/pill_red.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-human-physiology-marcel-tisch-pill-red-svg.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_red.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Human_physiology/Marcel_Tisch/pill_yellow.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-human-physiology-marcel-tisch-pill-yellow-s.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Human_physiology/Marcel_Tisch/pill_yellow.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Chemistry/OpenClipart/bottle-transparent-protected-2d.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-chemistry-openclipart-bottle-transparent-pr.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Chemistry/OpenClipart/bottle-transparent-protected-2d.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Lab_apparatus/OpenClipart/dropper-bottles.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-lab-apparatus-openclipart-dropper-bottles-s.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Lab_apparatus/OpenClipart/dropper-bottles.svg"
+    },
+    {
+      "provider": "bioicons",
+      "id": "cc-0/Tissues/Mariana_RuizVillareal/Human_heart.svg",
+      "sourceUrl": "https://github.com/duerrsimon/bioicons",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\bioicons-cc-0-tissues-mariana-ruizvillareal-human-heart-s.svg",
+      "editable": true,
+      "fetchedFrom": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-0/Tissues/Mariana_RuizVillareal/Human_heart.svg"
+    },
+    {
+      "provider": "svgrepo",
+      "id": "drug-9406",
+      "sourceUrl": "https://www.svgrepo.com/svg/9406/drug",
+      "license": {
+        "title": "CC0",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\assets\\svgrepo-drug-9406.svg",
+      "editable": true,
+      "fetchedFrom": "https://www.svgrepo.com/download/9406/drug.svg"
+    }
+  ],
+  "illustrator": {
+    "importable": true,
+    "keepGroupsNamed": true
+  }
+}

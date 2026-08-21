@@ -1,0 +1,64 @@
+{
+	"name": "@example/soa-ecs",
+	"private": true,
+	"description": "Entity Component System w/ 100k 3D particles",
+	"version": "0.0.1",
+	"repository": "https://codeberg.org/thi.ng/umbrella",
+	"author": "Karsten Schmidt <k+npm@thi.ng>",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "vite --host --open",
+		"build": "tsc && vite build --base='./'",
+		"preview": "vite preview --host --open"
+	},
+	"dependencies": {
+		"@thi.ng/canvas": "workspace:^",
+		"@thi.ng/ecs": "workspace:^",
+		"@thi.ng/hdom": "workspace:^",
+		"@thi.ng/hdom-components": "workspace:^",
+		"@thi.ng/math": "workspace:^",
+		"@thi.ng/matrices": "workspace:^",
+		"@thi.ng/shader-ast": "workspace:^",
+		"@thi.ng/vectors": "workspace:^",
+		"@thi.ng/webgl": "workspace:^"
+	},
+	"browser": {
+		"process": false,
+		"setTimeout": false,
+		"util": false
+	},
+	"thi.ng": {
+		"readme": [
+			"canvas",
+			"ecs",
+			"hdom",
+			"matrices",
+			"soa",
+			"shader-ast",
+			"shader-ast-glsl",
+			"vectors",
+			"webgl"
+		],
+		"screenshot": "examples/soa-ecs-100k.png"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"vite": "^8.1.0"
+	},
+	"keywords": [
+		"3d",
+		"browser",
+		"canvas",
+		"dsl",
+		"ecs",
+		"example",
+		"matrix",
+		"particles",
+		"shader",
+		"shader-ast",
+		"soa",
+		"ui",
+		"vector",
+		"webgl"
+	]
+}

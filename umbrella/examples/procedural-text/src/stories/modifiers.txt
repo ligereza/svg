@@ -1,0 +1,23 @@
+# variable lookups and assignments can be augmented with modifiers
+# currently available options are:
+# ;cap => capitalize
+# ;uc => uppercase
+# ;lc => lowercase
+# ;isAre => append `is` or `are` verb (naive, english only)
+# ;withArticle => prepend `a` or `an` article (naive, english only)
+
+[name]
+asterix
+obelix
+dogmatix
+
+[apple]
+apple
+apples
+
+capitalized: <hero=name;cap>
+uppercase: <hero;uc>
+lowercase: <hero;lc>
+with article: <hero;withArticle>
+
+The <apple;isAre> red.

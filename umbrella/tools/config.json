@@ -1,0 +1,21 @@
+{
+	"repoURL": "https://codeberg.org/thi.ng/umbrella",
+	"userURL": "https://codeberg.org",
+	"assetURL": "https://codeberg.org/thi.ng/umbrella/media/branch",
+	"bannerURL": "https://codeberg.org/thi.ng/umbrella/media/branch/develop/assets/banners/thing-",
+	"bannerBasePath": "../../assets/banners/thing-",
+	"demoURL": "https://demo.thi.ng/umbrella",
+	"docURL": "https://docs.thi.ng/umbrella",
+	"exampleDir": "../../examples",
+	"mainAuthor": "Karsten Schmidt",
+	"license": "Apache Software License 2.0",
+	"pkgScope": "@thi.ng",
+	"statuses": {
+		"alpha": "bleeding edge / work-in-progress",
+		"beta": "possibly breaking changes forthcoming",
+		"stable": "used in production",
+		"refactor": "undergoing major refactoring",
+		"completed": "no further development planned",
+		"deprecated": "superseded by other package(s)"
+	}
+}

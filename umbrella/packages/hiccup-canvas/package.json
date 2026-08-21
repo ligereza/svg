@@ -1,0 +1,141 @@
+{
+	"name": "@thi.ng/hiccup-canvas",
+	"version": "3.2.29",
+	"description": "Hiccup shape tree renderer for vanilla Canvas 2D contexts",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/hiccup-canvas"
+	},
+	"homepage": "https://thi.ng/hiccup-canvas",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/canvas": "^1.1.19",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/color": "^5.8.31",
+		"@thi.ng/geom-arc": "^2.1.227",
+		"@thi.ng/math": "^5.15.16",
+		"@thi.ng/pixel": "^7.5.37",
+		"@thi.ng/vectors": "^8.6.38"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"2d",
+		"arc",
+		"array",
+		"bezier",
+		"blend",
+		"canvas",
+		"circle",
+		"conversion",
+		"declarative",
+		"drawing",
+		"gradient",
+		"graphics",
+		"group",
+		"hiccup",
+		"particles",
+		"scenegraph",
+		"svg",
+		"tree",
+		"typescript"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts",
+		"internal"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./arc": {
+			"default": "./arc.js"
+		},
+		"./color": {
+			"default": "./color.js"
+		},
+		"./draw": {
+			"default": "./draw.js"
+		},
+		"./image": {
+			"default": "./image.js"
+		},
+		"./line": {
+			"default": "./line.js"
+		},
+		"./packed-points": {
+			"default": "./packed-points.js"
+		},
+		"./path": {
+			"default": "./path.js"
+		},
+		"./points": {
+			"default": "./points.js"
+		},
+		"./polygon": {
+			"default": "./polygon.js"
+		},
+		"./polyline": {
+			"default": "./polyline.js"
+		},
+		"./rect": {
+			"default": "./rect.js"
+		},
+		"./text": {
+			"default": "./text.js"
+		}
+	},
+	"thi.ng": {
+		"parent": "@thi.ng/hiccup",
+		"related": [
+			"hdom-canvas",
+			"hiccup"
+		],
+		"year": 2018
+	}
+}

@@ -1,0 +1,329 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:51Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [0.14.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.14.0/packages/column-store) (2026-05-19)
+
+#### 🚀 Features
+
+- add support for term result set unions ([b6c9b08](https://codeberg.org/thi.ng/umbrella/commit/b6c9b08))
+  - add `QueryTerm.merge` mode (keep existing default behavior)
+  - update all query ops & internal helpers to support result set unions
+  - update `QueryCtx.mergeMask/mergeInvMask()` to support mask unions
+  - replace `QueryCtx` iterator impl with `QueryCtx.queryRows()` to support mode-specific iteration logic
+  - add/update tests
+- add support for nested queries ([098eaa3](https://codeberg.org/thi.ng/umbrella/commit/098eaa3))
+  - add `nest` query term impl & factory
+  - update built-in where/whereNot/or/nor/and/nand operator signatures & impls to accept sub-queries
+  - add internal `addNestableOp()` helper
+  - add tests
+
+### [0.13.10](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.13.10/packages/column-store) (2026-05-18)
+
+#### 🩹 Bug fixes
+
+- fix QueryCtx.exec(), clear result bitmask on sub-term failure ([8100c86](https://codeberg.org/thi.ng/umbrella/commit/8100c86))
+
+### [0.13.5](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.13.5/packages/column-store) (2026-04-02)
+
+#### 🧪 Tests
+
+- fix bitmap tests ([102443a](https://codeberg.org/thi.ng/umbrella/commit/102443a))
+
+### [0.13.4](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.13.4/packages/column-store) (2026-03-23)
+
+#### 🧪 Tests
+
+- add bitmap tests (remove row) ([b62937b](https://codeberg.org/thi.ng/umbrella/commit/b62937b))
+
+### [0.13.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.13.1/packages/column-store) (2026-03-15)
+
+#### 🩹 Bug fixes
+
+- only bail out query if no matching terms ([57b0ab7](https://codeberg.org/thi.ng/umbrella/commit/57b0ab7))
+  - queries without terms operate on ALL rows and still respect sort & limit criteria
+  - add tests
+
+## [0.13.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.13.0/packages/column-store) (2026-03-15)
+
+#### 🚀 Features
+
+- add Query.exec() for eager processing ([1b9d0dd](https://codeberg.org/thi.ng/umbrella/commit/1b9d0dd))
+  - update `Query`/`QueryContext`
+  - add `QueryResult` type
+  - add tests
+
+## [0.12.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.12.0/packages/column-store) (2026-03-11)
+
+#### 🚀 Features
+
+- update re-indexing for dict-based columns, now frequency-based ([a13fed2](https://codeberg.org/thi.ng/umbrella/commit/a13fed2))
+  - re-index DictColumn/DictTupleColumn based on usage frequency of individual values
+  - add frequency/histogram helper functions
+  - add tests
+
+#### ♻️ Refactoring
+
+- update const use in for-of loops ([f90c1d1](https://codeberg.org/thi.ng/umbrella/commit/f90c1d1))
+
+### [0.11.2](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.11.2/packages/column-store) (2026-03-07)
+
+#### 🩹 Bug fixes
+
+- update query limit handling, add tests ([142ff30](https://codeberg.org/thi.ng/umbrella/commit/142ff30))
+
+## [0.11.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.11.0/packages/column-store) (2026-03-07)
+
+#### 🚀 Features
+
+- add `Query.limit()` and `Query.sortBy()` support ([75e3842](https://codeberg.org/thi.ng/umbrella/commit/75e3842))
+  - update deps (add [@thi.ng/compare](https://codeberg.org/thi.ng/umbrella/src/branch/main/packages/compare))
+  - add tests
+- add getRows()/getPartialRows(), add tests ([72b4511](https://codeberg.org/thi.ng/umbrella/commit/72b4511))
+
+#### 🧪 Tests
+
+- add tests ([d953b6e](https://codeberg.org/thi.ng/umbrella/commit/d953b6e))
+
+### [0.10.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.10.1/packages/column-store) (2026-03-03)
+
+#### 🩹 Bug fixes
+
+- fix nand/nor query ops for unknown values ([3e60bfa](https://codeberg.org/thi.ng/umbrella/commit/3e60bfa))
+  - add tests
+
+#### ♻️ Refactoring
+
+- update AND query ops, add more tests ([d0e20da](https://codeberg.org/thi.ng/umbrella/commit/d0e20da))
+
+## [0.10.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.10.0/packages/column-store) (2026-03-02)
+
+#### 🚀 Features
+
+- add IClear, ICopy, IEmpty support ([bf1aaf5](https://codeberg.org/thi.ng/umbrella/commit/bf1aaf5))
+  - add above interface impls for `Table`
+  - add `IClear` impls for all column types
+  - add `Table.slice()`
+  - add `INITIAL_CAPACITY` (internal) const for typedarray & vector columns
+
+#### 🧪 Tests
+
+- add tests ([ad62481](https://codeberg.org/thi.ng/umbrella/commit/ad62481))
+
+## [0.9.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.9.0/packages/column-store) (2026-03-01)
+
+#### 🚀 Features
+
+- add query predicates (syntax sugar) ([a9e7b89](https://codeberg.org/thi.ng/umbrella/commit/a9e7b89))
+
+#### 🧪 Tests
+
+- remove old tests ([5cd0f1d](https://codeberg.org/thi.ng/umbrella/commit/5cd0f1d))
+
+## [0.8.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.8.0/packages/column-store) (2026-02-28)
+
+#### 🚀 Features
+
+- add iterable support for columns ([6abb059](https://codeberg.org/thi.ng/umbrella/commit/6abb059))
+  - update `IColumn`
+  - add `AColumn` iterator impl
+  - add tests
+
+### [0.7.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.7.1/packages/column-store) (2026-02-28)
+
+#### ⏱ Performance improvements
+
+- update query ops to only iterate already selected rows (if possible) ([9492ead](https://codeberg.org/thi.ng/umbrella/commit/9492ead))
+  - add QueryCtx iterable support, iterate bitfield if available
+  - update all query ops to iterate via ctx/bitfield
+  - add short-circuit to fail query if current op produced no results
+
+#### 🧪 Tests
+
+- add tests ([c4c1f6b](https://codeberg.org/thi.ng/umbrella/commit/c4c1f6b))
+- add tests ([d566795](https://codeberg.org/thi.ng/umbrella/commit/d566795))
+
+## [0.7.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.7.0/packages/column-store) (2026-02-26)
+
+#### 🚀 Features
+
+- update `addColumn()` logic to prefill existing rows with defaults ([2fc5887](https://codeberg.org/thi.ng/umbrella/commit/2fc5887))
+  - add `IColumn.ensureRows()`, add all impls
+  - update `Table.addColumn()`
+  - update `Table.validateColumnSpec()`
+  - add tests for all column types
+
+#### 🧪 Tests
+
+- split tests into separate files ([87629b3](https://codeberg.org/thi.ng/umbrella/commit/87629b3))
+
+### [0.6.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.6.1/packages/column-store) (2026-02-25)
+
+#### 🩹 Bug fixes
+
+- internal update `updateBitmap()`, use currect row keys for index ([f8a1c21](https://codeberg.org/thi.ng/umbrella/commit/f8a1c21))
+  - add `Table.load()` tests (which are using this function)
+
+## [0.6.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.6.0/packages/column-store) (2026-02-25)
+
+#### 🚀 Features
+
+- add `IColumn.lastIndexOf()`, add `Bitfield.last()`, update column types ([6fce8c0](https://codeberg.org/thi.ng/umbrella/commit/6fce8c0))
+
+## [0.5.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.5.0/packages/column-store) (2026-02-25)
+
+#### 🚀 Features
+
+- add table generics (column schema) and supporting types ([a10abba](https://codeberg.org/thi.ng/umbrella/commit/a10abba))
+  - add generics for `Table`, `SerializedTable`, `Query`, `ColumnSchema`, all column types
+  - update signatures for `.getRow()`, `.getPartialRow()`
+- add `rowRange()` query operator, add`BitField.fill()` ([03e6633](https://codeberg.org/thi.ng/umbrella/commit/03e6633))
+- add `valueRange()` query operator ([1c4320e](https://codeberg.org/thi.ng/umbrella/commit/1c4320e))
+  - add `IColumn.findIndex()` / `.findLastIndex()`
+    - implement in for `AColumn`
+  - fix null handling in `__indexOfTuple()`
+  - add range clamping in various `indexOf` fns and `Bitfield.first()`
+  - add/update tests
+- add column type check for `valueRange()` op ([58f235f](https://codeberg.org/thi.ng/umbrella/commit/58f235f))
+
+#### 🧪 Tests
+
+- update tests ([572b24a](https://codeberg.org/thi.ng/umbrella/commit/572b24a))
+
+## [0.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.4.0/packages/column-store) (2026-02-13)
+
+#### 🚀 Features
+
+- add `Bitfield.first()` ([790cb3c](https://codeberg.org/thi.ng/umbrella/commit/790cb3c))
+- add `IColumn.indexOf()`, add impls for all column types ([3901eec](https://codeberg.org/thi.ng/umbrella/commit/3901eec))
+- add `Table.indexOf()`, fix vector impl, update tests ([164c67e](https://codeberg.org/thi.ng/umbrella/commit/164c67e))
+- update `validateColumnSpec()` ([8aa82bf](https://codeberg.org/thi.ng/umbrella/commit/8aa82bf))
+
+#### 🧪 Tests
+
+- add tests ([bc7ac38](https://codeberg.org/thi.ng/umbrella/commit/bc7ac38))
+
+## [0.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.3.0/packages/column-store) (2026-02-13)
+
+#### 🚀 Features
+
+- add missing vec column types, dedupe & update serialization ([203f302](https://codeberg.org/thi.ng/umbrella/commit/203f302))
+- include `__row` ID in all query results, update `Table.getRow()` ([d3abdd6](https://codeberg.org/thi.ng/umbrella/commit/d3abdd6))
+  - update `Table.getRow()`/`Table.getPartialRow()` to optionally include `__row` ID
+  - update query results to include `__row` ID
+  - update tests
+
+## [0.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.2.0/packages/column-store) (2026-02-12)
+
+#### 🚀 Features
+
+- add `VectorColumn` types, refactor `IColumn` & query engine ([90a6ff1](https://codeberg.org/thi.ng/umbrella/commit/90a6ff1))
+- add/update RLE handling for plain & dict columns ([16f1d1d](https://codeberg.org/thi.ng/umbrella/commit/16f1d1d))
+
+#### 🩹 Bug fixes
+
+- update TypedArrayColumn.valueKey() ([7f5f430](https://codeberg.org/thi.ng/umbrella/commit/7f5f430))
+
+#### ♻️ Refactoring
+
+- migrate/dedupe LIMITS, update RLE handling ([6b9f916](https://codeberg.org/thi.ng/umbrella/commit/6b9f916))
+
+#### 🧪 Tests
+
+- add query & RLE tests for all column types ([345c87b](https://codeberg.org/thi.ng/umbrella/commit/345c87b))
+
+### [0.1.3](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.1.3/packages/column-store) (2026-02-08)
+
+#### 🧪 Tests
+
+- start importing tests ([023a3cf](https://codeberg.org/thi.ng/umbrella/commit/023a3cf))
+
+### [0.1.2](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.1.2/packages/column-store) (2026-02-08)
+
+#### 🩹 Bug fixes
+
+- update `.updateBitmap()` ([a71b5e1](https://codeberg.org/thi.ng/umbrella/commit/a71b5e1))
+
+#### ⏱ Performance improvements
+
+- optimize query negation ops (NAND/NOR) ([bc83a8a](https://codeberg.org/thi.ng/umbrella/commit/bc83a8a))
+  - add `QueryCtx.mergeInvMask()` to merge inverted bitmask,
+    avoiding extraneous iteration via `.invertMask()` if possible
+  - update query ops
+
+#### ♻️ Refactoring
+
+- move query term pre-check to `Query.addTerm()` ([ce06c59](https://codeberg.org/thi.ng/umbrella/commit/ce06c59))
+- rename tuple-based column types ([5111f88](https://codeberg.org/thi.ng/umbrella/commit/5111f88))
+  - rename `ArrayColumn` => `TupleColumn`
+  - rename `DictArrayColumn` => `DictTupleColumn`
+
+## [0.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/column-store@0.1.0/packages/column-store) (2026-02-07)
+
+#### 🚀 Features
+
+- import as new pkg ([8d2c0fd](https://codeberg.org/thi.ng/umbrella/commit/8d2c0fd))
+- update column types/impls ([1277001](https://codeberg.org/thi.ng/umbrella/commit/1277001))
+- add Query class/engine w/ extensible operators ([f9cee7d](https://codeberg.org/thi.ng/umbrella/commit/f9cee7d))
+  - add Query, QueryCtx, QueryTerm
+  - add execQueryTerm() multi-method
+  - add bitmap based query term impls:
+    - `or`/`nor`
+    - `and`/`nand`
+- add query ops for plain/non-bitmap columns ([f66a56c](https://codeberg.org/thi.ng/umbrella/commit/f66a56c))
+- major update query API & impl ([814ffd1](https://codeberg.org/thi.ng/umbrella/commit/814ffd1))
+  - migrate query related type to api.ts
+  - update query ops format
+  - add `matchColumn`, `matchPartialRow`, `matchRow` ops
+  - add `registerQueryOp()` to register custom ops
+  - add fluent API syntax sugar for built-in query ops
+  - add `Table.getPartialRow()`
+  - update table row getters
+- minor updates Table API ([420eec7](https://codeberg.org/thi.ng/umbrella/commit/420eec7))
+  - add `.query()` syntax sugar
+  - add `.addRows()`
+  - minor internal `.length` refactoring
+- also rebuild dictionairies in enum columns when re-indexing ([c02fd75](https://codeberg.org/thi.ng/umbrella/commit/c02fd75))
+- add `IColumn.replaceValue()` & impls ([05e8c66](https://codeberg.org/thi.ng/umbrella/commit/05e8c66))
+- update `BitmapIndex`, extract `Bitfield` wrapper ([729ab87](https://codeberg.org/thi.ng/umbrella/commit/729ab87))
+  - optimize `.replaceValue()` impls
+- add `TableOpts` and support for customizable colum type impls ([c1c9cee](https://codeberg.org/thi.ng/umbrella/commit/c1c9cee))
+  - add `TableOpts`
+  - update `Table` ctor and `.load()`
+  - extract `defaultColumnFactory()`
+- update support for customizable column types ([2c9bc7d](https://codeberg.org/thi.ng/umbrella/commit/2c9bc7d))
+  - add `ColumnTypeSpec`, `COLUMN_TYPES` registry and `registerColumnType()`
+  - remove `defaultColumnFactory()`
+- add FLAG_RLE and RLE (de)serialization ([041dd92](https://codeberg.org/thi.ng/umbrella/commit/041dd92))
+  - add RLE support for dict & typedarray column types
+- add removeColumn(), minor refactoring ([a733f29](https://codeberg.org/thi.ng/umbrella/commit/a733f29))
+
+#### 🩹 Bug fixes
+
+- update array column value encoding ([c40cf87](https://codeberg.org/thi.ng/umbrella/commit/c40cf87))
+- update column value validators ([3c430e0](https://codeberg.org/thi.ng/umbrella/commit/3c430e0))
+- update TypedArrayColumn.validate() ([d6aaeb6](https://codeberg.org/thi.ng/umbrella/commit/d6aaeb6))
+- disable FLAG_RLE for f32/f64 column types ([f2f14c3](https://codeberg.org/thi.ng/umbrella/commit/f2f14c3))
+
+#### ♻️ Refactoring
+
+- make Query an iterable ([c372b29](https://codeberg.org/thi.ng/umbrella/commit/c372b29))
+- rename FLAG_ENUM and enum column types ([4bea40b](https://codeberg.org/thi.ng/umbrella/commit/4bea40b))
+- simplify row validation ([5172db2](https://codeberg.org/thi.ng/umbrella/commit/5172db2))
+  - add `IColumn.validate()`, migrate validations to column impls
+  - simplify `Table.validateRow()`
+  - add validation helpers
+- update `Bitfield` and `BitmapIndex`, simplify `Query`, add docs ([40aebff](https://codeberg.org/thi.ng/umbrella/commit/40aebff))
+- update default value handling ([435e42b](https://codeberg.org/thi.ng/umbrella/commit/435e42b))
+- rename FLAG_ENUM => FLAG_DICT ([de9b00f](https://codeberg.org/thi.ng/umbrella/commit/de9b00f))
+- rename dict-based column types ([5a5b5ba](https://codeberg.org/thi.ng/umbrella/commit/5a5b5ba))
+- update typedarray colum value validation ([2b14435](https://codeberg.org/thi.ng/umbrella/commit/2b14435))

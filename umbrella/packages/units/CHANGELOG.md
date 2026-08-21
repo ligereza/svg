@@ -1,0 +1,137 @@
+# Change Log
+
+- **Last updated**: 2026-07-02T14:22:52Z
+- **Generator**: [thi.ng/monopub](https://thi.ng/monopub)
+
+All notable changes to this project will be documented in this file.
+Only versions published since **2023-01-01** are listed here.
+Please consult the Git history for older version information.
+See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+**Note:** Unlisted _patch_ versions only involve non-code or otherwise excluded changes
+and/or version bumps of transitive dependencies.
+
+## [1.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.4.0/packages/units) (2026-05-14)
+
+#### 🚀 Features
+
+- update `defUnit()` to support symbol aliases ([8429746](https://codeberg.org/thi.ng/umbrella/commit/8429746))
+  - add `ALIASES` registry
+  - update `defUnit()` and docs
+  - update various unit definitions
+- add CLI wrapper & commands, update pkg ([c14afb6](https://codeberg.org/thi.ng/umbrella/commit/c14afb6))
+- update CLI usage & list command ([17d9e1f](https://codeberg.org/thi.ng/umbrella/commit/17d9e1f))
+
+## [1.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.3.0/packages/units) (2026-04-26)
+
+#### 🚀 Features
+
+- add carat mass unit ([ca7cc41](https://codeberg.org/thi.ng/umbrella/commit/ca7cc41))
+
+## [1.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.2.0/packages/units) (2026-04-02)
+
+#### 🚀 Features
+
+- add `drop` volume unit ([a8f48d4](https://codeberg.org/thi.ng/umbrella/commit/a8f48d4))
+
+#### 🩹 Bug fixes
+
+- update US unit symbol names ([a0f14e9](https://codeberg.org/thi.ng/umbrella/commit/a0f14e9))
+  - replace spaces with `_`, e.g. `us gal` => `us_gal`
+
+### [1.1.4](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.1.4/packages/units) (2026-02-12)
+
+#### 🩹 Bug fixes
+
+- fix G0 (standard gravity), now actually a quantity preset ([f1310db](https://codeberg.org/thi.ng/umbrella/commit/f1310db))
+
+## [1.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.1.0/packages/units) (2025-12-25)
+
+#### 🚀 Features
+
+- add `add()`/`sub()` ops for quantities ([0428a32](https://codeberg.org/thi.ng/umbrella/commit/0428a32))
+- add Lisp-like formula DSL for more friendly unit calculations ([26c6628](https://codeberg.org/thi.ng/umbrella/commit/26c6628))
+  - add `$eval()` function to execute DSL source code
+- add `gsm`/`g_m2` presets ([8900f8b](https://codeberg.org/thi.ng/umbrella/commit/8900f8b))
+
+#### ♻️ Refactoring
+
+- add/update pkg exports ([7c7921e](https://codeberg.org/thi.ng/umbrella/commit/7c7921e))
+
+### [1.0.34](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@1.0.34/packages/units) (2025-12-03)
+
+#### ♻️ Refactoring
+
+- update for-loops (use const where possible) ([5ceaf1a](https://codeberg.org/thi.ng/umbrella/commit/5ceaf1a))
+
+## [0.5.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.5.0/packages/units) (2024-06-21)
+
+#### 🚀 Features
+
+- add DPI constants/presets ([5fe2f78](https://codeberg.org/thi.ng/umbrella/commit/5fe2f78))
+
+#### 🩹 Bug fixes
+
+- update DPI constants ([0b36809](https://codeberg.org/thi.ng/umbrella/commit/0b36809))
+
+### [0.4.14](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.4.14/packages/units) (2023-11-09)
+
+#### ♻️ Refactoring
+
+- update all tests (packages T-Z) ([020ef6c](https://codeberg.org/thi.ng/umbrella/commit/020ef6c))
+
+#### 🧪 Tests
+
+- update/refactor tests to use bun test runner ([8f6edb1](https://codeberg.org/thi.ng/umbrella/commit/8f6edb1))
+- update/rename test files/imports (still many broken) ([1cb3c49](https://codeberg.org/thi.ng/umbrella/commit/1cb3c49))
+
+### [0.4.1](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.4.1/packages/units) (2023-03-27)
+
+#### 🧪 Tests
+
+- update all tests (mainly imports) ([63a85f9](https://codeberg.org/thi.ng/umbrella/commit/63a85f9))
+
+## [0.4.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.4.0/packages/units) (2023-03-22)
+
+#### 🚀 Features
+
+- add US paper sizes/presets ([bc78668](https://codeberg.org/thi.ng/umbrella/commit/bc78668))
+  - rename file din-sizes.ts => paper-sizes.ts
+  - update pkg export maps
+- add landscape presets (paper sizes) ([a96a714](https://codeberg.org/thi.ng/umbrella/commit/a96a714))
+
+## [0.3.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.3.0/packages/units) (2023-03-16)
+
+#### 🚀 Features
+
+- add more quantities/constants ([27cd71e](https://codeberg.org/thi.ng/umbrella/commit/27cd71e))
+
+## [0.2.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.2.0/packages/units) (2023-03-15)
+
+#### 🚀 Features
+
+- add support for quantities ([94ded3e](https://codeberg.org/thi.ng/umbrella/commit/94ded3e))
+  - add quantity()
+  - update various ops & predicates as polymorphic fns
+  - fix asUnit()
+  - update docs
+- restructure /src, add quantities/constants ([1374162](https://codeberg.org/thi.ng/umbrella/commit/1374162))
+  - add /src/constants:
+    - velocities
+    - DIN paper sizes
+  - move all unit presets to /src/units
+  - update pkg exports
+
+## [0.1.0](https://codeberg.org/thi.ng/umbrella/src/tag/@thi.ng/units@0.1.0/packages/units) (2023-03-14)
+
+#### 🚀 Features
+
+- migrate, refactor & import as new pkg ([73c941a](https://codeberg.org/thi.ng/umbrella/commit/73c941a))
+- add coherent(), update unit defs ([d2f7608](https://codeberg.org/thi.ng/umbrella/commit/d2f7608))
+- add MaybeUnit, update fn sigs ([fe65abc](https://codeberg.org/thi.ng/umbrella/commit/fe65abc))
+- add isDimensionless(), update prefix() ([1851fb9](https://codeberg.org/thi.ng/umbrella/commit/1851fb9))
+- add/update units, aliases ([850e604](https://codeberg.org/thi.ng/umbrella/commit/850e604))
+
+#### ♻️ Refactoring
+
+- rename builtin units, update readme ([22031e6](https://codeberg.org/thi.ng/umbrella/commit/22031e6))

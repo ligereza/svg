@@ -1,0 +1,146 @@
+{
+	"name": "@thi.ng/hiccup-svg",
+	"version": "5.6.21",
+	"description": "SVG element functions for @thi.ng/hiccup & related tooling",
+	"type": "module",
+	"module": "./index.js",
+	"typings": "./index.d.ts",
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://codeberg.org/thi.ng/umbrella.git",
+		"directory": "packages/hiccup-svg"
+	},
+	"homepage": "https://thi.ng/hiccup-svg",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/postspectacular"
+		},
+		{
+			"type": "patreon",
+			"url": "https://patreon.com/thing_umbrella"
+		},
+		{
+			"type": "liberapay",
+			"url": "https://liberapay.com/thi.ng"
+		}
+	],
+	"author": "Karsten Schmidt (https://thi.ng)",
+	"license": "Apache-2.0",
+	"scripts": {
+		"build": "yarn build:esbuild && yarn build:decl",
+		"build:decl": "tsc --declaration --emitDeclarationOnly",
+		"build:esbuild": "esbuild --format=esm --platform=neutral --target=es2022 --tsconfig=tsconfig.json --outdir=. src/**/*.ts",
+		"clean": "bun ../../tools/src/clean-package.ts",
+		"doc": "typedoc --options ../../typedoc.json --out doc src/index.ts",
+		"doc:readme": "bun ../../tools/src/module-stats.ts && bun ../../tools/src/readme.ts",
+		"pub": "npm publish --access public",
+		"test": "bun test",
+		"tool:tangle": "../../node_modules/.bin/tangle src/**/*.ts"
+	},
+	"dependencies": {
+		"@thi.ng/api": "^8.12.27",
+		"@thi.ng/checks": "^3.11.0",
+		"@thi.ng/color": "^5.8.31",
+		"@thi.ng/prefixes": "^2.3.77"
+	},
+	"devDependencies": {
+		"esbuild": "^0.28.1",
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.3"
+	},
+	"keywords": [
+		"arc",
+		"bezier",
+		"circle",
+		"color",
+		"conversion",
+		"export",
+		"fileformat",
+		"gradient",
+		"hdom",
+		"hiccup",
+		"shape",
+		"svg",
+		"tree",
+		"typescript",
+		"ui",
+		"visualization",
+		"xml"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"./*.js",
+		"./*.d.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./index.js"
+		},
+		"./api": {
+			"default": "./api.js"
+		},
+		"./circle": {
+			"default": "./circle.js"
+		},
+		"./convert": {
+			"default": "./convert.js"
+		},
+		"./defs": {
+			"default": "./defs.js"
+		},
+		"./ellipse": {
+			"default": "./ellipse.js"
+		},
+		"./format": {
+			"default": "./format.js"
+		},
+		"./gradients": {
+			"default": "./gradients.js"
+		},
+		"./group": {
+			"default": "./group.js"
+		},
+		"./image": {
+			"default": "./image.js"
+		},
+		"./line": {
+			"default": "./line.js"
+		},
+		"./path": {
+			"default": "./path.js"
+		},
+		"./pattern": {
+			"default": "./pattern.js"
+		},
+		"./points": {
+			"default": "./points.js"
+		},
+		"./polygon": {
+			"default": "./polygon.js"
+		},
+		"./polyline": {
+			"default": "./polyline.js"
+		},
+		"./rect": {
+			"default": "./rect.js"
+		},
+		"./svg": {
+			"default": "./svg.js"
+		},
+		"./text": {
+			"default": "./text.js"
+		}
+	},
+	"thi.ng": {
+		"alias": "svg",
+		"parent": "@thi.ng/hiccup",
+		"year": 2016
+	}
+}
