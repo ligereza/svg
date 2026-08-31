@@ -361,15 +361,27 @@ def asset_geometry_node_group():
     group_float_socket(node_group, "Offset Y", 0.0, -100.0, 100.0)
     group_float_socket(node_group, "Rotation", 0.0, -math.pi * 4.0, math.pi * 4.0)
     group_float_socket(node_group, "Pulse", 0.0, -1.0, 1.0)
+    group_float_socket(node_group, "Pivot X", 0.5, -1.0, 2.0)
+    group_float_socket(node_group, "Pivot Y", 0.5, -1.0, 2.0)
 
     nodes = node_group.nodes
     links = node_group.links
     group_input = nodes.new("NodeGroupInput")
     group_output = nodes.new("NodeGroupOutput")
     transform = nodes.new("GeometryNodeTransform")
+    pre_pivot = nodes.new("GeometryNodeTransform")
+    post_pivot = nodes.new("GeometryNodeTransform")
     scale = nodes.new("ShaderNodeCombineXYZ")
     translation = nodes.new("ShaderNodeCombineXYZ")
     rotation = nodes.new("ShaderNodeCombineXYZ")
+    pivot = nodes.new("ShaderNodeCombineXYZ")
+    pivot_scale_x = nodes.new("ShaderNodeMath")
+    pivot_scale_x.operation = "MULTIPLY"
+    pivot_scale_y = nodes.new("ShaderNodeMath")
+    pivot_scale_y.operation = "MULTIPLY"
+    negate_pivot = nodes.new("ShaderNodeVectorMath")
+    negate_pivot.operation = "SCALE"
+    negate_pivot.inputs["Scale"].default_value = -1.0
     pulse_add = nodes.new("ShaderNodeMath")
     pulse_add.operation = "ADD"
     pulse_add.inputs[0].default_value = 1.0
@@ -386,11 +398,20 @@ def asset_geometry_node_group():
         (scale, (120, 160)),
         (translation, (120, -40)),
         (rotation, (120, -220)),
-        (transform, (360, 0)),
-        (group_output, (600, 0)),
+        (pivot_scale_x, (-100, -460)),
+        (pivot_scale_y, (120, -460)),
+        (pivot, (-100, -360)),
+        (negate_pivot, (120, -360)),
+        (pre_pivot, (360, 120)),
+        (transform, (560, 0)),
+        (post_pivot, (760, 120)),
+        (group_output, (960, 0)),
     ):
         node.location = location
-    links.new(group_input.outputs["Geometry"], transform.inputs["Geometry"])
+    links.new(group_input.outputs["Geometry"], pre_pivot.inputs["Geometry"])
+    links.new(pre_pivot.outputs["Geometry"], transform.inputs["Geometry"])
+    links.new(transform.outputs["Geometry"], post_pivot.inputs["Geometry"])
+    links.new(post_pivot.outputs["Geometry"], group_output.inputs["Geometry"])
     links.new(group_input.outputs["Pulse"], pulse_add.inputs[1])
     links.new(group_input.outputs["Scale X"], pulse_x.inputs[0])
     links.new(pulse_add.outputs[0], pulse_x.inputs[1])
@@ -405,10 +426,19 @@ def asset_geometry_node_group():
     links.new(group_input.outputs["Rotation"], rotation.inputs["Z"])
     rotation.inputs["X"].default_value = 0.0
     rotation.inputs["Y"].default_value = 0.0
+    links.new(group_input.outputs["Pivot X"], pivot_scale_x.inputs[0])
+    links.new(pulse_x.outputs[0], pivot_scale_x.inputs[1])
+    links.new(group_input.outputs["Pivot Y"], pivot_scale_y.inputs[0])
+    links.new(pulse_y.outputs[0], pivot_scale_y.inputs[1])
+    links.new(pivot_scale_x.outputs[0], pivot.inputs["X"])
+    links.new(pivot_scale_y.outputs[0], pivot.inputs["Y"])
+    pivot.inputs["Z"].default_value = 0.0
+    links.new(pivot.outputs["Vector"], negate_pivot.inputs["Vector"])
+    links.new(negate_pivot.outputs["Vector"], pre_pivot.inputs["Translation"])
+    links.new(pivot.outputs["Vector"], post_pivot.inputs["Translation"])
     links.new(scale.outputs["Vector"], transform.inputs["Scale"])
     links.new(translation.outputs["Vector"], transform.inputs["Translation"])
     links.new(rotation.outputs["Vector"], transform.inputs["Rotation"])
-    links.new(transform.outputs["Geometry"], group_output.inputs["Geometry"])
     return node_group
 
 
@@ -438,6 +468,11 @@ def attach_asset_geometry_nodes(objects, root, fit_width, fit_height, asset):
         "Rotation": math.radians(float(asset.get("rotation", 0.0))),
         "Pulse": float(asset.get("pulse", 0.0)),
     }
+    pivot = asset.get("pivot", [0.5, 0.5])
+    if not isinstance(pivot, (list, tuple)) or len(pivot) < 2:
+        pivot = [0.5, 0.5]
+    controls["Pivot X"] = float(asset.get("pivotX", pivot[0]))
+    controls["Pivot Y"] = float(asset.get("pivotY", pivot[1]))
     identifiers = {}
     for obj in objects:
         modifier = obj.modifiers.new(name="GN Asset Transform", type="NODES")
@@ -482,12 +517,21 @@ def place_asset(imported, asset, part, slide_offset, slide_width, slide_height, 
     zone_bottom = slide_offset[1] + slide_height / 2 - (zone["y"] + zone["height"]) * slide_height
     root.location = (zone_left + (zone_width - fit_width) / 2, zone_bottom + (zone_height - fit_height) / 2, 0.14 + float(asset.get("zIndex", 0)) * 0.0001)
     root.scale = (1.0, 1.0, 1.0)
+    pivot = asset.get("pivot", [0.5, 0.5])
+    if not isinstance(pivot, (list, tuple)) or len(pivot) < 2:
+        pivot = [0.5, 0.5]
+    controls = {
+        "Pivot X": float(asset.get("pivotX", pivot[0])),
+        "Pivot Y": float(asset.get("pivotY", pivot[1])),
+    }
     root["gn_scale_x"] = fit_width
     root["gn_scale_y"] = fit_height
     root["gn_offset_x"] = float(asset.get("offsetX", 0.0))
     root["gn_offset_y"] = float(asset.get("offsetY", 0.0))
     root["gn_rotation"] = math.radians(float(asset.get("rotation", 0.0)))
     root["gn_pulse"] = float(asset.get("pulse", 0.0))
+    root["gn_pivot_x"] = controls["Pivot X"]
+    root["gn_pivot_y"] = controls["Pivot Y"]
     for obj in objects:
         obj.parent = root
         obj["asset_id"] = asset_id
@@ -503,10 +547,29 @@ def place_asset(imported, asset, part, slide_offset, slide_width, slide_height, 
     return root
 
 
+def ensure_animation_group(group_id, collection):
+    """Create one editable Empty for a coarse animation unit."""
+    safe_id = re.sub(r"[^A-Za-z0-9_.-]+", "-", str(group_id)).strip("-.") or "group"
+    name = f"AnimGroup_{safe_id}"
+    group = bpy.data.objects.get(name)
+    if group is None:
+        group = bpy.data.objects.new(name, None)
+        collection.objects.link(group)
+        group.empty_display_type = "PLAIN_AXES"
+        group.empty_display_size = 0.08
+        group.location = (0.0, 0.0, 0.0)
+        group.rotation_euler = (0.0, 0.0, 0.0)
+        group.scale = (1.0, 1.0, 1.0)
+    group["animation_group"] = str(group_id)
+    group["animation_role"] = "auto-spatial-animation-unit"
+    return group
+
+
 def import_assets_for_part(assets, part, index, spec_path, slide_offset, slide_width, slide_height, canvas_width, canvas_height, scene):
     collection = ensure_collection(f"Slide_{index + 1:02d}_Assets", scene)
     imported_roots = []
     errors = []
+    animation_groups = {}
     for asset in assets:
         if not asset_matches_part(asset, part, index):
             continue
@@ -532,6 +595,12 @@ def import_assets_for_part(assets, part, index, spec_path, slide_offset, slide_w
                 continue
             root = place_asset(imported, asset, part, slide_offset, slide_width, slide_height, canvas_width, canvas_height, collection)
             if root:
+                group_id = asset.get("animationGroup") or asset.get("animation_group")
+                if group_id:
+                    group = animation_groups.setdefault(str(group_id), ensure_animation_group(group_id, collection))
+                    root.parent = group
+                    root["animation_group"] = str(group_id)
+                    group["member_count"] = int(group.get("member_count", 0)) + 1
                 imported_roots.append(root)
         except Exception as error:
             errors.append({"asset": asset_id, "error": str(error)})

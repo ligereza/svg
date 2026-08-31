@@ -20,6 +20,10 @@ _zip_stage/
 **/*.tmp
 **/*.bak
 
+# Bibliotecas externas descargadas; Context Shelf conserva únicamente los
+# recursos creados/locales y los clones que se usan de forma explícita.
+/rd_database_complete/public_libraries/
+
 # Metadatos Git anidados
 **/.git/
 **/.git.local-disabled/

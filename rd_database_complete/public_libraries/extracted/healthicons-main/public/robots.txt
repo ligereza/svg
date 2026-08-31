@@ -1,4 +1,0 @@
-Sitemap: https://healthicons.org/sitemap.txt
-
-User-agent: *
-Allow: /*

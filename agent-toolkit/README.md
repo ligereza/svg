@@ -53,6 +53,8 @@ data chart --input FILE --output FILE --x LABEL --y VALUE
 data d3-chart --input FILE --output jobs/manual/output/d3-chart.svg --x LABEL --y VALUE
 data animate --input FILE --output FILE --duration-ms 1200
 image split --input FILE --output jobs/manual/output/tiles.json --rows 2 --columns 2
+image extract-checkerboard-matte --input FILE --output jobs/manual/output/iconos.json --rows 1 --columns 1 --orphan-area 64 --grabcut-iterations 5
+image extract-checkerboard-matte --plan plan.json --output output/manifest.json --assets-dir output --padding 18
 blender run --operation create-scene --spec FILE --output FILE
 blender run --operation layout-scene --spec storyboard-with-assets.json --output jobs/manual/output/slides.blend --render-output jobs/manual/output/slides.png
 blender run --operation export-glb --spec FILE --output jobs/manual/output/scene.glb
@@ -96,6 +98,44 @@ when replacing an existing artifact is intentional.
 4. The resulting terms generate visual suggestions.
 5. Iconify searches general editable SVG icons.
 6. Bioicons searches biology and chemistry SVGs from its open catalog.
+
+## MobileCLIP local semantic search
+
+Context Shelf can optionally rank the local catalog with the original MobileCLIP v1 checkpoint from Apple. The semantic layer is additive: lexical search continues to work when the Python runtime, checkpoint or vector index is unavailable.
+
+The checkpoint is downloaded only from the official Apple host and its expected size and SHA-256 digest are checked before it can be loaded. The worker uses `torch.load(weights_only=True)` and refuses runtimes that would require unsafe checkpoint unpickling. MobileCLIP S2 is the default because it is a good quality/latency balance for thousands of icons.
+
+The one-time setup is explicit:
+
+```powershell
+git clone https://github.com/apple/ml-mobileclip.git cache/context-shelf/mobileclip/ml-mobileclip
+python -m pip install torch torchvision pillow cairosvg
+npm run tool -- semantic install --model mobileclip_s2
+npm run tool -- semantic status --model mobileclip_s2
+npm run tool -- semantic index --model mobileclip_s2 --batch-size 48
+```
+
+For the GPU-optimized fixed-batch graph, run the one-time export from the
+existing export environment (it is CPU-only and does not download a model):
+
+```powershell
+cache\context-shelf\mobileclip\export-venv\Scripts\python.exe scripts\mobileclip-export.py --model-name mobileclip_s2 --checkpoint cache\context-shelf\mobileclip\mobileclip_s2.pt --repo-path cache\context-shelf\mobileclip\ml-mobileclip --output-dir cache\context-shelf\mobileclip --opset 17 --image-batch-size 96
+npm run tool -- semantic index --model mobileclip_s2 --batch-size 96
+```
+
+When `mobileclip_s2.image.b96.onnx` exists and the index batch size is 96,
+the indexer selects it automatically. The last partial batch is padded only
+for the model call and its extra embeddings are discarded. The dynamic graph
+remains the fallback for other batch sizes or installations without the
+fixed graph.
+
+After the index is generated, the companion search automatically requests the semantic ranker. The direct CLI equivalent is:
+
+```powershell
+npm run tool -- asset search-local --query "pulmones" --semantic
+```
+
+Set `MOBILECLIP_PYTHON` when the model environment uses a different Python executable, and `MOBILECLIP_REPO` when the official Apple repository is stored elsewhere. The original MobileCLIP v1 checkpoint is used here; MobileCLIP2 is intentionally excluded because its official distribution currently points to Hugging Face.
 7. `asset.select` downloads the chosen SVGs and writes a provenance manifest
 with the exact text/ancla, source URL, asset id and license.
 
@@ -142,6 +182,14 @@ For Chemsex, [`projects/chemsex/PROJECT.json`](projects/chemsex/PROJECT.json)
 is the project-level source of truth: 1080×1440 px, exact source order, PSD and
 Blender artifact roots. Jobs remain auditable under `jobs/`; project deliverables
 are copied into the project root when `--project-root` is supplied.
+
+The canonical Chemsex regenerated-layer workflow and its mechanical Python
+entry point are documented in
+[`projects/chemsex/editable/blender/chemsex-carousel-all-slides/README.md`](projects/chemsex/editable/blender/chemsex-carousel-all-slides/README.md).
+Do not create a parallel PNG-to-SVG workflow for that project: the PNG is a
+visual reference only, layers are regenerated semantically, masks are mandatory,
+and the deterministic packaging is centralized in
+`experiments/layer-decompose/chemsex_layer_pipeline.py`.
 
 Use these checks before starting a new project:
 

@@ -6,13 +6,17 @@ import { renderAfterEffects } from "./adapters/after-effects.mjs"
 import { runBlender } from "./adapters/blender.mjs"
 import { animateChart, barChart } from "./tools/chart.mjs"
 import { d3BarChart } from "./tools/d3.mjs"
-import { splitRaster } from "./tools/image.mjs"
+import { removeIconBackground, splitRaster } from "./tools/image.mjs"
 import { animateSvg, createSvg, embedImage, particles, previewSvg, rasterizeSvg, validateSvg } from "./tools/svg.mjs"
 import { vectorizeRaster } from "./tools/vectorize.mjs"
 import { imageToSvgBlenderIllustrator, imageToSvgPreview } from "./orchestrator.mjs"
 import { documentToAnimatedPost } from "./document-workflow.mjs"
 import { multiAppComposition } from "./multi-app-workflow.mjs"
 import { fetchAsset, searchAssets, selectAssets } from "./tools/asset-search.mjs"
+import { catalogStats, indexLocalCatalog, searchLocalAssets } from "./tools/local-catalog.mjs"
+import { catalogGroupSummary, indexLocalGroups, listCatalogAssets } from "./tools/catalog-groups.mjs"
+import { indexMobileClip, mobileClipStatus, searchMobileClip } from "./tools/mobileclip.mjs"
+import { analyzeContext } from "./tools/context-analysis.mjs"
 import { gdkbHealth, gdkbImport, gdkbImportJsonl, gdkbMergeEvent, gdkbNormalize, gdkbReplay, gdkbResolve } from "./tools/gdkb.mjs"
 import { integrationPlan, integrationScriptingMap, integrationSources, validateIntegration } from "./tools/integration.mjs"
 import { effectRetrySimulation, rxjsEventTimeline, stdlibStatistics, thiNgSvg, threeScenePreview } from "./tools/source-runtime.mjs"
@@ -33,6 +37,7 @@ export const WEB_RUN_TOOLS = new Set([
   "data.d3-chart",
   "data.animate",
   "image.split",
+  "image.extract-checkerboard-matte",
   "blender.run",
   "scene3d.create",
   "blender.create-scene",
@@ -51,6 +56,14 @@ export const WEB_RUN_TOOLS = new Set([
   "asset.search",
   "asset.fetch",
   "asset.select",
+  "asset.catalog-index",
+  "asset.search-local",
+  "asset.catalog-groups",
+  "asset.catalog-assets",
+  "asset.semantic-status",
+  "asset.semantic-index",
+  "asset.semantic-search",
+  "context.analyze",
   "gdkb.health",
   "gdkb.normalize",
   "gdkb.resolve",
@@ -188,6 +201,18 @@ export async function runTool(tool, params = {}) {
   if (tool === "integration.scripting-map") return integrationScriptingMap()
   if (tool === "integration.validate") return validateIntegration()
   if (tool === "integration.plan") return integrationPlan(params)
+  if (tool === "asset.catalog-index") {
+    const catalog = await indexLocalCatalog(params)
+    const groups = await indexLocalGroups(params)
+    return { ...catalog, groups }
+  }
+  if (tool === "asset.search-local") return searchLocalAssets(params)
+  if (tool === "asset.catalog-groups") return catalogGroupSummary(params)
+  if (tool === "asset.catalog-assets") return listCatalogAssets(params)
+  if (tool === "asset.semantic-status") return mobileClipStatus(params)
+  if (tool === "asset.semantic-index") return indexMobileClip(params)
+  if (tool === "asset.semantic-search") return searchMobileClip(params)
+  if (tool === "context.analyze") return analyzeContext(params.context || params)
 
   return runInJob(tool, params, async (job) => {
     if (tool === "svg.create") {
@@ -253,6 +278,26 @@ export async function runTool(tool, params = {}) {
       const input = await stageInput(job, params.input || params.image, "image")
       const output = outputPath(job, params.output, "image-split.json", params)
       const value = await splitRaster(input, output, { ...params, ...overwriteOptions(params) })
+      return { result: value, files: value.files || [output] }
+    }
+    if (tool === "image.extract-checkerboard-matte") {
+      const input = await stageInput(job, params.input || params.image, "image")
+      const output = outputPath(job, params.output, "icon-background-removal.json", params)
+      const value = await removeIconBackground({
+        input,
+        output,
+        assetsDir: path.dirname(output),
+        rows: params.rows,
+        columns: params.columns,
+        overlap: params.overlap,
+        prefix: params.prefix,
+        lightThreshold: params.lightThreshold,
+        neutralThreshold: params.neutralThreshold,
+        orphanArea: params.orphanArea,
+        grabcutIterations: params.grabcutIterations,
+        padding: params.padding,
+        ...overwriteOptions(params),
+      })
       return { result: value, files: value.files || [output] }
     }
     if (tool === "svg.animate") {

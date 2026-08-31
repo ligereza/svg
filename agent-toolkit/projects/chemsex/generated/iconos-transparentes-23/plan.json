@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "name": "chemsex-approved-icons-transparent-23",
+  "description": "The 23 approved generated icons, exported as transparent PNGs without regenerating their artwork.",
+  "sources": [
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-d54342c9-b62d-476d-afeb-84d7aaaca5b1.png",
+      "rows": 1,
+      "columns": 3,
+      "names": [
+        "01-estigma-aislamiento",
+        "02-dosificacion-y-mezclas",
+        "03-apoyo-comunitario"
+      ]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "rows": 2,
+      "columns": 4,
+      "names": [
+        "04-riesgo-sobredosis-mezclas-v1",
+        "05-riesgo-sobredosis-mezclas-v2",
+        "06-riesgo-viagra-y-drogas-v1",
+        "07-riesgo-viagra-y-drogas-v2",
+        "08-riesgo-vih-its-v1",
+        "09-riesgo-vih-its-v2",
+        "10-salud-mental-y-recuperacion-v1",
+        "11-salud-mental-y-recuperacion-v2"
+      ]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-7afb2a95-b9a9-41ab-b633-14a67d716f21.png",
+      "names": ["12-interaccion-ghb-alcohol-v1"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-c5fbf702-8435-4868-85e7-7c24cf89cc5f.png",
+      "names": ["13-interaccion-ghb-alcohol-v2"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-2a3cec34-4f22-4773-afb9-38c198ce8830.png",
+      "names": ["14-interaccion-ghb-alcohol-v3"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-1f16043e-6975-4fbf-9393-c271aedcbbc4.png",
+      "names": ["15-interaccion-cocaina-viagra-v1"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-6e181bbe-d20b-4033-9571-55f6f9660e56.png",
+      "names": ["16-interaccion-cocaina-viagra-v2"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-33031d8a-9619-40d5-bbad-7ece0de89aaa.png",
+      "names": ["17-interaccion-cocaina-viagra-v3"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-b969b7d0-12eb-4129-b0ce-be7f681afd4f.png",
+      "names": ["18-interaccion-estimulantes-popper-v1"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-3bd60d47-d265-44be-8f41-bf08f9a20956.png",
+      "names": ["19-interaccion-estimulantes-popper-v2"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-83daa38a-1721-4bc4-9c5b-0cc3f84ca36e.png",
+      "names": ["20-interaccion-estimulantes-popper-v3"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-a261b3b9-af9c-4567-8b27-61f533ca1f5e.png",
+      "names": ["21-interaccion-viagra-popper-v1"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-fd5e31d7-a31e-40f3-8e74-3caa67cd30ac.png",
+      "names": ["22-interaccion-viagra-popper-v2"]
+    },
+    {
+      "input": "C:/Users/issvk/.codex/generated_images/01a04b19-4372-7e42-800b-8a9c6c454bea/exec-62b6315f-9778-46fb-8e02-1ffdec839a49.png",
+      "names": ["23-interaccion-viagra-popper-v3"]
+    }
+  ]
+}

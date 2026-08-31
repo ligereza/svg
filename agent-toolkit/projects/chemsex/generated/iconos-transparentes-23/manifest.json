@@ -1,0 +1,1207 @@
+{
+  "version": 1,
+  "operation": "icon-checkerboard-matte-extraction",
+  "outputDirectory": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23",
+  "lightThreshold": 185,
+  "neutralThreshold": 18,
+  "orphanArea": 64,
+  "grabcutIterations": 5,
+  "padding": 18,
+  "assets": [
+    {
+      "id": "01-estigma-aislamiento",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\01-estigma-aislamiento.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-d54342c9-b62d-476d-afeb-84d7aaaca5b1.png",
+      "sourceIndex": 1,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        591,
+        887
+      ],
+      "trimBox": [
+        21,
+        119,
+        565,
+        765
+      ],
+      "width": 544,
+      "height": 646,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 290125,
+        "edgeConnectedPixels": 288619,
+        "checkerCellPixels": 268603,
+        "checkerboard": {
+          "cellSize": 25,
+          "phaseX": 16,
+          "phaseY": 15,
+          "levels": [
+            248.0,
+            254.0
+          ],
+          "confidence": 3.6
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 288619,
+          "certainBackgroundPixels": 288619,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 234092,
+          "backgroundPixels": 290125
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "02-dosificacion-y-mezclas",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\02-dosificacion-y-mezclas.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-d54342c9-b62d-476d-afeb-84d7aaaca5b1.png",
+      "sourceIndex": 1,
+      "tileIndex": 2,
+      "sourceBox": [
+        591,
+        0,
+        1183,
+        887
+      ],
+      "trimBox": [
+        0,
+        154,
+        566,
+        783
+      ],
+      "width": 566,
+      "height": 629,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 328095,
+        "edgeConnectedPixels": 317397,
+        "checkerCellPixels": 286053,
+        "checkerboard": {
+          "cellSize": 25,
+          "phaseX": 10,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            247.33
+          ],
+          "confidence": 5.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 320320,
+          "certainBackgroundPixels": 317397,
+          "probableBackgroundPixels": 2923,
+          "foregroundPixels": 197009,
+          "backgroundPixels": 328095
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "03-apoyo-comunitario",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\03-apoyo-comunitario.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-d54342c9-b62d-476d-afeb-84d7aaaca5b1.png",
+      "sourceIndex": 1,
+      "tileIndex": 3,
+      "sourceBox": [
+        1183,
+        0,
+        1774,
+        887
+      ],
+      "trimBox": [
+        0,
+        164,
+        578,
+        755
+      ],
+      "width": 578,
+      "height": 591,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 322192,
+        "edgeConnectedPixels": 320937,
+        "checkerCellPixels": 295941,
+        "checkerboard": {
+          "cellSize": 25,
+          "phaseX": 3,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            247.33
+          ],
+          "confidence": 5.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 320937,
+          "certainBackgroundPixels": 320937,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 202025,
+          "backgroundPixels": 322192
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "04-riesgo-sobredosis-mezclas-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\04-riesgo-sobredosis-mezclas-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "trimBox": [
+        33,
+        50,
+        384,
+        495
+      ],
+      "width": 351,
+      "height": 445,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 88669,
+        "edgeConnectedPixels": 86181,
+        "checkerCellPixels": 76956,
+        "checkerboard": {
+          "cellSize": 20,
+          "phaseX": 2,
+          "phaseY": 0,
+          "levels": [
+            253.67,
+            242.0
+          ],
+          "confidence": 7.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 86181,
+          "certainBackgroundPixels": 86181,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 107939,
+          "backgroundPixels": 88669
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "05-riesgo-sobredosis-mezclas-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\05-riesgo-sobredosis-mezclas-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 2,
+      "sourceBox": [
+        384,
+        0,
+        768,
+        512
+      ],
+      "trimBox": [
+        0,
+        50,
+        384,
+        498
+      ],
+      "width": 384,
+      "height": 448,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 97287,
+        "edgeConnectedPixels": 94402,
+        "checkerCellPixels": 84306,
+        "checkerboard": {
+          "cellSize": 20,
+          "phaseX": 13,
+          "phaseY": 0,
+          "levels": [
+            241.67,
+            254.0
+          ],
+          "confidence": 7.4
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 94402,
+          "certainBackgroundPixels": 94402,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 99321,
+          "backgroundPixels": 97287
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "06-riesgo-viagra-y-drogas-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\06-riesgo-viagra-y-drogas-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 3,
+      "sourceBox": [
+        768,
+        0,
+        1152,
+        512
+      ],
+      "trimBox": [
+        0,
+        85,
+        384,
+        495
+      ],
+      "width": 384,
+      "height": 410,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 100218,
+        "edgeConnectedPixels": 99029,
+        "checkerCellPixels": 90902,
+        "checkerboard": {
+          "cellSize": 19,
+          "phaseX": 0,
+          "phaseY": 0,
+          "levels": [
+            241.33,
+            254.0
+          ],
+          "confidence": 9.5
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 99032,
+          "certainBackgroundPixels": 99029,
+          "probableBackgroundPixels": 3,
+          "foregroundPixels": 96390,
+          "backgroundPixels": 100218
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "07-riesgo-viagra-y-drogas-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\07-riesgo-viagra-y-drogas-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 4,
+      "sourceBox": [
+        1152,
+        0,
+        1536,
+        512
+      ],
+      "trimBox": [
+        0,
+        93,
+        364,
+        488
+      ],
+      "width": 364,
+      "height": 395,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 106915,
+        "edgeConnectedPixels": 105816,
+        "checkerCellPixels": 96245,
+        "checkerboard": {
+          "cellSize": 19,
+          "phaseX": 13,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            241.67
+          ],
+          "confidence": 9.25
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 105816,
+          "certainBackgroundPixels": 105816,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 89693,
+          "backgroundPixels": 106915
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "08-riesgo-vih-its-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\08-riesgo-vih-its-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 5,
+      "sourceBox": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "trimBox": [
+        30,
+        24,
+        384,
+        425
+      ],
+      "width": 354,
+      "height": 401,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 96728,
+        "edgeConnectedPixels": 94831,
+        "checkerCellPixels": 87845,
+        "checkerboard": {
+          "cellSize": 20,
+          "phaseX": 1,
+          "phaseY": 16,
+          "levels": [
+            242.0,
+            254.0
+          ],
+          "confidence": 7.2
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 94831,
+          "certainBackgroundPixels": 94831,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 99880,
+          "backgroundPixels": 96728
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "09-riesgo-vih-its-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\09-riesgo-vih-its-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 6,
+      "sourceBox": [
+        384,
+        512,
+        768,
+        1024
+      ],
+      "trimBox": [
+        0,
+        15,
+        374,
+        414
+      ],
+      "width": 374,
+      "height": 399,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 124230,
+        "edgeConnectedPixels": 115897,
+        "checkerCellPixels": 101389,
+        "checkerboard": {
+          "cellSize": 20,
+          "phaseX": 14,
+          "phaseY": 17,
+          "levels": [
+            254.0,
+            242.0
+          ],
+          "confidence": 6.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 115900,
+          "certainBackgroundPixels": 115897,
+          "probableBackgroundPixels": 3,
+          "foregroundPixels": 72378,
+          "backgroundPixels": 124230
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "10-salud-mental-y-recuperacion-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\10-salud-mental-y-recuperacion-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 7,
+      "sourceBox": [
+        768,
+        512,
+        1152,
+        1024
+      ],
+      "trimBox": [
+        0,
+        0,
+        384,
+        420
+      ],
+      "width": 384,
+      "height": 420,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 95014,
+        "edgeConnectedPixels": 93561,
+        "checkerCellPixels": 86057,
+        "checkerboard": {
+          "cellSize": 19,
+          "phaseX": 0,
+          "phaseY": 8,
+          "levels": [
+            242.0,
+            254.0
+          ],
+          "confidence": 6.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 93564,
+          "certainBackgroundPixels": 93561,
+          "probableBackgroundPixels": 3,
+          "foregroundPixels": 101594,
+          "backgroundPixels": 95014
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "11-salud-mental-y-recuperacion-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\11-salud-mental-y-recuperacion-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6030484b-5ad8-4321-9f43-2124882cc32a.png",
+      "sourceIndex": 2,
+      "tileIndex": 8,
+      "sourceBox": [
+        1152,
+        512,
+        1536,
+        1024
+      ],
+      "trimBox": [
+        0,
+        11,
+        366,
+        431
+      ],
+      "width": 366,
+      "height": 420,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 96768,
+        "edgeConnectedPixels": 94915,
+        "checkerCellPixels": 86289,
+        "checkerboard": {
+          "cellSize": 19,
+          "phaseX": 12,
+          "phaseY": 9,
+          "levels": [
+            254.0,
+            242.0
+          ],
+          "confidence": 7.2
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 94915,
+          "certainBackgroundPixels": 94915,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 99840,
+          "backgroundPixels": 96768
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "12-interaccion-ghb-alcohol-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\12-interaccion-ghb-alcohol-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-7afb2a95-b9a9-41ab-b633-14a67d716f21.png",
+      "sourceIndex": 3,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        94,
+        82,
+        1158,
+        1169
+      ],
+      "width": 1064,
+      "height": 1087,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 781421,
+        "edgeConnectedPixels": 775037,
+        "checkerCellPixels": 738019,
+        "checkerboard": {
+          "cellSize": 28,
+          "phaseX": 26,
+          "phaseY": 0,
+          "levels": [
+            244.0,
+            254.0
+          ],
+          "confidence": 7.5
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 775045,
+          "certainBackgroundPixels": 775037,
+          "probableBackgroundPixels": 8,
+          "foregroundPixels": 791095,
+          "backgroundPixels": 781421
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "13-interaccion-ghb-alcohol-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\13-interaccion-ghb-alcohol-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-c5fbf702-8435-4868-85e7-7c24cf89cc5f.png",
+      "sourceIndex": 4,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        61,
+        61,
+        1204,
+        1194
+      ],
+      "width": 1143,
+      "height": 1133,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 756343,
+        "edgeConnectedPixels": 734512,
+        "checkerCellPixels": 688222,
+        "checkerboard": {
+          "cellSize": 17,
+          "phaseX": 10,
+          "phaseY": 6,
+          "levels": [
+            246.0,
+            253.0
+          ],
+          "confidence": 2.333
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 735014,
+          "certainBackgroundPixels": 734512,
+          "probableBackgroundPixels": 502,
+          "foregroundPixels": 816173,
+          "backgroundPixels": 756343
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "14-interaccion-ghb-alcohol-v3",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\14-interaccion-ghb-alcohol-v3.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-2a3cec34-4f22-4773-afb9-38c198ce8830.png",
+      "sourceIndex": 5,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        62,
+        101,
+        1179,
+        1183
+      ],
+      "width": 1117,
+      "height": 1082,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 860874,
+        "edgeConnectedPixels": 855879,
+        "checkerCellPixels": 836022,
+        "checkerboard": {
+          "cellSize": 15,
+          "phaseX": 1,
+          "phaseY": 0,
+          "levels": [
+            243.0,
+            253.67
+          ],
+          "confidence": 4.0
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 855879,
+          "certainBackgroundPixels": 855879,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 711642,
+          "backgroundPixels": 860874
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "15-interaccion-cocaina-viagra-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\15-interaccion-cocaina-viagra-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-1f16043e-6975-4fbf-9393-c271aedcbbc4.png",
+      "sourceIndex": 6,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1205,
+        1305
+      ],
+      "trimBox": [
+        32,
+        17,
+        1159,
+        1305
+      ],
+      "width": 1127,
+      "height": 1288,
+      "alpha": true,
+      "background": {
+        "mode": "preserved-alpha",
+        "transparentPixels": 0
+      }
+    },
+    {
+      "id": "16-interaccion-cocaina-viagra-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\16-interaccion-cocaina-viagra-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-6e181bbe-d20b-4033-9571-55f6f9660e56.png",
+      "sourceIndex": 7,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1122,
+        1402
+      ],
+      "trimBox": [
+        129,
+        65,
+        1003,
+        1307
+      ],
+      "width": 874,
+      "height": 1242,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 849144,
+        "edgeConnectedPixels": 842786,
+        "checkerCellPixels": 800329,
+        "checkerboard": {
+          "cellSize": 26,
+          "phaseX": 0,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            245.0
+          ],
+          "confidence": 6.75
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 842790,
+          "certainBackgroundPixels": 842786,
+          "probableBackgroundPixels": 4,
+          "foregroundPixels": 723900,
+          "backgroundPixels": 849144
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "17-interaccion-cocaina-viagra-v3",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\17-interaccion-cocaina-viagra-v3.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-33031d8a-9619-40d5-bbad-7ece0de89aaa.png",
+      "sourceIndex": 8,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        28,
+        82,
+        1223,
+        1169
+      ],
+      "width": 1195,
+      "height": 1087,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 693864,
+        "edgeConnectedPixels": 649640,
+        "checkerCellPixels": 632596,
+        "checkerboard": {
+          "cellSize": 30,
+          "phaseX": 6,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            245.0
+          ],
+          "confidence": 5.4
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 674115,
+          "certainBackgroundPixels": 649640,
+          "probableBackgroundPixels": 24475,
+          "foregroundPixels": 878652,
+          "backgroundPixels": 693864
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "18-interaccion-estimulantes-popper-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\18-interaccion-estimulantes-popper-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-b969b7d0-12eb-4129-b0ce-be7f681afd4f.png",
+      "sourceIndex": 9,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        84,
+        33,
+        1196,
+        1229
+      ],
+      "width": 1112,
+      "height": 1196,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 825720,
+        "edgeConnectedPixels": 821952,
+        "checkerCellPixels": 759977,
+        "checkerboard": {
+          "cellSize": 26,
+          "phaseX": 6,
+          "phaseY": 20,
+          "levels": [
+            245.67,
+            254.0
+          ],
+          "confidence": 6.25
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 821955,
+          "certainBackgroundPixels": 821952,
+          "probableBackgroundPixels": 3,
+          "foregroundPixels": 746796,
+          "backgroundPixels": 825720
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "19-interaccion-estimulantes-popper-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\19-interaccion-estimulantes-popper-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-3bd60d47-d265-44be-8f41-bf08f9a20956.png",
+      "sourceIndex": 10,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1402,
+        1122
+      ],
+      "trimBox": [
+        58,
+        40,
+        1364,
+        1066
+      ],
+      "width": 1306,
+      "height": 1026,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 801412,
+        "edgeConnectedPixels": 736452,
+        "checkerCellPixels": 687520,
+        "checkerboard": {
+          "cellSize": 17,
+          "phaseX": 6,
+          "phaseY": 0,
+          "levels": [
+            245.33,
+            253.33
+          ],
+          "confidence": 2.667
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 753438,
+          "certainBackgroundPixels": 736452,
+          "probableBackgroundPixels": 16986,
+          "foregroundPixels": 771632,
+          "backgroundPixels": 801412
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "20-interaccion-estimulantes-popper-v3",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\20-interaccion-estimulantes-popper-v3.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-83daa38a-1721-4bc4-9c5b-0cc3f84ca36e.png",
+      "sourceIndex": 11,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "trimBox": [
+        105,
+        8,
+        910,
+        1493
+      ],
+      "width": 805,
+      "height": 1485,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 797669,
+        "edgeConnectedPixels": 778201,
+        "checkerCellPixels": 719072,
+        "checkerboard": {
+          "cellSize": 18,
+          "phaseX": 1,
+          "phaseY": 6,
+          "levels": [
+            254.0,
+            242.33
+          ],
+          "confidence": 5.833
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 778202,
+          "certainBackgroundPixels": 778201,
+          "probableBackgroundPixels": 1,
+          "foregroundPixels": 775195,
+          "backgroundPixels": 797669
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "21-interaccion-viagra-popper-v1",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\21-interaccion-viagra-popper-v1.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-a261b3b9-af9c-4567-8b27-61f533ca1f5e.png",
+      "sourceIndex": 12,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        154,
+        83,
+        1181,
+        1163
+      ],
+      "width": 1027,
+      "height": 1080,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 869746,
+        "edgeConnectedPixels": 839022,
+        "checkerCellPixels": 798984,
+        "checkerboard": {
+          "cellSize": 26,
+          "phaseX": 2,
+          "phaseY": 0,
+          "levels": [
+            253.67,
+            248.0
+          ],
+          "confidence": 2.833
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 850033,
+          "certainBackgroundPixels": 839022,
+          "probableBackgroundPixels": 11011,
+          "foregroundPixels": 702770,
+          "backgroundPixels": 869746
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "22-interaccion-viagra-popper-v2",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\22-interaccion-viagra-popper-v2.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-fd5e31d7-a31e-40f3-8e74-3caa67cd30ac.png",
+      "sourceIndex": 13,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "trimBox": [
+        88,
+        39,
+        1178,
+        1189
+      ],
+      "width": 1090,
+      "height": 1150,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 870483,
+        "edgeConnectedPixels": 843608,
+        "checkerCellPixels": 733962,
+        "checkerboard": {
+          "cellSize": 24,
+          "phaseX": 2,
+          "phaseY": 0,
+          "levels": [
+            254.0,
+            245.0
+          ],
+          "confidence": 6.75
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 843679,
+          "certainBackgroundPixels": 843608,
+          "probableBackgroundPixels": 71,
+          "foregroundPixels": 702033,
+          "backgroundPixels": 870483
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    },
+    {
+      "id": "23-interaccion-viagra-popper-v3",
+      "file": "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\23-interaccion-viagra-popper-v3.png",
+      "source": "C:\\Users\\issvk\\.codex\\generated_images\\01a04b19-4372-7e42-800b-8a9c6c454bea\\exec-62b6315f-9778-46fb-8e02-1ffdec839a49.png",
+      "sourceIndex": 14,
+      "tileIndex": 1,
+      "sourceBox": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "trimBox": [
+        49,
+        189,
+        1506,
+        840
+      ],
+      "width": 1457,
+      "height": 651,
+      "alpha": true,
+      "background": {
+        "mode": "checkerboard-grabcut",
+        "transparentPixels": 987236,
+        "edgeConnectedPixels": 980959,
+        "checkerCellPixels": 955381,
+        "checkerboard": {
+          "cellSize": 12,
+          "phaseX": 0,
+          "phaseY": 3,
+          "levels": [
+            244.0,
+            253.0
+          ],
+          "confidence": 2.455
+        },
+        "grabcut": {
+          "mode": "grabcut",
+          "iterations": 5,
+          "seedPixels": 980959,
+          "certainBackgroundPixels": 980959,
+          "probableBackgroundPixels": 0,
+          "foregroundPixels": 585628,
+          "backgroundPixels": 987236
+        },
+        "orphanResidues": {
+          "components": 0,
+          "pixels": 0,
+          "passes": 0
+        }
+      }
+    }
+  ],
+  "files": [
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\01-estigma-aislamiento.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\02-dosificacion-y-mezclas.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\03-apoyo-comunitario.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\04-riesgo-sobredosis-mezclas-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\05-riesgo-sobredosis-mezclas-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\06-riesgo-viagra-y-drogas-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\07-riesgo-viagra-y-drogas-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\08-riesgo-vih-its-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\09-riesgo-vih-its-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\10-salud-mental-y-recuperacion-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\11-salud-mental-y-recuperacion-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\12-interaccion-ghb-alcohol-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\13-interaccion-ghb-alcohol-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\14-interaccion-ghb-alcohol-v3.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\15-interaccion-cocaina-viagra-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\16-interaccion-cocaina-viagra-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\17-interaccion-cocaina-viagra-v3.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\18-interaccion-estimulantes-popper-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\19-interaccion-estimulantes-popper-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\20-interaccion-estimulantes-popper-v3.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\21-interaccion-viagra-popper-v1.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\22-interaccion-viagra-popper-v2.png",
+    "C:\\IA\\svg\\agent-toolkit\\projects\\chemsex\\generated\\iconos-transparentes-23\\23-interaccion-viagra-popper-v3.png"
+  ]
+}

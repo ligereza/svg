@@ -146,6 +146,14 @@
       "output": { "manifest": "json path", "files": "array" }
     },
     {
+      "id": "image.extract-checkerboard-matte",
+      "status": "implemented",
+      "description": "Extract transparent icon PNGs from baked checkerboard mattes by detecting their repeated grid, using it as background seeds, and refining the alpha with GrabCut. Bright or neutral pixels are never erased by a global color threshold.",
+      "entrypoint": "src/tools/image.mjs|adapters/image/remove_background.py",
+      "input": { "input": "image path", "rows": "number", "columns": "number", "lightThreshold": "number (deprecated compatibility)", "neutralThreshold": "number (deprecated compatibility)", "orphanArea": "number", "grabcutIterations": "number", "padding": "number" },
+      "output": { "manifest": "json path", "files": "array", "alpha": "true" }
+    },
+    {
       "id": "blender.run",
       "status": "implemented",
       "description": "Run an allowlisted Blender Python adapter in background mode.",
@@ -312,6 +320,70 @@
       "entrypoint": "src/tools/asset-search.mjs",
       "input": { "selection": "object|selectionPath", "selected": "array of provider/id records", "ancla": "string|null", "exactText": "string|null", "output": "json path" },
       "output": { "manifest": "json path", "assets": "array", "files": "array" }
+    },
+    {
+      "id": "asset.catalog-index",
+      "status": "implemented",
+      "description": "Index authored/generated local SVG, PNG and raster resources with searchable names and dimensions. Downloaded public icon libraries are intentionally excluded from the default catalog.",
+      "entrypoint": "src/tools/local-catalog.mjs",
+      "input": { "roots": "array|null", "maxFiles": "number|null", "refresh": "boolean|null" },
+      "output": { "cachePath": "path", "files": "number", "reused": "number", "byFormat": "object", "byKind": "object" }
+    },
+    {
+      "id": "asset.search-local",
+      "status": "implemented",
+      "description": "Search the local Context Shelf catalog first, returning directly insertable file paths and match reasons.",
+      "entrypoint": "src/tools/local-catalog.mjs",
+      "input": { "query": "string", "terms": "array", "preferredTerms": "array", "excludePatterns": "array", "limit": "number", "refresh": "boolean" },
+      "output": { "results": "array", "total": "number", "catalogGeneratedAt": "string|null" }
+    },
+    {
+      "id": "asset.catalog-groups",
+      "status": "implemented",
+      "description": "List local catalog groups by file size, dimensions, aspect, format, kind, detected theme and sampled color.",
+      "entrypoint": "src/tools/catalog-groups.mjs",
+      "input": { "refresh": "boolean" },
+      "output": { "total": "number", "groups": "object", "generatedAt": "string" }
+    },
+    {
+      "id": "asset.catalog-assets",
+      "status": "implemented",
+      "description": "Page through local assets filtered by a catalog group or free-text query for review and browsing.",
+      "entrypoint": "src/tools/catalog-groups.mjs",
+      "input": { "type": "string|null", "key": "string|null", "query": "string", "page": "number", "pageSize": "number" },
+      "output": { "results": "array", "total": "number", "page": "number", "pageSize": "number" }
+    },
+    {
+      "id": "asset.semantic-status",
+      "status": "implemented",
+      "description": "Report whether the pinned Apple MobileCLIP checkpoint, Python runtime, CUDA and local vector index are ready.",
+      "entrypoint": "src/tools/mobileclip.mjs",
+      "input": { "modelName": "string|null" },
+      "output": { "ready": "boolean", "modelFile": "object", "code": "object", "runtime": "object" }
+    },
+    {
+      "id": "asset.semantic-index",
+      "status": "implemented",
+      "description": "Generate or incrementally update a local float32 MobileCLIP embedding index for SVG and raster resources.",
+      "entrypoint": "src/tools/mobileclip.mjs",
+      "input": { "modelName": "string|null", "roots": "array|null", "refresh": "boolean|null", "batchSize": "number|null" },
+      "output": { "indexPath": "path", "vectorsFile": "path", "total": "number", "encoded": "number", "reused": "number", "failed": "array" }
+    },
+    {
+      "id": "asset.semantic-search",
+      "status": "implemented",
+      "description": "Search the local MobileCLIP index by visual meaning and return directly insertable asset paths.",
+      "entrypoint": "src/tools/mobileclip.mjs",
+      "input": { "query": "string", "terms": "array", "modelName": "string|null", "limit": "number|null" },
+      "output": { "ready": "boolean", "results": "array", "queryVariants": "array|null", "device": "string|null" }
+    },
+    {
+      "id": "context.analyze",
+      "status": "implemented",
+      "description": "Detect semantic topics, visual roles, occupied regions, blank areas, placement candidates and available palette data from an Adobe context snapshot.",
+      "entrypoint": "src/tools/context-analysis.mjs",
+      "input": { "context": "object" },
+      "output": { "content": "object", "layout": "object", "palette": "object", "suggestions": "array" }
     },
     {
       "id": "workflow.image-to-svg-preview",

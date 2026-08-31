@@ -7,6 +7,8 @@
   "scripts": {
     "tool": "node src/cli.mjs",
     "server": "node src/server.mjs",
+    "companion:check": "npm --prefix companion run check",
+    "companion:start": "npm --prefix companion start",
     "verify": "node src/verify.mjs",
     "test": "node --test"
   },

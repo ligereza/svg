@@ -5,6 +5,7 @@ import { adobeStatus, enqueueAdobe } from "./adapters/adobe.mjs"
 import { renderAfterEffects } from "./adapters/after-effects.mjs"
 import { runBlender } from "./adapters/blender.mjs"
 import { imageToSvgBlenderIllustrator, imageToSvgPreview } from "./orchestrator.mjs"
+import { removeIconBackground } from "./tools/image.mjs"
 import { createSvg, animateSvg, embedImage, particles, previewSvg, validateSvg } from "./tools/svg.mjs"
 import { vectorizeRaster } from "./tools/vectorize.mjs"
 import { documentToAnimatedPost } from "./document-workflow.mjs"
@@ -12,6 +13,10 @@ import { multiAppComposition } from "./multi-app-workflow.mjs"
 import { animateChart, barChart } from "./tools/chart.mjs"
 import { d3BarChart } from "./tools/d3.mjs"
 import { fetchAsset, searchAssets, selectAssets } from "./tools/asset-search.mjs"
+import { catalogStats, indexLocalCatalog, searchLocalAssets } from "./tools/local-catalog.mjs"
+import { catalogGroupSummary, indexLocalGroups, listCatalogAssets } from "./tools/catalog-groups.mjs"
+import { closeMobileClipWorker, indexMobileClip, installMobileClipModel, mobileClipStatus, searchMobileClip } from "./tools/mobileclip.mjs"
+import { analyzeContext } from "./tools/context-analysis.mjs"
 import { gdkbHealth, gdkbImport, gdkbImportJsonl, gdkbMergeEvent, gdkbNormalize, gdkbReplay, gdkbResolve } from "./tools/gdkb.mjs"
 import { integrationPlan, integrationScriptingMap, integrationSources, validateIntegration } from "./tools/integration.mjs"
 import { effectRetrySimulation, rxjsEventTimeline, stdlibStatistics, thiNgSvg, threeScenePreview } from "./tools/source-runtime.mjs"
@@ -56,6 +61,24 @@ async function main() {
     const spec = await readJson(resolveInput(flag("spec")))
     return json(await createSvg(spec, flag("output", "jobs/manual/output/created.svg"), { overwrite }))
   }
+  if (command === "image" && ["remove-background", "extract-checkerboard-matte"].includes(subcommand)) {
+    return json(await removeIconBackground({
+      input: flag("input"),
+      plan: flag("plan"),
+      output: flag("output", "jobs/manual/output/icon-background-removal.json"),
+      assetsDir: flag("assets-dir"),
+      rows: Number(flag("rows", 1)),
+      columns: Number(flag("columns", 1)),
+      overlap: Number(flag("overlap", 0)),
+      prefix: flag("prefix", "icon"),
+      lightThreshold: Number(flag("light-threshold", 185)),
+      neutralThreshold: Number(flag("neutral-threshold", 18)),
+      orphanArea: Number(flag("orphan-area", 64)),
+      grabcutIterations: Number(flag("grabcut-iterations", 5)),
+      padding: Number(flag("padding", 16)),
+      overwrite,
+    }))
+  }
   if (command === "svg" && subcommand === "embed-image") return json(await embedImage(flag("image"), flag("output", "jobs/manual/output/embedded.svg"), { width: flag("width"), height: flag("height"), overwrite }))
   if (command === "svg" && subcommand === "vectorize") return json(await vectorizeRaster(flag("image"), flag("output", "jobs/manual/output/vectorized.svg"), { maxSize: flag("max-size", 160), threshold: flag("threshold", 8), overwrite }))
   if (command === "svg" && subcommand === "animate") return json(await animateSvg(flag("input"), flag("output", "jobs/manual/output/animated.svg"), flag("animation", "float"), flag("duration-ms", 2400), { overwrite }))
@@ -81,6 +104,34 @@ async function main() {
     const selectionPath = flag("selection") ? resolveInput(flag("selection")) : null
     const selection = selectionPath ? null : { selected: selectedFlag() || [], ancla: flag("ancla"), role: flag("role"), exactText: flag("exact-text"), project: flag("project") }
     return json(await selectAssets({ selection, selectionPath, selected: selectedFlag(), project: flag("project"), ancla: flag("ancla"), role: flag("role"), exactText: flag("exact-text"), output: resolveOutput(flag("output", "jobs/manual/output/asset-manifest.json"), { overwrite }), overwrite: true }))
+  }
+  if (command === "asset" && subcommand === "index-local") {
+    const params = { roots: csvFlag("roots"), cachePath: flag("cache-path"), refresh: true, maxFiles: Number(flag("max-files", 30000)) }
+    const catalog = await indexLocalCatalog(params)
+    const groups = await indexLocalGroups({ roots: params.roots, cachePath: params.cachePath, refresh: false })
+    return json({ ...catalog, groups })
+  }
+  if (command === "asset" && subcommand === "search-local") {
+    try { return json(await searchLocalAssets({ query: flag("query", ""), terms: csvFlag("terms") || [], preferredTerms: csvFlag("preferred-terms") || [], limit: Number(flag("limit", 12)), refresh: hasFlag("refresh"), semantic: hasFlag("semantic"), semanticIndexPath: flag("index-path") })) } finally { closeMobileClipWorker() }
+  }
+  if (command === "asset" && subcommand === "catalog-stats") return json(await catalogStats())
+  if (command === "asset" && subcommand === "catalog-groups") return json(await catalogGroupSummary({ refresh: hasFlag("refresh") }))
+  if (command === "asset" && subcommand === "catalog-assets") {
+    try { return json(await listCatalogAssets({ type: flag("type"), key: flag("key"), query: flag("query", ""), page: flag("page", 1), pageSize: flag("page-size", 24), semantic: hasFlag("semantic"), semanticIndexPath: flag("index-path") })) } finally { closeMobileClipWorker() }
+  }
+  if (command === "semantic" && subcommand === "status") {
+    try { return json(await mobileClipStatus({ modelName: flag("model", "mobileclip_s2") })) } finally { closeMobileClipWorker() }
+  }
+  if (command === "semantic" && subcommand === "install") return json(await installMobileClipModel({ modelName: flag("model", "mobileclip_s2"), force: hasFlag("force") }))
+  if (command === "semantic" && subcommand === "index") {
+    try { return json(await indexMobileClip({ modelName: flag("model", "mobileclip_s2"), roots: csvFlag("roots"), cachePath: flag("cache-path"), indexPath: flag("index-path"), refresh: hasFlag("refresh"), batchSize: Number(flag("batch-size", 96)), preprocessWorkers: Number(flag("preprocess-workers", 1)), device: flag("device", "cuda"), renderer: flag("renderer", "auto"), preprocessBackend: flag("preprocess-backend", "cupy"), profilePath: flag("profile-path"), imageModelPath: flag("image-model-path") })) } finally { closeMobileClipWorker() }
+  }
+  if (command === "semantic" && subcommand === "search") {
+    try { return json(await searchMobileClip({ modelName: flag("model", "mobileclip_s2"), query: flag("query", ""), terms: csvFlag("terms") || [], indexPath: flag("index-path"), limit: Number(flag("limit", 12)) })) } finally { closeMobileClipWorker() }
+  }
+  if (command === "context" && subcommand === "analyze") {
+    const input = flag("input") ? await readJson(resolveInput(flag("input"))) : JSON.parse(flag("json", "{}"))
+    return json(analyzeContext(input.context || input))
   }
   if (command === "gdkb" && subcommand === "health") return json(await gdkbHealth())
   if (command === "gdkb" && subcommand === "normalize") return json(await gdkbNormalize(flag("value", "")))
